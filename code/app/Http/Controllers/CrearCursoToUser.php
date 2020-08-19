@@ -7,6 +7,8 @@ use App\User;
 use App\Level;
 use App\Course;
 use App\Degree;
+use Illuminate\Support\Facades\DB;
+use Pivot;
 
 class CrearCursoToUser extends Controller
 {
@@ -49,7 +51,23 @@ class CrearCursoToUser extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+
+
+        $cants = DB::table('course_degree_level_user')->where('user_id',3)->get();
+
+
+        foreach ($cants as $cant) {
+            echo $cant->user_id;
+        }
+
+        $grados = DB::table('degrees')
+            ->join('users', 'users.id', '=', 'degrees.user_id');
+        
+        return $grados;
+
+        exit;
+
         $user = User::find($id);
         $niveles_list = Level::all();
         $grados_list = Degree::all();
@@ -60,10 +78,15 @@ class CrearCursoToUser extends Controller
         $niveles = $user->levels;
         $grados = $user->degrees;
         $cursos = $user->courses;
-        $obj = $user->degress()->levels;
-        
 
-        return view('admin.users.addcourse', compact('user', 'niveles_list', 'grados_list', 'cursos_list', 'niveles', 'grados', 'cursos', 'obj'));
+        //$result = Pivot::with('courses')->with('levels')->with('degrees')->with('users')->get();
+        //$usuarios = DB::table('users')->where('name', 'Miss Anita Guevara')->first();
+        $usuario = DB::table('users')->find(3);
+
+
+
+
+        return view('admin.users.addcourse', compact('user', 'niveles_list', 'grados_list', 'cursos_list', 'niveles', 'grados', 'cursos', 'usuario'));
     }
 
     /**
