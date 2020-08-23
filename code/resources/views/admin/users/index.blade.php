@@ -184,11 +184,6 @@
 
 					<!-- Inicio CARDS -->
 					<!-- Grilla de Niveles / Para asginar Grados -->
-
-					
-						
-					
-
 					<div class="row row-cols-1 row-cols-md-3">
 						@foreach ($niveles as $nivel)
 						  <div class="col mb-4">

@@ -150,7 +150,8 @@ class UsersController extends Controller
      */
     public function show(User $user)
     { 
-        return view('admin.users.show', compact('user'));
+        $cursos = Course::all();
+        return view('admin.users.show', compact('user', 'cursos'));
     }
 
     /**

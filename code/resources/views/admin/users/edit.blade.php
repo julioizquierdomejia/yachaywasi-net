@@ -9,8 +9,6 @@
 		@method('PUT')
 		@csrf
 		
-		
-
 		<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2" value="{{$user->name}}">
 		
 

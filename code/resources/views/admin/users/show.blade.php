@@ -52,7 +52,6 @@
           <div class="col-md-8">
             <div class="card card-user">
 		      <div class="card-header">
-		      	
 		      	@if ( Auth::user()->roles->first()->name == 'admin')
 					<h5 class="card-title">Actualizar Datos del docente</h5>
 				@endif
@@ -111,10 +110,32 @@
 		              </div>
 		            </div>
 		          </div>
+
+
+		          <!-- Inicio CARDS -->
+					<!-- Grilla de Niveles / Para asginar Grados -->
+					<div class="row row-cols-1 row-cols-md-3">
+						  <div class="col mb-4">
+						    <div class="card">
+						      <div class="card-body">
+						        <h5 class="card-title">Nivel Inicial - 4 años</h5>
+						        @foreach ($cursos as $curso)
+							        <div class="custom-control custom-checkbox">
+									  <input type="checkbox" class="custom-control-input" id="customCheck1">
+									  <label class="custom-control-label" for="customCheck1">{{$curso->name}}</label>
+									</div>
+								@endforeach
+						      </div>
+						    </div>
+						  </div>
+					</div>
+
+					<!-- Fin CARDS -->
+
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">
 		              <button type="submit" class="btn btn-primary"><i class="far fa-edit mr-2" style='font-size: 14px;'></i> Actualizar Datos del docente</button>
-						<a class='btn btn-primary' href="{{ url('/createcourses/'.$user->id) }}"> <i class="far fa-edit mr-2" style='font-size: 14px;'></i> Agregar Cursos - {{$user->id}}</a>
+						<!--a class='btn btn-primary' href="{{ url('/createcourses/'.$user->id) }}"> <i class="far fa-edit mr-2" style='font-size: 14px;'></i> Agregar Cursos - {{$user->id}}</a-->
 		            </div>
 		          </div>
 		        </form>
