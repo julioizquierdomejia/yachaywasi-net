@@ -195,14 +195,12 @@
 						    <div class="card">
 						      <div class="card-body">
 						        <h5 class="card-title">Nivel - {{$nivel->name}}</h5>
+						        @foreach ($grados as $grado)
 						        <div class="custom-control custom-checkbox">
 								  <input type="checkbox" class="custom-control-input" id="customCheck1">
-								  <label class="custom-control-label" for="customCheck1">3 AÑOS</label>
+								  <label class="custom-control-label" for="customCheck1">{{$grado->name}}</label>
 								</div>
-								<div class="custom-control custom-checkbox">
-								  <input type="checkbox" class="custom-control-input" id="customCheck1">
-								  <label class="custom-control-label" for="customCheck1">4 AÑOS</label>
-								</div>
+								@endforeach
 						      </div>
 						    </div>
 						  </div>
