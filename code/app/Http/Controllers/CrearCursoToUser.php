@@ -56,16 +56,44 @@ class CrearCursoToUser extends Controller
 
         $cants = DB::table('course_degree_level_user')->where('user_id',3)->get();
 
-
-        foreach ($cants as $cant) {
-            echo $cant->user_id;
-        }
-
-        $grados = DB::table('degrees')
-            ->join('users', 'users.id', '=', 'degrees.user_id');
+        //$niveles = User::find($id)->levels;
+        $grados = User::find($id)->degrees;
+        //$cursos = User::find($id)->courses;
         
-        return $grados;
+        /*
+        foreach ($grados as $grado){
+            echo $grado;
+            echo "<br>";
+        }
+        */
 
+
+       User::where('id', $id)
+            ->whereHas('levels', function($q) {
+                $q->where('id', 1);
+            })
+            ->get();
+
+            return User;
+
+        /*
+        foreach ($niveles as $nivel) {
+            echo '<h1><b>'.$nivel->name.'</b></h1>';
+
+            foreach ($grados as $grado) {
+                echo '--->>>'. '<b>' .$grado->name . '</b>';
+                echo "<br>";
+
+                foreach ($cursos as $curso) {
+                    echo '------->>>'.$curso->name;
+                    echo "<br>";
+                }
+            }
+
+        }
+        */
+
+        
         exit;
 
         $user = User::find($id);
