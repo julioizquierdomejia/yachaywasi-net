@@ -14,7 +14,7 @@ class AddParentIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('parent_id')->nullable();
+            $table->bigInteger('parent_id')->unsigned()->nullable();
             $table->foreign('parent_id')->references('id')->on('users');
         });
     }
@@ -27,6 +27,7 @@ class AddParentIdToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['parent_id']);
             $table->dropColumn('parent_id');
         });
     }

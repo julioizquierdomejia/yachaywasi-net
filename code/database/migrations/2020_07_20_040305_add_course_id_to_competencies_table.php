@@ -14,7 +14,7 @@ class AddCourseIdToCompetenciesTable extends Migration
     public function up()
     {
         Schema::table('competencies', function (Blueprint $table) {
-            $table->integer('course_id')->nullable();
+            $table->bigInteger('course_id')->unsigned()->nullable();
             $table->foreign('course_id')->references('id')->on('courses');
         });
     }
@@ -27,6 +27,7 @@ class AddCourseIdToCompetenciesTable extends Migration
     public function down()
     {
         Schema::table('competencies', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
             $table->dropColumn('course_id');
         });
     }

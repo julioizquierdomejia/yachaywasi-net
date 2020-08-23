@@ -16,16 +16,16 @@ class CreateCourseDegreeLevelUserTable extends Migration
         Schema::create('course_degree_level_user', function (Blueprint $table) {
             $table->id();
             
-            $table->integer('course_id')->unsigned();
+            $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses');
 
-            $table->integer('level_id')->unsigned();
+            $table->bigInteger('level_id')->unsigned();
             $table->foreign('level_id')->references('id')->on('levels');
 
-            $table->integer('degree_id')->unsigned();
+            $table->bigInteger('degree_id')->unsigned();
             $table->foreign('degree_id')->references('id')->on('degrees');
 
-            $table->integer('user_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();

@@ -14,7 +14,7 @@ class AddLevelIdToDegreesTable extends Migration
     public function up()
     {
         Schema::table('degrees', function (Blueprint $table) {
-            $table->integer('level_id')->nullable();
+            $table->bigInteger('level_id')->unsigned()->nullable();
             $table->foreign('level_id')->references('id')->on('levels');
         });
     }
@@ -27,6 +27,7 @@ class AddLevelIdToDegreesTable extends Migration
     public function down()
     {
         Schema::table('degrees', function (Blueprint $table) {
+            $table->dropForeign(['level_id']);
             $table->dropDown('level_id');
         });
     }

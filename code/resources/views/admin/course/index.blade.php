@@ -59,7 +59,7 @@
 	            </button>
 	          </div>
 	          <div class="modal-body">
-	            ¿Está seguro de Eliminar el Curso de <b>{{ $curso->name}}</b>? <br>
+	            ¿Está seguro de Eliminar el Curso de <b></b>? <br>
 	            al elimiar este curso, también se eliminaran sus <b>Competencias</b>
 	          </div>
 	          <div class="modal-footer">
