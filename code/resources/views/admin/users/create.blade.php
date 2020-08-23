@@ -77,7 +77,6 @@
 		              </div>
 		            </div>
 		          </div>
-
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">
 		              <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
