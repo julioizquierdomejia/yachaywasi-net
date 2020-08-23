@@ -185,60 +185,28 @@
 					<!-- Inicio CARDS -->
 					<!-- Grilla de Niveles / Para asginar Grados -->
 
+					
+						
+					
+
 					<div class="row row-cols-1 row-cols-md-3">
-					  <div class="col mb-4">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">Nivel - INICIAL</h5>
-					        <div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">3 AÑOS</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">4 AÑOS</label>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col mb-4">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">Nivel - PRIMARIA</h5>
-					        <div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">1ER GRADO</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">DO GRADO</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">2ER GRADO</label>
-							</div>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col mb-4">
-					    <div class="card">
-					      <div class="card-body">
-					        <h5 class="card-title">Nivel - SECUNDARIA</h5>
-					        <div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">1ER GRADO</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">DO GRADO</label>
-							</div>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1">2ER GRADO</label>
-							</div>
-					      </div>
-					    </div>
-					  </div>
+						@foreach ($niveles as $nivel)
+						  <div class="col mb-4">
+						    <div class="card">
+						      <div class="card-body">
+						        <h5 class="card-title">Nivel - {{$nivel->name}}</h5>
+						        <div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" id="customCheck1">
+								  <label class="custom-control-label" for="customCheck1">3 AÑOS</label>
+								</div>
+								<div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" id="customCheck1">
+								  <label class="custom-control-label" for="customCheck1">4 AÑOS</label>
+								</div>
+						      </div>
+						    </div>
+						  </div>
+						 @endforeach
 					</div>
 
 					<!-- Fin CARDS -->
