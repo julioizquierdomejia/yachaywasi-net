@@ -81,7 +81,6 @@
 
     @if ( Auth::user()->roles->first()->name == 'admin')
     <div class="content">
-      
       <div class="row">
         <div class="col">
           <h3 class="text-primary">Lista de Docentes - {{ $docentes->count() }} - Colaboradores</h3>

@@ -20,8 +20,8 @@ class CourseController extends Controller
 
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
-        $cursos = $userAuth->courses;
-        
+        $cursos = Course::all();
+
         return view('admin.course.index', compact('cursos'));
     }
 
