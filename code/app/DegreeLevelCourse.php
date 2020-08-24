@@ -12,4 +12,8 @@ class DegreeLevelCourse extends Model
     public function course(){
         return $this->belongsTo(Course::class);
     }
+
+    public function degree_level(){
+        return $this->belongsTo(DegreeLevelUser::class);
+    }
 }

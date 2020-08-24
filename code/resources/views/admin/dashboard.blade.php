@@ -207,8 +207,9 @@
                       </div>
                       <div class="card-footer ">
                         <hr>
+
                         @foreach($degreeLevel->courses as $course)
-                          {{ dd($course) }}
+                          <p>{{ $course->course->name }} <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p>
                         @endforeach
                       </div>
                     </div>

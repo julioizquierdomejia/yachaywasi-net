@@ -20,6 +20,6 @@ class DegreeLevelUser extends Model
 
     // Obtener cursos asociadp
     public function courses(){
-        return $this->belongsTo(DegreeLevelCourse::class);
+        return $this->hasMany(DegreeLevelCourse::class,'degree_level_id');
     }
 }

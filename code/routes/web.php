@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user', 'UsersController');
 
 Route::resource('course', 'CourseController');
+Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
+Route::post('subject/store', 'SubjectController@store')->name('subject.store');
 
 Route::resource('competencie', 'competencieController');
 
