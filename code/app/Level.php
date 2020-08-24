@@ -34,7 +34,7 @@ class Level extends Model
 
     
     public function degrees(){
-        return $this->belongsToMany('App\Degree', 'course_degree_level_user');
+        return $this->hasMany('App\Degree');
     }
 
     public function courses(){

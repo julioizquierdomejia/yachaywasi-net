@@ -4,6 +4,8 @@ namespace App;
 use App\Degree;
 use App\User;
 use App\Level;
+use App\DegreeLevelCourse;
+use App\DegreeLevelUser;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,5 +50,20 @@ class Course extends Model
     }
 
 
+    public function verifyCourseInLevelDegree($userId,$levelId,$degreeId){
+        $courseId = $this->attributes['id'];
+        $checked = false;
+        $degreeLevelUser = DegreeLevelUser::where('user_id',$userId)->where('level_id',$levelId)->where('degree_id',$degreeId)->get();
+
+        foreach ($degreeLevelUser as $degreeLevel) {
+            $degreeLevelCourse = DegreeLevelCourse::where('degree_level_id',$degreeLevel->id)->where('course_id',$courseId)->first();
+
+            if($degreeLevelCourse){
+                $checked = true;
+            }
+        }
+
+        return $checked;
+    }
     
 }

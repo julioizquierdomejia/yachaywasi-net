@@ -115,19 +115,21 @@
 		          <!-- Inicio CARDS -->
 					<!-- Grilla de Niveles / Para asginar Grados -->
 					<div class="row row-cols-1 row-cols-md-3">
-						  <div class="col mb-4">
-						    <div class="card">
-						      <div class="card-body">
-						        <h5 class="card-title">Nivel Inicial - 4 años</h5>
-						        @foreach ($cursos as $curso)
-							        <div class="custom-control custom-checkbox">
-									  <input type="checkbox" class="custom-control-input" id="customCheck1">
-									  <label class="custom-control-label" for="customCheck1">{{$curso->name}}</label>
+						@foreach($levelDegrees as $levelDegree)
+							<div class="col mb-4">
+								<div class="card">
+									<div class="card-body">
+									<h5 class="card-title">Nivel {{ $levelDegree->level->name }} - {{ $levelDegree->degree->name }}</h5>
+									@foreach ($cursos as $curso)
+									    <div class="custom-control custom-checkbox">
+										  	<input type="checkbox" class="custom-control-input" name="courses[]" value="{{ $levelDegree->id }}_{{ $curso->id }}" id="{{ $levelDegree->id }}_course_{{ $curso->id }}" {{ $curso->verifyCourseInLevelDegree($user->id,$levelDegree->level_id,$levelDegree->degree_id) ? 'checked' :'' }}>
+										  	<label class="custom-control-label" for="{{ $levelDegree->id }}_course_{{ $curso->id }}">{{$curso->name}}</label>
+										</div>
+									@endforeach
 									</div>
-								@endforeach
-						      </div>
-						    </div>
-						  </div>
+								</div>
+							</div>
+						@endforeach
 					</div>
 
 					<!-- Fin CARDS -->

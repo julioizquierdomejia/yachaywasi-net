@@ -7,6 +7,8 @@ use App\Role;
 use App\Course;
 use App\Level;
 use App\Degree;
+use App\DegreeLevelUser;
+use App\DegreeLevelCourse;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest; //agregamos nuestro Request para poder usar
 
@@ -34,7 +36,6 @@ class UsersController extends Controller
         $docentes = $userAuth->docentes;
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
-
         $todos = User::all();
 
         //listamos todos los grados de nivel Inicial
@@ -100,7 +101,6 @@ class UsersController extends Controller
         // a este StoreUserRequest
         //y lo mehor creado como php artisan make:request StoreUserRequest
 
-        
         //preguntamos si el requesta contienen algun archivo
         if ($request->hasFile('avatar')) {
 
@@ -130,6 +130,18 @@ class UsersController extends Controller
         $users->status = 0; 
         
         $users->save();
+
+        //Obtener variable que asocia los grados con los niveles seleccionados
+        $levelGrades = $request->grades;
+
+        foreach ($levelGrades as $levelGrade) {
+            $levelGradeExplode =  explode('_', $levelGrade) ;
+            DegreeLevelUser::create([
+              'user_id'=>$users->id,
+              'level_id'=>$levelGradeExplode[0],
+              'degree_id'=>$levelGradeExplode[1]
+            ]);
+        }
         
         //buscamos el ID del role al que queremo relacionar por medio del nombre del rol
         $role_current = Role::where('name', $request->input('role_id'))->first();
@@ -151,7 +163,9 @@ class UsersController extends Controller
     public function show(User $user)
     { 
         $cursos = Course::all();
-        return view('admin.users.show', compact('user', 'cursos'));
+        $levelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
+
+        return view('admin.users.show', compact('user', 'cursos','levelDegrees'));
     }
 
     /**
@@ -180,6 +194,7 @@ class UsersController extends Controller
         //lo primero que debemos hacer es
         //rellenar los campos con todo lo que viene del formulario
         //menos el avatar
+
         $user->fill($request->except('avatar'));
 
         if ($request->hasFile('avatar')) {
@@ -209,6 +224,25 @@ class UsersController extends Controller
         //luego grabamos todo lo rellenado
         $user->save();
 
+        // Asociar Usuario -Nivel - Grado con cursos
+        $courses = $request->courses;
+
+        // Eliminar cusros asociados a nivel y grado del usuario
+        $userLevelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
+
+        foreach ($userLevelDegrees as $userLevelDegree) {
+          DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->delete();
+        }
+
+        if($courses){
+          foreach ($courses as $course) {
+            $degreeLevelCourseExplode = explode('_', $course);
+            DegreeLevelCourse::create([
+              'degree_level_id' =>$degreeLevelCourseExplode[0],
+              'course_id'=>$degreeLevelCourseExplode[1]
+            ]);
+          }
+        }
 
         //y retornamos una vista
         $users = User::orderBy('id', 'asc')->get();

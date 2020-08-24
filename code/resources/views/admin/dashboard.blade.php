@@ -187,6 +187,34 @@
 
     @if ( Auth::user()->roles->first()->name == 'editor')
     <div class="content">
+            <div class="row">
+                @foreach($degreeLevelUser as $degreeLevel)
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                      <div class="card-body ">
+                        <div class="row">
+                          <div class="col-4 col-md-3">
+                            <div class="icon-big text-center icon-warning">
+                              <i class="fas fa-book"></i>
+                            </div>
+                          </div>
+                          <div class="col-8 col-md-9">
+                            <div class="numbers">
+                              <p class="card-category">Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer ">
+                        <hr>
+                        @foreach($degreeLevel->courses as $course)
+                          {{ dd($course) }}
+                        @endforeach
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+            </div>
 
             <div class="row">
               <div class="col">
