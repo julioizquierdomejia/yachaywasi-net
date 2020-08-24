@@ -20,12 +20,11 @@ class CreateSubjectsTable extends Migration
             $table->integer('bimester');
             $table->integer('unit');
             $table->string('name');
-            $table->text('description');
             $table->integer('position')->default(0);
-            $table->string('file')->nullable();
             $table->string('link_youtube')->nullable();
-            $table->string('link_first_drive')->nullable();
-            $table->string('link_second_drive')->nullable();
+            $table->string('file_drive')->nullable();
+            $table->string('file_drive_second')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

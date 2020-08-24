@@ -18,8 +18,7 @@ class SubjectRequest extends FormRequest
             'bimester' => 'required',
             'unit' => 'required',
             'name' => 'required',
-            'description' => 'required|min: 8',
-            'positiion' => 'required'
+            'position' => 'required'
         ];
     }
 }
