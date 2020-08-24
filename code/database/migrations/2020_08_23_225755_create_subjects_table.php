@@ -22,9 +22,9 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('position')->default(0);
-            $table->integer('link_youtube')->nullable();
-            $table->integer('link_download')->nullable();
-            $table->integer('link-indrive')->nullable();
+            $table->string('link_youtube')->nullable();
+            $table->string('link_download')->nullable();
+            $table->string('link-indrive')->nullable();
             $table->timestamps();
         });
     }
