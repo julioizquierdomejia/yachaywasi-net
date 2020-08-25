@@ -36,13 +36,13 @@
                 <div class="button-container">
                   <div class="row">
                     <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                      un text
+                      <h5>19<br><small>Alumnos</small></h5>
                     </div>
                     <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                      un texe
+                      <h5>{{$levelDegrees->count()}}<br><small>Grados</small></h5>
                     </div>
                     <div class="col-lg-3 mr-auto">
-                      <h5>24,6$<br><small>Spent</small></h5>
+                      <h5>{{$cursos->count()}}<br><small>Cursos</small></h5>
                     </div>
                   </div>
                 </div>

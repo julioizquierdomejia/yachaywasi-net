@@ -13,7 +13,7 @@ class DegreeLevelUser extends Model
         return $this->belongsTo(Level::class);
     }
 
-    // Obtener nivel asociadp
+    // Obtener grado asociadp
     public function degree(){
         return $this->belongsTo(Degree::class);
     }
