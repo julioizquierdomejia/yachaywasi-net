@@ -6,7 +6,7 @@
           </div> -->
           <!-- <p>CT</p> -->
         </a>
-        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="https://www.beyondstudios.pe" class="simple-text logo-normal">
           YachaywasiNet
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -37,6 +37,12 @@
                     <p>Docentes</p>
                   </a>
                 </li>
+                <li class="{{ request()->routeIs('user.index') ? 'active' : '' }}">
+                  <a href="{{ route('user.index') }}">
+                    <i class="fas fa-users-cog"></i>
+                    <p>Estudiantes</p>
+                  </a>
+                </li>
               </ul>
             @endif
 
@@ -50,7 +56,7 @@
                 </li>
                 <li class="{{ request()->routeIs('course.index') ? 'active' : '' }}">
                   <a href="{{ route('course.index') }}">
-                    <i class="fas fa-users-cog"></i>
+                    <i class="fas fa-book-reader"></i>
                     <p>Áreas</p>
                   </a>
                 </li>
@@ -58,6 +64,23 @@
                   <a href="{{ route('user.index') }}">
                     <i class="fas fa-users-cog"></i>
                     <p>Docentes</p>
+                  </a>
+                </li>
+                <li class="{{ request()->routeIs('user.index') ?  : '' }}">
+                  <a href="{{ route('user.index') }}">
+                    <i class="fas fa-user-graduate"></i>
+                    <p>Estudiantes</p>
+                  </a>
+                </li>
+              </ul>
+            @endif
+
+            @if ( Auth::user()->roles->first()->name == 'editor')
+              <ul class="nav">
+                <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                  <a href="{{ route('dashboard') }}">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Dashboard</p>
                   </a>
                 </li>
               </ul>

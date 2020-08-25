@@ -143,10 +143,10 @@ class UsersController extends Controller
             ]);
         }
         
-        //buscamos el ID del role al que queremo relacionar por medio del nombre del rol
+        //buscamos el ID del role al que queremos relacionar por medio del nombre del rol
         $role_current = Role::where('name', $request->input('role_id'))->first();
         
-        //atachamos a user el Role pr medio del ID
+        //atachamos a user el Role por medio del ID
         $users->roles()->attach($role_current);
 
         //retornamos a la vista User
@@ -162,6 +162,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     { 
+
         $cursos = Course::all();
         $levelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
 

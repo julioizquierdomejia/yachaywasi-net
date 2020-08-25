@@ -156,6 +156,7 @@
 		            <div class="col-md-6 pl-1">
 		              <div class="form-group">
 		                <!--<label>Asociado al rol de  {{ Auth::user()->name }}</label>-->
+		                <!-- condicional para crear usuario -->
 		                @if ( Auth::user()->roles->first()->name == 'admin')
 							<input type="hidden" name="role_id" class="form-control mb-2" value="editor">
 						@endif
