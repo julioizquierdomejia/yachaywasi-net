@@ -33,7 +33,8 @@ class UsersController extends Controller
 
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
-        $docentes = $userAuth->docentes;
+        //$docentes = $userAuth->docentes;
+        $docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
         $roles = $userAuth->roles;
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
