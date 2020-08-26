@@ -33,7 +33,9 @@ class UsersController extends Controller
 
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
-        $docentes = $userAuth->docentes;
+        //$docentes = $userAuth->docentes;
+        $docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
+        $alumnos = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
         $roles = $userAuth->roles;
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
@@ -60,7 +62,7 @@ class UsersController extends Controller
             break;
           case "admin":
             //return $userAuth;
-            return view('admin.users.index',compact('docentes', 'roles', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
+            return view('admin.users.index',compact('docentes', 'alumnos', 'roles', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
             break;
           case "editor":
             return view('admin.dashboard',compact('usreCurrent'));
@@ -159,7 +161,12 @@ class UsersController extends Controller
 
         //retornamos a la vista User segun la creacion de docente  estudiante
 
-        return redirect('/user');
+        if ($request->input('role_id') == 'lector') {
+            return redirect('/student');
+        }else{
+          return redirect('/user');
+        }
+        
 
 
     }

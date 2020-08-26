@@ -11,11 +11,13 @@ class dasboardController extends Controller
 {
     public function index(Request $request)
     {	
+
+
+        $todos = User::all();
     	//enviamos lso docentes del colegio logeado
-    	
     	$id = \Auth::user()->id;
     	$userAuth = User::findOrFail((int) $id);
-    	$docentes = $userAuth->docentes;
+    	$docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
         $cursos = Course::all();//$userAuth->courses;
         $degreeLevelUser = DegreeLevelUser::where('user_id',$id)->get();
 

@@ -33,7 +33,8 @@ class StudentController extends Controller
 
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
-        $docentes = $userAuth->docentes;
+        $docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
+        $alumnos = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
         $todos = User::all();
@@ -45,7 +46,7 @@ class StudentController extends Controller
         $grados_primaria = Degree::where('level_id','=', 2)->get();
 
 
-        return view('admin.student.index',compact('docentes', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
+        return view('admin.student.index',compact('docentes', 'alumnos', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
     }
 
     /**
@@ -75,9 +76,14 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+
+        $alumnos = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
+        $alumno = $user;
+        $levelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
+
+        return view('admin.student.show', compact('alumno', 'cursos','levelDegrees'));
     }
 
     /**

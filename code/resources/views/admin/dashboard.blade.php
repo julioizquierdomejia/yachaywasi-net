@@ -59,7 +59,7 @@
                     </div>
                     <div class="col-9 col-md-9">
                       <div class="">
-                        <h5 class="text-warning"><a href=" {{ route('user.show', $docente->id) }} "><b>Colegio</b> <br> {{$docente->name}}</a></h5>
+                        <h5 class="text-warning"><a href=" {{ route('user.show', $docente->user_id) }} "><b>Colegio</b> <br> {{$docente->name}}</a></h5>
                       </div>
                     </div>
                   </div>
@@ -80,7 +80,6 @@
     @endif
 
     @if ( Auth::user()->roles->first()->name == 'admin')
-
     <!-- Aqui los card de informacion general -->
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
@@ -219,7 +218,7 @@
                   </div>
                   <div class="col-9 col-md-9">
                     <div class="">
-                      <h5 class="text-danger"><a href=" {{ route('user.show', $docente->id) }} ">{{$docente->name}}</a></h5>
+                      <h5 class="text-danger"><a href=" {{ route('user.show', $docente->user_id) }} ">{{$docente->name}}</a></h5>
                     </div>
                   </div>
                 </div>
@@ -311,7 +310,6 @@
                             <h6 class="card-title"><a href="{{ route('subject',$course->id) }}">{{ $course->course->name }}</a></h6>
                           </div>
                         </div>
-                        
                       </div>
                     @endforeach
                   </div>
@@ -356,6 +354,19 @@
     @endif 
 
     <!-- FIN DE la vista Dashboard para DOCENTE --> 
+
+
+    <!-- Aqui empieza la vista Dashboard para ALUMNO -->
+    @if ( Auth::user()->roles->first()->name == 'lector')
+      <div class="row">
+        <div class="col">
+          @foreach($cursos as $curso)
+            <h5>{{$curso->name}}</h5>
+          @endforeach
+        </div>
+      </div>
+    @endif
+    <!-- FIN DE la vista Dashboard para ALUMNO --> 
 
 @endif
 

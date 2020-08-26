@@ -74,15 +74,15 @@
 	                        </div>
 	                      </div>
 	                      <div class="col-md-7 col-7">
-	                        {{ $docente->name }} - {{ $docente->name }}
+	                        Miss - {{ $docente->name }}
 	                        <br />
 	                        <span class="text-muted"><small>{{ $docente->classroom }}</small></span>
 	                      </div>
 	                      <div class="col-md-3 col-3 text-right">
-	                      	<a href="{{ route('user.show', $docente->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
+	                      	<a href="{{ route('user.show', $docente->user_id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
 	                      		<i class="far fa-edit"></i>
 	                      	</a>
-	                        <form class="form-group d-inline" method="POST" action="/user/{{$docente->id}}" id="form-delete-user">
+	                        <form class="form-group d-inline" method="POST" action="/user/{{$docente->user_id}}" id="form-delete-user">
 						      	@csrf
 								@method('DELETE')
 								<button type="button" class="btn btn-sm btn-outline-danger btn-round btn-icon" data-toggle="modal" data-target="#exampleModalCenter">

@@ -8,13 +8,7 @@
 		<div class="col-md-8">
 			<div class="card card-user">
 		      <div class="card-header">
-		      	@if ( Auth::user()->roles->first()->name == 'admin')
-					<h5 class="card-title">Registrar Docente</h5>
-				@endif
-
-				@if ( Auth::user()->roles->first()->name == 'editor')
-					<h5 class="card-title">Registrar Alumno</h5>
-				@endif
+		      	<h5 class="card-title">Registrar Alumno</h5>
 		      </div>
 
 		      <div class="card-body">
@@ -127,33 +121,43 @@
               </div>
               <div class="card-body">
                 <ul class="list-unstyled team-members">
+                	@foreach ($alumnos as $alumno)
 	                  <li>
+	                  	<div>
+	                  	</div>
 	                    <div class="row">
 	                      <div class="col-md-2 col-2">
 	                        <div class="avatar">
-	                        	<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
+	                        	@if($alumno->avatar == null)
+	                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
+	                        	@else
+	                        		<img src="images/avatar/{{ $alumno->avatar }}" class="img-circle img-no-padding img-responsive">
+	                        	@endif
+
+	                          
 	                        </div>
 	                      </div>
 	                      <div class="col-md-7 col-7">
-	                        Maju Izquierdo Jimenez
+	                        {{ $alumno->name }}
 	                        <br />
-	                        <span class="text-muted"><small>xxxxxxxx</small></span>
+	                        <span class="text-muted"><small>{{ $alumno->classroom }}</small></span>
 	                      </div>
 	                      <div class="col-md-3 col-3 text-right">
-	                      	<a href="xxx" class="btn btn-sm btn-outline-info btn-round btn-icon">
+	                      	<a href="{{ route('student.show', $alumno->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
 	                      		<i class="far fa-edit"></i>
 	                      	</a>
-	                        <form class="form-group d-inline" method="POST" action="/user/xxx" id="form-delete-user">
+	                        <!--form class="form-group d-inline" method="POST" action="/user/{{$alumno->id}}" id="form-delete-user">
 						      	@csrf
 								@method('DELETE')
 								<button type="button" class="btn btn-sm btn-outline-danger btn-round btn-icon" data-toggle="modal" data-target="#exampleModalCenter">
 									<i class="far fa-trash-alt"></i>
 								</button>
-						    </form>
+						    </form-->
 	                        
 	                      </div>
 	                    </div>
 	                  </li>
+                  @endforeach
                 </ul>
               </div>
             </div>
