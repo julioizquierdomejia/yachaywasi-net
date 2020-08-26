@@ -21,16 +21,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('user', 'UsersController');
+Route::middleware(['auth'])->group(function () {
+	Route::resource('user', 'UsersController');
 
-Route::resource('student', 'StudentController');
+	Route::resource('student', 'StudentController');
 
-Route::resource('course', 'CourseController');
-Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
-Route::post('subject/store', 'SubjectController@store')->name('subject.store');
+	Route::resource('course', 'CourseController');
+	Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
+	Route::post('subject/store', 'SubjectController@store')->name('subject.store');
 
-Route::resource('competencie', 'competencieController');
+	Route::resource('competencie', 'competencieController');
 
-Route::get('dashboard', 'dasboardController@index')->name('dashboard');
+	Route::get('dashboard', 'dasboardController@index')->name('dashboard');
 
-Route::resource('createcourses', 'CrearCursoToUser');
+	Route::resource('createcourses', 'CrearCursoToUser');
+});
