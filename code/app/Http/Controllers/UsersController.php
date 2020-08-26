@@ -34,6 +34,7 @@ class UsersController extends Controller
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
         $docentes = $userAuth->docentes;
+        $roles = $userAuth->roles;
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
         $todos = User::all();
@@ -45,6 +46,11 @@ class UsersController extends Controller
         $grados_primaria = Degree::where('level_id','=', 2)->get();
  
 
+        //var_dump($userAuth);
+        //dd($userAuth->docentes::where('user_id','=', 3)->toArray());
+        //dd($users = User::where('role_id', 4));
+        //$users = User::get();
+        //dd($users->roles());
         
         switch ($roleCurrent) {
           case "superadmin":
@@ -54,7 +60,7 @@ class UsersController extends Controller
             break;
           case "admin":
             //return $userAuth;
-            return view('admin.users.index',compact('docentes', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
+            return view('admin.users.index',compact('docentes', 'roles', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
             break;
           case "editor":
             return view('admin.dashboard',compact('usreCurrent'));

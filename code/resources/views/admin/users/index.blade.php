@@ -59,6 +59,8 @@
                 <ul class="list-unstyled team-members">
                 	@foreach ($docentes as $docente)
 	                  <li>
+	                  	<div>
+	                  	</div>
 	                    <div class="row">
 	                      <div class="col-md-2 col-2">
 	                        <div class="avatar">
@@ -72,7 +74,7 @@
 	                        </div>
 	                      </div>
 	                      <div class="col-md-7 col-7">
-	                        {{ $docente->name }}
+	                        {{ $docente->name }} - {{ $docente->name }}
 	                        <br />
 	                        <span class="text-muted"><small>{{ $docente->classroom }}</small></span>
 	                      </div>
