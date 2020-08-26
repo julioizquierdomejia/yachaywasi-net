@@ -87,6 +87,7 @@ class UsersController extends Controller
     //public function store(Request $request)
     public function store(StoreUserRequest $request) //StoreUserRequest
     {   
+
         //para obtener todos los datos que esta enviando el usuario por el fomrulario
         //return $request->all();
 
@@ -129,7 +130,7 @@ class UsersController extends Controller
         $users->parent_id = $request->input('parent_id');
         $users->status = 0; 
         
-        $users->save();
+        //$users->save();
 
         //Obtener variable que asocia los grados con los niveles seleccionados
         $levelGrades = $request->grades;
@@ -149,8 +150,10 @@ class UsersController extends Controller
         //atachamos a user el Role por medio del ID
         $users->roles()->attach($role_current);
 
-        //retornamos a la vista User
+        //retornamos a la vista User segun la creacion de docente  estudiante
+
         return redirect('/user');
+
 
     }
 

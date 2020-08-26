@@ -66,8 +66,8 @@
                     <p>Docentes</p>
                   </a>
                 </li>
-                <li class="{{ request()->routeIs('user.index') ?  : '' }}">
-                  <a href="{{ route('user.index') }}">
+                <li class="{{ request()->routeIs('student.index') ? 'active'  : '' }}">
+                  <a href="{{ route('student.index') }}">
                     <i class="fas fa-user-graduate"></i>
                     <p>Estudiantes</p>
                   </a>
