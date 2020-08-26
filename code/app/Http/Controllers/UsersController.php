@@ -129,19 +129,20 @@ class UsersController extends Controller
         $users->avatar = $name;
         $users->parent_id = $request->input('parent_id');
         $users->status = 0; 
-        
-        //$users->save();
+        $users->save();
 
         //Obtener variable que asocia los grados con los niveles seleccionados
         $levelGrades = $request->grades;
 
-        foreach ($levelGrades as $levelGrade) {
-            $levelGradeExplode =  explode('_', $levelGrade) ;
-            DegreeLevelUser::create([
-              'user_id'=>$users->id,
-              'level_id'=>$levelGradeExplode[0],
-              'degree_id'=>$levelGradeExplode[1]
-            ]);
+        if($levelGrades){
+          foreach ($levelGrades as $levelGrade) {
+              $levelGradeExplode =  explode('_', $levelGrade) ;
+              DegreeLevelUser::create([
+                'user_id'=>$users->id,
+                'level_id'=>$levelGradeExplode[0],
+                'degree_id'=>$levelGradeExplode[1]
+              ]);
+          }
         }
         
         //buscamos el ID del role al que queremos relacionar por medio del nombre del rol
