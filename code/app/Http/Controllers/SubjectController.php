@@ -13,6 +13,7 @@ class SubjectController extends Controller
     {
         $course = DegreeLevelCourse::find($id);
         $subjects = Subject::where('level_course_id',$id)->get();
+        // Comentario de prueba
 
         return view('admin.subject.index')->with(compact('course','subjects'));
     }
