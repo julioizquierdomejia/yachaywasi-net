@@ -95,7 +95,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $curso = $course;
+        return view('admin.course.edit', compact('curso'));
     }
 
     /**

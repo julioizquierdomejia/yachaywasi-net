@@ -17,7 +17,7 @@
 		            <div class="col-md-8 pr-1">
 		              <div class="form-group">
 		                <label>nombre de Área</label>
-							<input type="text" name="name" placeholder="Nombre del Curso" class="form-control mb-2">
+							<input type="text" name="name" placeholder="Nombre del Curso" class="form-control mb-2" value="{{$curso->name}}">
 		              </div>
 		            </div>
 		            <div class="col-md-4 pl-1">

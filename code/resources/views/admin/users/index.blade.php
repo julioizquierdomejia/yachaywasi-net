@@ -173,12 +173,10 @@
 		          <div class="row">
 		            <div class="col-md-12">
 		              <div class="form-group">
-		                
 		              	<div class="custom-file custom-file-browser">
 						  <input name='avatar' type="file" class="custom-file-input form-control" id="customFileLang" lang="es">
 						  <label class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
 						</div>
-
 		              </div>
 		            </div>
 		          </div>

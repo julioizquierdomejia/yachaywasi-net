@@ -5,8 +5,6 @@
 <div class="content">
 	<div class="row">
 		
-
-
 		<div class="col-md-8">
 			<div class="card card-user">
 		      <div class="card-header">
