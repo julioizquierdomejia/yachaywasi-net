@@ -33,8 +33,8 @@ class StudentController extends Controller
 
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
-        $docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
-        $alumnos = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
+        $docentes = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
+        $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
         $todos = User::all();
@@ -76,14 +76,37 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($user_id)
     {
+        $alumno = User::findOrFail((int) $user_id);
+        /*$degree_level_users = User::where('users.id', $user_id)
+                ->join('degree_level_users', 'degree_level_users.user_id','users.id')
+                ->join('degrees', 'degrees.id','degree_level_users.degree_id')
+                ->join('levels', 'levels.id','degree_level_users.level_id')
+                ->select('users.*', 'degrees.name as degree_name', 'levels.name as level_name')
+                ->get();
+        if ($degree_level_users->count()) {
+            $first = $degree_level_users->first();
+            $grade = $first->level_name . ' / ' .$first->degree_name; 
+        } else {
+            $grade = "";
+        }*/
+        $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
+        $levelDegrees = DegreeLevelUser::where('user_id',$user_id)->get();
+        if ($levelDegrees->first()->count()) {
+            $level = $levelDegrees->first()->level->name;
+            $degree = $levelDegrees->first()->degree->name;
+            $courses = $levelDegrees->first()->courses;
+        } else {
+            $level = '';
+            $degree = '';
+            $courses = [];
+        }
+        /*$cursos = User::where('users.id', $user_id)
+                    ->join('courses', 'courses.user_id','users.id')
+                    ->get();*/
 
-        $alumnos = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
-        $alumno = $user;
-        $levelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
-
-        return view('admin.student.show', compact('alumno', 'cursos','levelDegrees'));
+        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level'));
     }
 
     /**

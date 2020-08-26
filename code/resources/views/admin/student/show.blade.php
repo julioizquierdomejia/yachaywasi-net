@@ -17,9 +17,8 @@
 		          <div class="row">
 		            <div class="col-md-12 pr-1">
 		              <div class="form-group">
-		              	{{$alumno}}
 		                <label>Nombre del alumno</label>
-						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2" value="hols">
+						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2" value="{{$alumno->name}}">
 		              </div>
 
 		            </div>
@@ -34,13 +33,13 @@
 		            <div class="col-md-4">
 		              <div class="form-group">
 		                <label>Aula</label>
-		                <input type="text" name="classroom" placeholder="Aula de su responabilidad" class="form-control mb-2">
+		                <input type="text" name="classroom" placeholder="Aula de su responabilidad" class="form-control mb-2" value="{{$alumno->classroom}}">
 		              </div>
 		            </div>
 		            <div class="col-md-4 pl-1">
 		              <div class="form-group">
 		                <label>slug</label>
-		                <input type="text" name="slug" placeholder="Aula de su responabilidad" class="form-control mb-2">
+		                <input type="text" name="slug" placeholder="Aula de su responabilidad" class="form-control mb-2" value="{{$alumno->slug}}">
 		              </div>
 		            </div>
 		          </div>
@@ -79,6 +78,15 @@
 		            </div>
 		          </div>
 		        </form>
+		        @if($courses->count())
+                <h5>Cursos</h5>
+                <ul>
+                  @foreach($courses as $curso)
+                  <li>{{$curso->name}}</li>
+                  @endforeach
+              	</ul>
+              	@endif
+              	Grado: {{$degree}} de {{$level}}
 		      </div>
 		    </div>
 		</div>
