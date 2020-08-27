@@ -358,14 +358,62 @@
 
     <!-- Aqui empieza la vista Dashboard para ALUMNO -->
     @if ( Auth::user()->roles->first()->name == 'lector')
-      <div class="row">
-        <div class="col">
-          @foreach($cursos as $curso)
-            <h5>{{$curso->name}}</h5>
-          @endforeach
-        </div>
-      </div>
-    @endif
+      
+      <div class="content">
+        @foreach($degreeLevelUser as $degreeLevel)
+            <div class="row">
+              <div class="col-12">
+                <h3>Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</h3>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                    @foreach($degreeLevel->courses as $course)
+                      <div class="col mb-4">
+                        <div class="card" style='height: 400px;'>
+                          <img class="card-img-top" src="images/course-default.png" alt="Card image cap">
+                          <div class="card-body">
+                            <h6 class="card-title"><a href="{{ route('subject',$course->id) }}">{{ $course->course->name }}</a></h6>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                  </div>
+
+              </div>
+            </div>
+         @endforeach
+          
+            <div class="row">
+                @foreach($degreeLevelUser as $degreeLevel)
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                      <div class="card-body ">
+                        <div class="row">
+                          <div class="col-4 col-md-3">
+                            <div class="icon-big text-center icon-warning">
+                              <i class="fas fa-book"></i>
+                            </div>
+                          </div>
+                          <div class="col-8 col-md-9">
+                            <div class="numbers">
+                              <p class="card-category">Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer ">
+                        <hr>
+
+                        @foreach($degreeLevel->courses as $course)
+                          <p>{{ $course->course->name }} <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+            </div>
+          </div>
+    @endif 
+
     <!-- FIN DE la vista Dashboard para ALUMNO --> 
 
 @endif

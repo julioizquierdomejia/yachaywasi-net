@@ -92,7 +92,9 @@ class StudentController extends Controller
             $grade = "";
         }*/
         $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
+        
         $levelDegrees = DegreeLevelUser::where('user_id',$user_id)->get();
+
         if ($levelDegrees->first()->count()) {
             $level = $levelDegrees->first()->level->name;
             $degree = $levelDegrees->first()->degree->name;

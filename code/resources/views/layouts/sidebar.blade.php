@@ -85,6 +85,20 @@
                 </li>
               </ul>
             @endif
+
+            @if ( Auth::user()->roles->first()->name == 'lector')
+              <ul class="nav">
+                <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                  <a href="{{ route('dashboard') }}">
+                    <i class="fas fa-chart-line"></i>
+                    <p>Dashboard</p>
+                  </a>
+                </li>
+
+              </ul>
+            @endif
+
+
         @endif
       </div>
     </div>
