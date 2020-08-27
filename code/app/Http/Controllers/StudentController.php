@@ -96,7 +96,13 @@ class StudentController extends Controller
         if ($levelDegrees->first()->count()) {
             $level = $levelDegrees->first()->level->name;
             $degree = $levelDegrees->first()->degree->name;
-            $courses = $levelDegrees->first()->courses;
+            $courses = \DB::table('degree_level_courses')
+                        ->join('degree_level_users', 'degree_level_users.id', 'degree_level_courses.degree_level_id')
+                        ->join('courses', 'courses.id', 'degree_level_courses.course_id')
+                        ->select('degree_level_courses.*', 'courses.name as course_name')
+                        ->where('degree_level_courses.degree_level_id', $levelDegrees->first()->level->id)
+                        ->get();
+                        //dd($courses);
         } else {
             $level = '';
             $degree = '';
