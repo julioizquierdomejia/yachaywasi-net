@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DegreeLevelCourse;
+use App\DegreeLevelUser;
 use App\Subject;
 use App\Http\Requests\SubjectRequest;
 
@@ -44,5 +45,33 @@ class SubjectController extends Controller
         $subject->save();
 
         return redirect()->route('subject', $request->input('level_course_id'));
+    }
+
+    public function show($course_id)
+    {
+        $temas = Subject::
+                join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
+                ->select('subjects.*','degree_level_courses.id as dg_level_id')
+                ->where('degree_level_courses.id', $course_id)->get();
+        return view('admin.subject.list', [
+            'temas' => $temas
+        ]);
+    }
+
+    public function detail($subject_id)
+    {
+        /*$tema = Subject::findOrFail($subject_id);
+
+        $user_id = \Auth::user()->id;
+        $dataClient = new Client;
+        $dataClient->tema_id = $tema->id;
+        $dataClient->user_id = \Auth::user()->id;
+        $dataClient->date = date('Y-m-d');
+        $dataClient->hour = date('H:i:s');
+        $dataClient->save();*/
+
+        return view('admin.subject.detail', [
+            'tema' => $tema
+        ]);
     }
 }
