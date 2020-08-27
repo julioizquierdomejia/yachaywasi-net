@@ -360,9 +360,11 @@
     @if ( Auth::user()->roles->first()->name == 'lector')
       <div class="row">
         <div class="col">
+          <ul class="list-unstyled">
           @foreach($cursos as $curso)
-            <h5>{{$curso->name}}</h5>
+            <li><h5>{{$curso->name}}</h5></li>
           @endforeach
+          </ul>
         </div>
       </div>
     @endif
