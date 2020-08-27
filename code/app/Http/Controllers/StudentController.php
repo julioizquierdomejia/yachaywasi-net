@@ -34,7 +34,7 @@ class StudentController extends Controller
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
         $docentes = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
-        $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
+        $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->select('users.*')->get();
         $colegios = $userAuth->director;
         $cursos = $userAuth->courses;
         $todos = User::all();
@@ -98,13 +98,9 @@ class StudentController extends Controller
         if ($levelDegrees->first()->count()) {
             $level = $levelDegrees->first()->level->name;
             $degree = $levelDegrees->first()->degree->name;
-            $courses = \DB::table('degree_level_courses')
-                        ->join('degree_level_users', 'degree_level_users.id', 'degree_level_courses.degree_level_id')
-                        ->join('courses', 'courses.id', 'degree_level_courses.course_id')
-                        ->select('degree_level_courses.*', 'courses.name as course_name')
-                        ->where('degree_level_courses.degree_level_id', $levelDegrees->first()->level->id)
-                        ->get();
-                        //dd($courses);
+            $courses = Course::join('degree_level_courses','degree_level_courses.course_id','courses.id')->select('degree_level_courses.*', 'courses.name as course_name', 'courses.user_id')
+            ->where('degree_level_courses.degree_level_id', $user_id)
+            ->get();
         } else {
             $level = '';
             $degree = '';
@@ -113,9 +109,6 @@ class StudentController extends Controller
         /*$cursos = User::where('users.id', $user_id)
                     ->join('courses', 'courses.user_id','users.id')
                     ->get();*/
-
-        return $courses;
-        exit;
 
         return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level'));
     }

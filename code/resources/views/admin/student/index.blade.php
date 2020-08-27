@@ -143,7 +143,7 @@
 	                        <span class="text-muted"><small>{{ $alumno->classroom }}</small></span>
 	                      </div>
 	                      <div class="col-md-3 col-3 text-right">
-	                      	<a href="{{ route('student.show', $alumno->user_id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
+	                      	<a href="{{ route('student.show', $alumno->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
 	                      		<i class="far fa-edit"></i>
 	                      	</a>
 	                        <!--form class="form-group d-inline" method="POST" action="/user/{{$alumno->id}}" id="form-delete-user">
