@@ -362,7 +362,9 @@
         <div class="col">
           <ul class="list-unstyled">
           @foreach($cursos as $curso)
-            <li><h5>{{$curso->course_name}}</h5></li>
+            @foreach($curso as $curso_item)
+              <li><h5><a href="{{route('vertemas', ['course_id'=>$curso_item->dlc_id])}}">{{$curso_item->course_name}}</a></h5></li>
+            @endforeach
           @endforeach
           </ul>
         </div>

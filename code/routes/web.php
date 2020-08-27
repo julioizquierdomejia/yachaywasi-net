@@ -35,4 +35,10 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('dashboard', 'dasboardController@index')->name('dashboard');
 
 	Route::resource('createcourses', 'CrearCursoToUser');
+
+	Route::prefix('temas')->group(function () {
+		Route::get('/', 'SubjectController@list')->name('temas');
+		Route::get('/{course_id}', 'SubjectController@show')->name('vertemas');
+		Route::get('/tema/{tema_id}', 'SubjectController@detail')->name('temadetalle');
+	});
 });
