@@ -18,7 +18,10 @@ class dasboardController extends Controller
     	$id = \Auth::user()->id;
     	$userAuth = User::findOrFail((int) $id);
     	$docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
-        $cursos = Course::all();//$userAuth->courses;
+        //$cursos = Course::all();//$userAuth->courses;
+        $cursos = Course::join('degree_level_courses','degree_level_courses.course_id','courses.id')->select('degree_level_courses.*', 'courses.name as course_name', 'courses.user_id')
+            ->where('degree_level_courses.degree_level_id', $id)
+            ->get();
         $degreeLevelUser = DegreeLevelUser::where('user_id',$id)->get();
 
     	//llamamos a todos los docentes relacionados con este colegio

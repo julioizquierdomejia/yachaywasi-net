@@ -362,7 +362,7 @@
         <div class="col">
           <ul class="list-unstyled">
           @foreach($cursos as $curso)
-            <li><h5>{{$curso->name}}</h5></li>
+            <li><h5>{{$curso->course_name}}</h5></li>
           @endforeach
           </ul>
         </div>
