@@ -82,7 +82,7 @@
                 <h5>Cursos</h5>
                 <ul>
                   @foreach($courses as $curso)
-                  <li>{{$curso->name}}</li>
+                  <li>{{$curso->course_name}}</li>
                   @endforeach
               	</ul>
               	@endif
