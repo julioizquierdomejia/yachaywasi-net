@@ -298,58 +298,68 @@
         @foreach($degreeLevelUser as $degreeLevel)
             <div class="row">
               <div class="col-12">
-                <h3>Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</h3>
+                <h3><b>Nivel {{ $degreeLevel->level->name }}</b> - {{ $degreeLevel->degree->name }}</h3>
 
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-                    @foreach($degreeLevel->courses as $course)
-                      <div class="col mb-4">
-                        <div class="card" style='height: 400px;'>
+                  @foreach ($degreeLevel->courses as $curso)
+                    <div class="col mb-4">
+                      <div class="card" style='height: 340px;'>
+                        @if($curso->course->images == null)
                           <img class="card-img-top" src="images/course-default.png" alt="Card image cap">
-                          <div class="card-body">
-                            <h6 class="card-title"><a href="{{ route('subject',$course->id) }}">{{ $course->course->name }}</a></h6>
-                          </div>
+                        @else
+                          <img class="card-img-top" src="images/course/{{$curso->course->images}}" alt="Card image cap">
+                        @endif
+                        <div class="card-body">
+                          <h5 class="card-title">{{$curso->course->name}}</h5>
                         </div>
+
+                        <div class="card-footer mt">
+                            <a href="{{ route('subject',$curso->id) }}" class="btn btn-sm btn-primary">Temas</a>
+                        </div>
+
+
                       </div>
-                    @endforeach
-                  </div>
-              
-              <!-- <p class="card-category"><p> <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p></p> -->
-
-
+                      
+                    </div>
+                  @endforeach
+                </div>
               </div>
             </div>
          @endforeach
           
-            <div class="row">
-                @foreach($degreeLevelUser as $degreeLevel)
-                  <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card card-stats">
-                      <div class="card-body ">
-                        <div class="row">
-                          <div class="col-4 col-md-3">
-                            <div class="icon-big text-center icon-warning">
-                              <i class="fas fa-book"></i>
-                            </div>
-                          </div>
-                          <div class="col-8 col-md-9">
-                            <div class="numbers">
-                              <p class="card-category">Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</p>
-                            </div>
-                          </div>
+<!--
+        <div class="row">
+            @foreach($degreeLevelUser as $degreeLevel)
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-body ">
+                    <div class="row">
+                      <div class="col-4 col-md-3">
+                        <div class="icon-big text-center icon-warning">
+                          <i class="fas fa-book"></i>
                         </div>
                       </div>
-                      <div class="card-footer ">
-                        <hr>
-
-                        @foreach($degreeLevel->courses as $course)
-                          <p>{{ $course->course->name }} <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p>
-                        @endforeach
+                      <div class="col-8 col-md-9">
+                        <div class="numbers">
+                          <p class="card-category">Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                @endforeach
-            </div>
-          </div>
+                  <div class="card-footer ">
+                    <hr>
+
+                    @foreach($degreeLevel->courses as $course)
+                      <p>{{ $course->course->name }} - {{ $course->course->id }} <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p>
+                    @endforeach
+                  </div>
+                </div>
+              </div>
+            @endforeach
+        </div>
+      </div>
+-->
+
     @endif 
 
     <!-- FIN DE la vista Dashboard para DOCENTE --> 

@@ -60,8 +60,8 @@ class SubjectController extends Controller
 
     public function detail($subject_id)
     {
-        /*$tema = Subject::findOrFail($subject_id);
-
+        $tema = Subject::findOrFail($subject_id);
+        /*
         $user_id = \Auth::user()->id;
         $dataClient = new Client;
         $dataClient->tema_id = $tema->id;
