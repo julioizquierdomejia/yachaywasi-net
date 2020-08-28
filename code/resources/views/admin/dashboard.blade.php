@@ -295,71 +295,38 @@
     <!-- Aqui empieza la vista Dashboard para DOCENTE -->
     @if ( Auth::user()->roles->first()->name == 'editor')
     <div class="content">
-        @foreach($degreeLevelUser as $degreeLevel)
-            <div class="row">
-              <div class="col-12">
-                <h3><b>Nivel {{ $degreeLevel->level->name }}</b> - {{ $degreeLevel->degree->name }}</h3>
+      @foreach($degreeLevelUser as $degreeLevel)
+          <div class="row">
+            <div class="col-12">
+              <h3><b>Nivel {{ $degreeLevel->level->name }}</b> - {{ $degreeLevel->degree->name }}</h3>
 
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-                  @foreach ($degreeLevel->courses as $curso)
-                    <div class="col mb-4">
-                      <div class="card" style='height: 340px;'>
-                        @if($curso->course->images == null)
-                          <img class="card-img-top" src="images/course-default.png" alt="Card image cap">
-                        @else
-                          <img class="card-img-top" src="images/course/{{$curso->course->images}}" alt="Card image cap">
-                        @endif
-                        <div class="card-body">
-                          <h5 class="card-title">{{$curso->course->name}}</h5>
-                        </div>
-
-                        <div class="card-footer mt">
-                            <a href="{{ route('subject',$curso->id) }}" class="btn btn-sm btn-primary">Temas</a>
-                        </div>
-
-
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                @foreach ($degreeLevel->courses as $curso)
+                  <div class="col mb-4">
+                    <div class="card" style='height: 340px;'>
+                      @if($curso->course->images == null)
+                        <img class="card-img-top" src="images/course-default.png" alt="Card image cap">
+                      @else
+                        <img class="card-img-top" src="images/course/{{$curso->course->images}}" alt="Card image cap">
+                      @endif
+                      <div class="card-body">
+                        <h5 class="card-title">{{$curso->course->name}}</h5>
                       </div>
-                      
+
+                      <div class="card-footer mt">
+                          <a href="{{ route('subject',$curso->id) }}" class="btn btn-sm btn-primary">Temas</a>
+                      </div>
+
+
                     </div>
-                  @endforeach
-                </div>
+                    
+                  </div>
+                @endforeach
               </div>
             </div>
-         @endforeach
-          
-<!--
-        <div class="row">
-            @foreach($degreeLevelUser as $degreeLevel)
-              <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="card card-stats">
-                  <div class="card-body ">
-                    <div class="row">
-                      <div class="col-4 col-md-3">
-                        <div class="icon-big text-center icon-warning">
-                          <i class="fas fa-book"></i>
-                        </div>
-                      </div>
-                      <div class="col-8 col-md-9">
-                        <div class="numbers">
-                          <p class="card-category">Nivel {{ $degreeLevel->level->name }} - {{ $degreeLevel->degree->name }}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-footer ">
-                    <hr>
-
-                    @foreach($degreeLevel->courses as $course)
-                      <p>{{ $course->course->name }} - {{ $course->course->id }} <a href="{{ route('subject',$course->id) }}" class="btn btn-sm btn-primary">Temas</a></p>
-                    @endforeach
-                  </div>
-                </div>
-              </div>
-            @endforeach
-        </div>
-      </div>
--->
-
+          </div>
+       @endforeach
+    </div>
     @endif 
 
     <!-- FIN DE la vista Dashboard para DOCENTE --> 
@@ -367,6 +334,35 @@
 
     <!-- Aqui empieza la vista Dashboard para ALUMNO -->
     @if ( Auth::user()->roles->first()->name == 'lector')
+    <h1><i class="fas fa-chalkboard-teacher"></i> Mis Cursos</h1>
+    <div class="row">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+        @foreach($cursos as $curso)
+            @foreach($curso as $curso_item)
+              <div class="col mb-4">
+                <div class="card" style='height: 340px;'>
+                  @if($curso_item->course_images == null)
+                    <img class="card-img-top" src="images/course-default.png" alt="Card image cap">
+                  @else
+                    <img class="card-img-top" src="images/course/{{$curso_item->course_images}}" alt="Card image cap">
+                  @endif
+                  <div class="card-body">
+                    <h5 class="card-title">{{$curso_item->course_name}}</h5>
+                    <p class="card-text"> algo aqui</p>
+                  </div>
+                  <div class="card-footer mt">
+                    <a href="{{route('vertemas', ['course_id'=>$curso_item->dlc_id])}}" class="btn btn-primary">
+                      <i class="fas fa-file-alt"></i>
+                      Ver temas
+                    </a>
+                  </div>
+                </div>
+              </div>
+        @endforeach
+          @endforeach
+      </div>
+    </div>
+
       <div class="row">
         <div class="col">
           <ul class="list-unstyled">

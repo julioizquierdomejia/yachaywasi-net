@@ -53,27 +53,42 @@ class SubjectController extends Controller
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
                 ->where('degree_level_courses.id', $course_id)->get();
-        return view('admin.subject.list', [
-            'temas' => $temas
-        ]);
+
+        $bimestres = Subject::
+                join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
+                ->select('subjects.*','degree_level_courses.id as dg_level_id')
+                ->distinct('subjects.bimester')
+                ->where('degree_level_courses.id', $course_id)->get();
+
+        $unidades = Subject::
+                join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
+                ->select('subjects.*','degree_level_courses.id as dg_level_id')
+                ->distinct('subjects.bimester')
+                ->distinct('subjects.unit')
+                ->where('degree_level_courses.id', $course_id)->get();
+        
+
+
+        
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades'));
+        
     }
 
     public function detail($subject_id)
     {
         $tema = Subject::findOrFail($subject_id);
-<<<<<<< HEAD
+
         /*
         $user_id = \Auth::user()->id;
-=======
-
         /*$user_id = \Auth::user()->id;
->>>>>>> 7ccf1de1ba6f25e84bbd5fd810daf998ec7ab2fe
         $dataClient = new Client;
         $dataClient->tema_id = $tema->id;
         $dataClient->user_id = \Auth::user()->id;
         $dataClient->date = date('Y-m-d');
         $dataClient->hour = date('H:i:s');
         $dataClient->save();*/
+
+
 
         return view('admin.subject.detail', [
             'tema' => $tema

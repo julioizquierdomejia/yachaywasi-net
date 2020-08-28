@@ -57,7 +57,7 @@ class dasboardController extends Controller
                 //$cursos = Course::join('degree_level_courses','degree_level_courses.course_id','courses.id')->select('degree_level_courses.*', 'courses.name as course_name', 'courses.user_id');
                 $cursos[] = \DB::table('degree_level_courses')
                         ->join('courses', 'courses.id', 'degree_level_courses.course_id')
-                        ->select('courses.id', 'courses.name as course_name', 'degree_level_courses.id as degree_level_course_id', 'degree_level_courses.id as dlc_id')
+                        ->select('courses.id', 'courses.name as course_name', 'degree_level_courses.id as degree_level_course_id', 'degree_level_courses.id as dlc_id', 'courses.images as course_images')
                         ->where('degree_level_courses.degree_level_id', $teacher->id)
                         ->get()->toArray();
             }
