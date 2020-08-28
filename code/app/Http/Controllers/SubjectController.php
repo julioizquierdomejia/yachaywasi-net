@@ -61,8 +61,13 @@ class SubjectController extends Controller
     public function detail($subject_id)
     {
         $tema = Subject::findOrFail($subject_id);
+<<<<<<< HEAD
         /*
         $user_id = \Auth::user()->id;
+=======
+
+        /*$user_id = \Auth::user()->id;
+>>>>>>> 7ccf1de1ba6f25e84bbd5fd810daf998ec7ab2fe
         $dataClient = new Client;
         $dataClient->tema_id = $tema->id;
         $dataClient->user_id = \Auth::user()->id;
