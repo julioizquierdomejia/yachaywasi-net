@@ -17,7 +17,14 @@ class dasboardController extends Controller
     	//enviamos lso docentes del colegio logeado
     	$id = \Auth::user()->id;
     	$userAuth = User::findOrFail((int) $id);
-    	$docentes = $todos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
+    	$docentes = $todos = User::where('parent_id', $id)
+                ->join('role_user', 'role_user.user_id', '=', 'users.id')
+                ->where('role_id', 3)->get();
+
+        $alumnos = $todos = User::where('parent_id', $id)
+                ->join('role_user', 'role_user.user_id', '=', 'users.id')
+                ->where('role_id', 4)->get();
+
         //$cursos = Course::all();//$userAuth->courses;
         if (\Auth::user()->roles->first()->name == 'lector') {
             $levelDegrees = DegreeLevelUser::where('user_id',$id)->get();
@@ -62,13 +69,13 @@ class dasboardController extends Controller
                         ->get()->toArray();
             }
         } else {
-            $cursos = Course::all();
+            $cursos = Course::where('user_id', $id)->get();
         }
         
         $degreeLevelUser = DegreeLevelUser::where('user_id',$id)->get();
 
     	//llamamos a todos los docentes relacionados con este colegio
-    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser'));
+    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser', 'alumnos'));
 
     }
 }

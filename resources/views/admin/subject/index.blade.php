@@ -73,6 +73,7 @@
                       <div class="form-group">
                         <label>Fecha</label>
                         <input type="date" class="form-control" placeholder="" name="date" value="Aqui un date Picker">
+                        <input type="hidden" name="user_id" class="form-control mb-2" value="{{ Auth::user()->parent_id }}">
                       </div>
                     </div>
                   </div>
