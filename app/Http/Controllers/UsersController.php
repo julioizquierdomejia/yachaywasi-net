@@ -136,7 +136,7 @@ class UsersController extends Controller
         $users->classroom = $request->input('classroom');
         $users->avatar = $name;
         $users->parent_id = $request->input('parent_id');
-        $users->status = 0; 
+        $users->status = 1;
         $users->save();
 
         //Obtener variable que asocia los grados con los niveles seleccionados
