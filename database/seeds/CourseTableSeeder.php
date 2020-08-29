@@ -12,6 +12,8 @@ class CourseTableSeeder extends Seeder
      */
     public function run()
     {
+
+        //git ignore all courses
         //Creamos roles para meterlos a la tabla
         /*
         $course = new Course();
