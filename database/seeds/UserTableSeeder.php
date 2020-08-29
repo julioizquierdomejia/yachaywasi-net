@@ -36,8 +36,8 @@ class UserTableSeeder extends Seeder
         $user->roles()->attach($role_superadmin);
 
         $user = new User();
-        $user->name = 'Miss Carmela';
-        $user->email = 'carmela@gmail.com';
+        $user->name = 'Colegio Lev S. Vigotsky';
+        $user->email = 'colegio.iep.levsvygotsky@gmail.com';
         $user->password = bcrypt('12345678');
         $user->parent_id = 1;
         $user->status = 1;
