@@ -38,6 +38,8 @@
 			</table>
 		</div>
 
+
+		<!-- 
 		<div class="row">
 			<div class="col-12 col-md-8">
 				@foreach($bimestres as $key => $bimestre)
@@ -53,6 +55,7 @@
 				
 			</div>
 		</div>
+		-->
 			
 	</div>
 

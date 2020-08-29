@@ -119,7 +119,7 @@
               <div class="col-7 col-md-8">
                 <div class="numbers">
                   <p class="card-category">Alumnos Matriculados</p>
-                  <p class="card-title">320<p>
+                  <p class="card-title">{{ $alumnos->count() }}<p>
                 </div>
               </div>
             </div>
@@ -171,7 +171,7 @@
               <div class="col-7 col-md-8">
                 <div class="numbers">
                   <p class="card-category">Temas publicados</p>
-                  <p class="card-title">1450<p>
+                  <p class="card-title">0<p>
                 </div>
               </div>
             </div>
@@ -335,6 +335,7 @@
     <!-- Aqui empieza la vista Dashboard para ALUMNO -->
     @if ( Auth::user()->roles->first()->name == 'lector')
     <h1><i class="fas fa-chalkboard-teacher"></i> Mis Cursos</h1>
+    
     <div class="row">
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
         @foreach($cursos as $curso)
@@ -363,6 +364,7 @@
       </div>
     </div>
 
+
       <div class="row">
         <div class="col">
           <ul class="list-unstyled">
@@ -375,6 +377,7 @@
         </div>
       </div>
     @endif
+
     <!-- FIN DE la vista Dashboard para ALUMNO --> 
 
 @endif

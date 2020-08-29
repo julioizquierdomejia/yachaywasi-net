@@ -14,19 +14,23 @@ class SubjectController extends Controller
     {
         $course = DegreeLevelCourse::find($id);
         $subjects = Subject::where('level_course_id',$id)->get();
+
         // Comentario de prueba
 
-        return view('admin.subject.index')->with(compact('course','subjects'));
+        return view('admin.subject.index')->with(compact('course','subjects', 'id'));
     }
 
     public function store(SubjectRequest $request)
     {
+
     	$subject = new Subject();
         $subject->level_course_id = $request->input('level_course_id');
 		$subject->bimester = $request->input('bimester');
 		$subject->unit = $request->input('unit');
         $subject->position = $request->input('position');
         $subject->name = $request->input('name');
+        $subject->date = $request->input('date');
+        $subject->user_id = $request->input('user_id');
         $subject->link_youtube = $request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
@@ -42,6 +46,7 @@ class SubjectController extends Controller
             $subject->file_drive_second = time().'_'.$file->getClientOriginalName();
             $file->move(public_path().'/images/subject/', $subject->file_drive_second);
         }
+
         $subject->save();
 
         return redirect()->route('subject', $request->input('level_course_id'));
@@ -49,6 +54,8 @@ class SubjectController extends Controller
 
     public function show($course_id)
     {
+
+
         $temas = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
@@ -68,7 +75,6 @@ class SubjectController extends Controller
                 ->where('degree_level_courses.id', $course_id)->get();
         
 
-
         
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades'));
         
@@ -76,6 +82,8 @@ class SubjectController extends Controller
 
     public function detail($subject_id)
     {
+
+
         $tema = Subject::findOrFail($subject_id);
 
         /*
@@ -88,10 +96,8 @@ class SubjectController extends Controller
         $dataClient->hour = date('H:i:s');
         $dataClient->save();*/
 
-
-
-        return view('admin.subject.detail', [
-            'tema' => $tema
-        ]);
+        $video = str_replace('watch', 'embed', $tema->link_youtube);
+        
+        return view('admin.subject.detail', compact('tema', 'video'));
     }
 }
