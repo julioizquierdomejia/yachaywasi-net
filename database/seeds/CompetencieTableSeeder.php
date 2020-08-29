@@ -14,6 +14,7 @@ class CompetencieTableSeeder extends Seeder
     public function run()
     {
         
+        /*
         $competencie = new Competencie();
         $competencie->name = 'Competencia 1 para Matemática';
         $competencie->course_id = 1;
@@ -39,6 +40,7 @@ class CompetencieTableSeeder extends Seeder
         $competencie->name = 'Competencia 3 para Razonamiento Matemático';
         $competencie->course_id = 2;
         $competencie->save();
+        */
         
     }
 }

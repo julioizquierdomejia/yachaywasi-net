@@ -12,7 +12,10 @@ class CourseTableSeeder extends Seeder
      */
     public function run()
     {
+
+        //git ignore all courses
         //Creamos roles para meterlos a la tabla
+        /*
         $course = new Course();
         $course->name = 'Matemática';
         $course->descripcion = 'Curso de Álgebra para todos los grados';
@@ -26,5 +29,6 @@ class CourseTableSeeder extends Seeder
         $course->abreviatura = 'Raz-Mat';
         $course->user_id= 2;
         $course->save();
+        */
     }
 }

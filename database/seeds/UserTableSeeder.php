@@ -28,12 +28,12 @@ class UserTableSeeder extends Seeder
         $user = new User();
         $user->name = 'Julio Izquierdo Mejia';
         $user->email = 'julio.izquierdo.mejia@gmail.com';
-        $user->password = bcrypt('12345678');
+        $user->password = bcrypt('M4r14Jul14123456');
         $user->status = 1;
 
         $user->save();
         //vamos a relacionar roles con usuarios
-        //$user->roles()->attach($role_superadmin);
+        $user->roles()->attach($role_superadmin);
 
         $user = new User();
         $user->name = 'Miss Carmela';
@@ -43,7 +43,7 @@ class UserTableSeeder extends Seeder
         $user->status = 1;
         $user->slug = 'vigotsky';
         $user->school = 'Lev S. Vigotsky';
-        $user->phone = '986 826 743';
+        $user->phone = '946 350 910';
         
         $user->save();
         //vamos a relacionar roles con usuarios
