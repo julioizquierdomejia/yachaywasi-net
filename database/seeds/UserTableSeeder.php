@@ -38,7 +38,7 @@ class UserTableSeeder extends Seeder
         $user = new User();
         $user->name = 'Colegio Lev S. Vigotsky';
         $user->email = 'colegio.iep.levsvygotsky@gmail.com';
-        $user->password = bcrypt('12345678');
+        $user->password = bcrypt('szt5qqcz');
         $user->parent_id = 1;
         $user->status = 1;
         $user->slug = 'vigotsky';
