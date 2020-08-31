@@ -166,6 +166,9 @@
       $('#form_delete_coutse').submit();
     })
 
+    $('.button-tooltip').tooltip()
+
+
   </script>
 
   @yield('script')
