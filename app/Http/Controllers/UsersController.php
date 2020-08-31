@@ -235,9 +235,7 @@ class UsersController extends Controller
             //ahora para subirlo a nuestra aplicacion hay que moverlo 
             //a nuestra carpeta publica public_path()
             $file->move(public_path().'/images/avatar/', $name);
-            
         }
-
 
         //luego grabamos todo lo rellenado
         $user->save();

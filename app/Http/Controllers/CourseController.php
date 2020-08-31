@@ -83,7 +83,9 @@ class CourseController extends Controller
     {
 
         $competencias = $course->competencie;
+        
         return view('admin.course.show', compact('course', 'competencias'));
+
         
     }
 
@@ -109,6 +111,38 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         //
+        $course->fill($request->except('images'));
+
+        if ($request->hasFile('images')) {
+
+            $current_images = public_path().'/images/course/'.$course->images;
+            if (@getimagesize($current_images)) {
+                unlink($current_images);
+            }
+            
+            //preguntamos si este curso ya tiene una imagen
+            //en la carpeta public
+            $current_images = public_path().'/images/course/'.$course->images;
+
+            //guardamos el archivo en uan variable
+            $file = $request->file('images');
+            //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
+            $name = time().'_'.$file->getClientOriginalName();
+            //aqui le damos al campo avatar el nombre para que lo grabe
+            $course->images = $name;
+            //ahora para subirlo a nuestra aplicacion hay que moverlo 
+            //a nuestra carpeta publica public_path()
+            $file->move(public_path().'/images/course/', $name);
+        }
+
+        //luego grabamos todo lo rellenado
+        $course->save();
+
+        //y retornamos una vista
+        $course = Course::orderBy('id', 'asc')->get();
+
+        //return view('admin.users.index', ['$users' => $users]);
+        return redirect('/course')->with('status','El Registro se actualizo correctamente');
     }
 
     /**
@@ -119,6 +153,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
+        
         
         $course->delete();
         return redirect('/course');
