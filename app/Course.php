@@ -12,6 +12,10 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
 
+    protected $fillable = [
+        'name', 'abreviatura', 'descripcion', 'images',
+    ];
+
     /*
 	public function Users(){
         return $this->belongsTo('App\User');

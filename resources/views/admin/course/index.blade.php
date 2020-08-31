@@ -9,7 +9,7 @@
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 			@foreach ($cursos as $curso)
 				<div class="col mb-4">
-					<div class="card" style='height: 340px;'>
+					<div class="card" style='height: 440px;'>
 						@if($curso->images == null)
 							<img class="card-img-top" src="images/course-default.png" alt="Card image cap">
 						@else
