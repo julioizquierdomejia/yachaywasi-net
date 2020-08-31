@@ -9,7 +9,7 @@
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 			@foreach ($cursos as $curso)
 				<div class="col mb-4">
-					<div class="card" style='height: 440px;'>
+					<div class="card" style='height: 500px;'>
 						@if($curso->images == null)
 							<img class="card-img-top" src="images/course-default.png" alt="Card image cap">
 						@else
@@ -23,8 +23,8 @@
 
 					  <div class="card-footer mt">
 
-						<a href=" {{ route('course.show', $curso->id ) }}" class="btn btn-primary"><i class="fas fa-search"></i></a>
-						<a href="{{route('course.edit', $curso->id )}}" class="btn btn-success"><i class="far fa-edit"></i></a>
+						<a href=" {{ route('course.show', $curso->id ) }}" class="btn btn-primary button-tooltip" data-toggle="tooltip" title="Crear competencias"><i class="fas fa-search"></i></a>
+						<a href="{{route('course.edit', $curso->id )}}" class="btn btn-success button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a>
 
 						<form class="form-group d-inline" method="POST" action="/course/{{$curso->id}}" id="form_delete_coutse">
 							@csrf
