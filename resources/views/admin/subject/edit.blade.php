@@ -111,17 +111,13 @@
                       <th>
                         Fecha del Tema
                       </th>
-                      <th>
-                        Tools
-                      </th>
                     </thead>
                     <tbody>
                       @forelse($subjects as $subject)
                         <tr>
                           <td><b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>{{ $subject->name  }}</td>
-                          <td>{{ $subject->date  }}</td>
-                          <td><a href="" class="btn btn-warning"><i class="far fa-edit"></i></a><a href="" class="ml-2 btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+                          <td>{{ $subject->created_at  }}</td>
                         </tr>
                       @empty
                         <tr>
