@@ -120,7 +120,7 @@
                         <tr>
                           <td><b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>{{ $subject->name  }}</td>
-                          <td>{{ $subject->date  }}</td>
+                          <td>{{ $subject->date->format('days')  }}</td>
                           <td><a href="" class="btn btn-warning"><i class="far fa-edit"></i></a><a href="" class="ml-2 btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                       @empty

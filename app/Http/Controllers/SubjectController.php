@@ -15,14 +15,6 @@ class SubjectController extends Controller
     public function index($id)
     {
 
-        //$date = Carbon::create(2019, 7, 16, 0, 0, 0)->locale('es');
-        $dia = date('month');
-        $date = date('d-m-Y H:i:s');
-
-        return $date->toRfc850String();
-
-        exit;
-
         $course = DegreeLevelCourse::find($id);
         $subjects = Subject::where('level_course_id',$id)->get();
 
@@ -33,6 +25,7 @@ class SubjectController extends Controller
 
     public function store(SubjectRequest $request)
     {
+
 
     	$subject = new Subject();
         $subject->level_course_id = $request->input('level_course_id');
