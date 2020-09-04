@@ -26,18 +26,14 @@
 						<a href=" {{ route('course.show', $curso->id ) }}" class="btn btn-primary button-tooltip" data-toggle="tooltip" title="Crear competencias"><i class="fas fa-search"></i></a>
 						<a href="{{route('course.edit', $curso->id )}}" class="btn btn-success button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a>
 
-						<form class="form-group d-inline" method="POST" action="/course/{{$curso->id}}" id="form_delete_coutse">
+						<!--form class="form-group d-inline" method="POST" action="/course/{{$curso->id}}" id="form_delete_coutse">
 							@csrf
 							@method('DELETE')
-							<!--
-							<button type="submit" class="btn btn-danger d-inline"><i class="far fa-trash-alt"></i></button>
-							-->
-
 							<button type="button" class="btn btn-danger d-inline" data-toggle="modal" data-target="#modalDeleteCourse">
                             <i class="far fa-trash-alt"></i>
                           </button>
 
-						</form>
+						</form-->
 
 						</div>
 
