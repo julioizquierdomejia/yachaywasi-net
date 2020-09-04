@@ -5,6 +5,7 @@
 <div class="container-fluid bg-light p-5">
 	
 	<h1><i class="fas fa-file-alt"></i> Temas</h1>
+	<h2>{{$userAuth->name}}</h2>
 	<div class="content">
 		<div class="row">
 			
@@ -20,11 +21,24 @@
 			  </thead>
 			  <tbody>
 			  	@foreach($temas as $tema)
+
+					<?php
+					//array de Meses
+					$meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+					$dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+					$diaDeSemana = $dias[ $tema->date->dayOfWeek -1 ];
+					$dia = $tema->date->day;
+					$mes = $meses[ $tema->date->month -1 ];
+					$anio = $tema->date->year;
+					?>
+
+
 				  		<tr>
 				  			<td>
 						      	<a href="{{route('temadetalle', ['tema_id'=>$tema->id])}}" style='font-size: 2.4em'>{{$tema->position}} - {{$tema->name}}
 						      	</a>
-						      	<p><span>Lunes, 8 de Agosto - 2020</span></p>
+						      	<p><span>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}</span></p>
 						      </td>
 					      <th scope="row">
 					      	Bimestre - {{$tema->bimester}}

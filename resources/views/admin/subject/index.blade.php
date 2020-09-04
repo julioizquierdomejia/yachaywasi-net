@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 	<div class="col-12">
 		<p>Nivel {{ $course->degree_level->level->name }} - {{ $course->degree_level->degree->name }}</p>
 	    <h2 class="display-4">{{ $course->course->name }}</h2>
@@ -73,7 +74,8 @@
                       <div class="form-group">
                         <label>Fecha</label>
                         <input type="date" class="form-control" placeholder="" name="date" value="Aqui un date Picker">
-                        <input type="hidden" name="user_id" class="form-control mb-2" value="{{ Auth::user()->parent_id }}">
+                        <input type="hidden" name="user_id" class="form-control mb-2" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="school_id" class="form-control mb-2" value="{{ Auth::user()->parent_id }}">
                       </div>
                     </div>
                   </div>
@@ -117,10 +119,22 @@
                     </thead>
                     <tbody>
                       @forelse($subjects as $subject)
+
+                      <?php
+                      //array de Meses
+                      $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                      $dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+
+                      $diaDeSemana = $dias[ $subject->date->dayOfWeek -1 ];
+                      $dia = $subject->date->day;
+                      $mes = $meses[ $subject->date->month -1 ];
+                      $anio = $subject->date->year;
+                      ?>
+
                         <tr>
                           <td><b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>{{ $subject->name  }}</td>
-                          <td>{{ $subject->date->format('days')  }}</td>
+                          <td>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} </td>
                           <td><a href="" class="btn btn-warning"><i class="far fa-edit"></i></a><a href="" class="ml-2 btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
                         </tr>
                       @empty

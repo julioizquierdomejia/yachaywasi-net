@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\DegreeLevelCourse;
 use App\DegreeLevelUser;
@@ -15,17 +16,24 @@ class SubjectController extends Controller
     public function index($id)
     {
 
+        $idUser = \Auth::user()->id;
+        $userAuth = User::findOrFail((int) $idUser);
+
         $course = DegreeLevelCourse::find($id);
         $subjects = Subject::where('level_course_id',$id)->get();
 
         // Comentario de prueba
 
-        return view('admin.subject.index')->with(compact('course','subjects', 'id'));
+        return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
     }
 
     public function store(SubjectRequest $request)
     {
 
+
+
+        $urlVideoWatch = $request->input('link_youtube');
+        $urlVideoEmbed = str_replace("watch?v=", "embed/", $urlVideoWatch);
 
     	$subject = new Subject();
         $subject->level_course_id = $request->input('level_course_id');
@@ -35,7 +43,8 @@ class SubjectController extends Controller
         $subject->name = $request->input('name');
         $subject->date = $request->input('date');
         $subject->user_id = $request->input('user_id');
-        $subject->link_youtube = $request->input('link_youtube');
+        $subject->school_id = $request->input('school_id');
+        $subject->link_youtube = $urlVideoEmbed; //$request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
         
@@ -59,6 +68,9 @@ class SubjectController extends Controller
     public function show($course_id)
     {
 
+        $idUser = \Auth::user()->id;
+        $userAuth = User::findOrFail((int) $idUser);
+
 
         $temas = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
@@ -80,7 +92,7 @@ class SubjectController extends Controller
         
 
         
-        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades'));
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth'));
         
     }
 
