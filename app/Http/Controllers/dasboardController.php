@@ -58,7 +58,6 @@ class dasboardController extends Controller
             $cursos = [];
 
 
-
                         //dd($teachers->toArray());
             foreach ($teachers as $teacher) {
                 //$cursos = Course::join('degree_level_courses','degree_level_courses.course_id','courses.id')->select('degree_level_courses.*', 'courses.name as course_name', 'courses.user_id');
@@ -75,7 +74,7 @@ class dasboardController extends Controller
         $degreeLevelUser = DegreeLevelUser::where('user_id',$id)->get();
 
     	//llamamos a todos los docentes relacionados con este colegio
-    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser', 'alumnos'));
+    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser', 'alumnos', 'userAuth'));
 
     }
 }
