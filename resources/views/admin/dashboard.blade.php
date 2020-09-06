@@ -102,7 +102,7 @@
             <hr>
             <div class="stats">
               <i class="fa fa-refresh"></i>
-              Update Now
+              Parte de nuestro equipo
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
             <hr>
             <div class="stats">
               <i class="fa fa-calendar-o"></i>
-              Last day
+              Este año
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@
             <hr>
             <div class="stats">
               <i class="fa fa-refresh"></i>
-              Update now
+              Que se dictan
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@
             <hr>
             <div class="stats">
               <i class="fa fa-clock-o"></i>
-              In the last hour
+              Hasta la ultima hora
             </div>
           </div>
         </div>
