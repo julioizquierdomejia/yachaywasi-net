@@ -23,7 +23,8 @@ class SubjectController extends Controller
         $userAuth = User::findOrFail((int) $idUser);
 
         $course = DegreeLevelCourse::find($id);
-        $subjects = Subject::where('level_course_id',$id)->get();
+        $subjects = Subject::where('level_course_id',$id)
+                        ->where('status', 1)->get();
 
         // Comentario de prueba
 
@@ -50,6 +51,8 @@ class SubjectController extends Controller
         $subject->link_youtube = $urlVideoEmbed; //$request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
+        $subject->status = 1;
+
         
         if ($request->hasFile('file_drive')) {
             $file = $request->file('file_drive');
@@ -79,7 +82,8 @@ class SubjectController extends Controller
                     ->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
-         
+        
+        
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
         $docente_current = DB::table('users')
@@ -145,7 +149,7 @@ class SubjectController extends Controller
         
         $tema = Subject::findOrFail($id);
         dd($tema);
-        echo $id;
+        
         //return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
     }
 
