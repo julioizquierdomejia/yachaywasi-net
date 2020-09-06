@@ -171,7 +171,7 @@
               <div class="col-7 col-md-8">
                 <div class="numbers">
                   <p class="card-category">Temas publicados</p>
-                  <p class="card-title">0<p>
+                  <p class="card-title">{{ $temas_total->count() }}<p>
                 </div>
               </div>
             </div>
