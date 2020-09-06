@@ -5,6 +5,8 @@
 <div class="container-fluid bg-light p-5">
 	
 	<h1><i class="fas fa-file-alt"></i> Temas</h1>
+
+	<h2>{{$course_data->name}}</h2>
 	<h2>{{$userAuth->name}}</h2>
 	<div class="content">
 		<div class="row">
@@ -20,6 +22,7 @@
 			    </tr>
 			  </thead>
 			  <tbody>
+
 			  	@foreach($temas as $tema)
 
 					<?php
@@ -31,6 +34,8 @@
 					$dia = $tema->date->day;
 					$mes = $meses[ $tema->date->month -1 ];
 					$anio = $tema->date->year;
+					$hora = $tema->date->hour;
+
 					?>
 
 
@@ -38,7 +43,7 @@
 				  			<td>
 						      	<a href="{{route('temadetalle', ['tema_id'=>$tema->id])}}" style='font-size: 2.4em'>{{$tema->position}} - {{$tema->name}}
 						      	</a>
-						      	<p><span>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}</span></p>
+						      	<p><span>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} - {{$hora}}</span></p>
 						      </td>
 					      <th scope="row">
 					      	Bimestre - {{$tema->bimester}}

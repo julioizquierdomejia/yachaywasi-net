@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\DegreeLevelCourse;
 use App\DegreeLevelUser;
 use App\Subject;
+use App\Course;
 use App\Http\Requests\SubjectRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 
 class SubjectController extends Controller
@@ -68,6 +71,12 @@ class SubjectController extends Controller
     public function show($course_id)
     {
 
+
+        $course_data = DB::table('courses')
+                        ->join('degree_level_courses', 'degree_level_courses.course_id', 'courses.id')
+                        ->where('degree_level_courses.id', $course_id)
+                        ->first();
+
         $idUser = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $idUser);
 
@@ -90,9 +99,8 @@ class SubjectController extends Controller
                 ->distinct('subjects.unit')
                 ->where('degree_level_courses.id', $course_id)->get();
         
-
         
-        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth'));
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'course_data', 'userAuth'));
         
     }
 
@@ -116,4 +124,21 @@ class SubjectController extends Controller
         
         return view('admin.subject.detail', compact('tema', 'video'));
     }
+
+    
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Subject  $subject
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Subject $id){
+        
+        $tema = Subject::findOrFail($id);
+        dd($tema);
+        echo $id;
+        //return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
+    }
+
 }
