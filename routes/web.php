@@ -27,9 +27,11 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('student', 'StudentController');
 
 	Route::resource('course', 'CourseController');
+
 	Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
 	Route::post('subject/store', 'SubjectController@store')->name('subject.store');
-
+	Route::post('subject/edit', 'SubjectController@store')->name('subject.edit');
+	
 	Route::resource('competencie', 'competencieController');
 
 	Route::get('dashboard', 'dasboardController@index')->name('dashboard');
@@ -40,5 +42,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('/', 'SubjectController@list')->name('temas');
 		Route::get('/{course_id}', 'SubjectController@show')->name('vertemas');
 		Route::get('/tema/{tema_id}', 'SubjectController@detail')->name('temadetalle');
+		Route::get('/tema/{tema_id}/edit', 'SubjectController@edit')->name('temaedit');
+
 	});
 });

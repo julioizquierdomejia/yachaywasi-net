@@ -45,7 +45,7 @@
                     </div>
                   </div>
                   
-                  <div class="row">
+                  <!--div class="row">
     		            <div class="col-md-6">
     		              <div class="form-group">
     		              	<div class="custom-file custom-file-browser">
@@ -62,7 +62,7 @@
                       </div>
                     </div>
                   </div>
-		            </div>
+		            </div-->
                   <div class="row">
                     <div class="col-md-8">
                       <div class="form-group">
@@ -118,24 +118,29 @@
                       </th>
                     </thead>
                     <tbody>
+                      
                       @forelse($subjects as $subject)
+                        <?php
+                          //array de Meses
+                          $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                          $dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 
-                      <?php
-                      //array de Meses
-                      $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                      $dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-
-                      $diaDeSemana = $dias[ $subject->date->dayOfWeek -1 ];
-                      $dia = $subject->date->day;
-                      $mes = $meses[ $subject->date->month -1 ];
-                      $anio = $subject->date->year;
-                      ?>
+                          $diaDeSemana = $dias[ $subject->date->dayOfWeek -1 ];
+                          $dia = $subject->date->day;
+                          $mes = $meses[ $subject->date->month -1 ];
+                          $anio = $subject->date->year;
+                        ?>
 
                         <tr>
                           <td><b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>{{ $subject->name  }}</td>
                           <td>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} </td>
-                          <td><a href="" class="btn btn-warning"><i class="far fa-edit"></i></a><a href="" class="ml-2 btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+                          <td>
+                            <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
+
+                            <!--a href=" {{ route('temaedit', $subject->id) }} " class="btn btn-danger button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a-->
+
+                          </td>
                         </tr>
                       @empty
                         <tr>

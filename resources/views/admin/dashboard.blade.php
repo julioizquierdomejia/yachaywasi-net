@@ -354,7 +354,7 @@
                       @endif
                       <div class="card-body">
                         <h5 class="card-title">{{$curso_item->course_name}}</h5>
-                        <p class="card-text"> algo aqui</p>
+                        <p class="card-text"> </p>
                       </div>
                       <div class="card-footer mt">
                         <a href="{{route('vertemas', ['course_id'=>$curso_item->dlc_id])}}" class="btn btn-primary">
