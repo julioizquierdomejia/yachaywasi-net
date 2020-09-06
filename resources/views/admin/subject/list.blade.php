@@ -4,10 +4,9 @@
 
 <div class="container-fluid bg-light p-5">
 	
-	<h1><i class="fas fa-file-alt"></i> Temas</h1>
+	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
+	<h4> Curso : {{ $curso_current->name }} / A cargo de : {{ $docente_current->name }}</h4>
 
-	<h2>{{$course_data->name}}</h2>
-	<h2>{{$userAuth->name}}</h2>
 	<div class="content">
 		<div class="row">
 			

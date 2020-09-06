@@ -71,11 +71,19 @@ class SubjectController extends Controller
     public function show($course_id)
     {
 
+        //aqui obtengo datos para el nombre del curso actual
+        $temaCurrent = DB::table('subjects')
+                        ->where('subjects.id', $course_id)->first();
 
-        $course_data = DB::table('courses')
-                        ->join('degree_level_courses', 'degree_level_courses.course_id', 'courses.id')
-                        ->where('degree_level_courses.id', $course_id)
-                        ->first();
+        $curso_current = DB::table('degree_level_courses')
+                    ->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
+                    ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
+                    ->first();
+         
+        $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
+
+        $docente_current = DB::table('users')
+                         ->where('users.id', $docente_id)->first();
 
         $idUser = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $idUser);
@@ -100,7 +108,7 @@ class SubjectController extends Controller
                 ->where('degree_level_courses.id', $course_id)->get();
         
         
-        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'course_data', 'userAuth'));
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current'));
         
     }
 
