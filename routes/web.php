@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('/', 'SubjectController@list')->name('temas');
 		Route::get('/{course_id}', 'SubjectController@show')->name('vertemas');
 		Route::get('/tema/{tema_id}', 'SubjectController@detail')->name('temadetalle');
-		Route::get('/tema/{tema_id}/edit', 'SubjectController@edit')->name('temaedit');
+		Route::get('/tema/edit/{tema_id}', 'SubjectController@edit')->name('temaedit');
 
 	});
 });
