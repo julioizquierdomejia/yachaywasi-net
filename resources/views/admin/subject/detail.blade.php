@@ -5,9 +5,9 @@
 <?php
 //array de Meses
 $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-$dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+$dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
-$diaDeSemana = $dias[ $tema->date->dayOfWeek -1 ];
+$diaDeSemana = $dias[ $tema->date->dayOfWeek ];
 $dia = $tema->date->day;
 $mes = $meses[ $tema->date->month -1 ];
 $anio = $tema->date->year;

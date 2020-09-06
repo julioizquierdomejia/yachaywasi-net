@@ -145,12 +145,34 @@ class SubjectController extends Controller
      * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $id){
+    public function edit($id){
         
         $tema = Subject::findOrFail($id);
-        dd($tema);
-        
-        //return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
+
+        return view('admin.subject.edit')->with(compact('tema'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Subject $subject)
+    {
+
+        dd($request);
+
+        $subject->fill($request);
+
+        //luego grabamos todo lo rellenado
+        $subject->save();
+
+    
+        //return view('admin.users.index', ['$users' => $users]);
+        return view('admin.subject.index');
+
     }
 
 }

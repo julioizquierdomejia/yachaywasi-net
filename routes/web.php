@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
 	Route::post('subject/store', 'SubjectController@store')->name('subject.store');
 	Route::post('subject/edit', 'SubjectController@store')->name('subject.edit');
+	Route::put('subject/{tema_id}', 'SubjectController@update')->name('subject.update');
 	
 	Route::resource('competencie', 'competencieController');
 
@@ -42,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('/', 'SubjectController@list')->name('temas');
 		Route::get('/{course_id}', 'SubjectController@show')->name('vertemas');
 		Route::get('/tema/{tema_id}', 'SubjectController@detail')->name('temadetalle');
-		Route::get('/tema/{tema_id}/edit', 'SubjectController@edit')->name('temaedit');
+		Route::get('/tema/edit/{tema_id}', 'SubjectController@edit')->name('temaedit');
 
 	});
 });
