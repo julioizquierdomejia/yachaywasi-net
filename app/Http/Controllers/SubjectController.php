@@ -141,10 +141,9 @@ class SubjectController extends Controller
      * @param  \App\Subject  $subject
      * @return \Illuminate\Http\Response
      */
-    public function edit(Subject $id){
+    public function edit($id){
         
         $tema = Subject::findOrFail($id);
-        dd($tema);
         echo $id;
         //return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
     }

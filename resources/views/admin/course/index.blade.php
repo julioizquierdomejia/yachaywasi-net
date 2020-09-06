@@ -5,7 +5,7 @@
 	<a href="{{ route('course.create') }}" class="btn btn-primary btn-round">Crear Cursos</a>
 
 	<h1 class="display-4">Cursos</h1>
-
+	
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
 			@foreach ($cursos as $curso)
 				<div class="col mb-4">

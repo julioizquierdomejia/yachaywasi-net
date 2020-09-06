@@ -123,9 +123,17 @@
                         <?php
                           //array de Meses
                           $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                          $dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
+                          $dias = [
+                            0=>'Domingo',
+                            1=>'Lunes', 
+                            2=>'Martes', 
+                            3=>'Miércoles', 
+                            4=>'Jueves', 
+                            5=>'Viernes', 
+                            6=>'Sábado'
+                          ];
 
-                          $diaDeSemana = $dias[ $subject->date->dayOfWeek -1 ];
+                          $diaDeSemana = $dias[ $subject->date->dayOfWeek ];
                           $dia = $subject->date->day;
                           $mes = $meses[ $subject->date->month -1 ];
                           $anio = $subject->date->year;
@@ -138,7 +146,7 @@
                           <td>
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
 
-                            <!--a href=" {{ route('temaedit', $subject->id) }} " class="btn btn-danger button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a-->
+                            <a href=" {{ route('temaedit', $subject->id) }} " class="btn btn-danger button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a>
 
                           </td>
                         </tr>
