@@ -132,9 +132,28 @@ class SubjectController extends Controller
         $dataClient->hour = date('H:i:s');
         $dataClient->save();*/
 
-        $video = str_replace('watch', 'embed', $tema->link_youtube);
+        //$video = str_replace('watch', 'embed', $tema->link_youtube);
+
+        $video = $tema->link_youtube;
+
+        function YoutubeID($url)
+        {
+            if(strlen($url) > 11)
+            {
+                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+                {
+                    return $match[1];
+                }
+                else
+                    return false;
+            }
+
+            return $url;
+        }
         
-        return view('admin.subject.detail', compact('tema', 'video'));
+        $videoKey = YoutubeID('https://youtu.be/kDWmJBz_xXs');
+
+        return view('admin.subject.detail', compact('tema', 'videoKey'));
     }
 
     
@@ -162,9 +181,9 @@ class SubjectController extends Controller
     public function update(Request $request, Subject $subject)
     {
 
-        dd($request);
+        //dd($request);
 
-        $subject->fill($request);
+        $subject->fill($request->all());
 
         //luego grabamos todo lo rellenado
         $subject->save();
@@ -174,5 +193,6 @@ class SubjectController extends Controller
         return view('admin.subject.index');
 
     }
+
 
 }
