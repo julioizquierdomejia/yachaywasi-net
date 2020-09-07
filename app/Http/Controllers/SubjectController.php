@@ -23,7 +23,8 @@ class SubjectController extends Controller
         $userAuth = User::findOrFail((int) $idUser);
 
         $course = DegreeLevelCourse::find($id);
-        $subjects = Subject::where('level_course_id',$id)->get();
+        $subjects = Subject::where('level_course_id',$id)
+                        ->where('status', 1)->get();
 
         // Comentario de prueba
 
@@ -50,6 +51,8 @@ class SubjectController extends Controller
         $subject->link_youtube = $urlVideoEmbed; //$request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
+        $subject->status = 1;
+
         
         if ($request->hasFile('file_drive')) {
             $file = $request->file('file_drive');
@@ -79,7 +82,8 @@ class SubjectController extends Controller
                     ->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
-         
+        
+        
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
         $docente_current = DB::table('users')
@@ -128,9 +132,28 @@ class SubjectController extends Controller
         $dataClient->hour = date('H:i:s');
         $dataClient->save();*/
 
-        $video = str_replace('watch', 'embed', $tema->link_youtube);
+        //$video = str_replace('watch', 'embed', $tema->link_youtube);
+
+        $video = $tema->link_youtube;
+
+        function YoutubeID($url)
+        {
+            if(strlen($url) > 11)
+            {
+                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+                {
+                    return $match[1];
+                }
+                else
+                    return false;
+            }
+
+            return $url;
+        }
         
-        return view('admin.subject.detail', compact('tema', 'video'));
+        $videoKey = YoutubeID('https://youtu.be/kDWmJBz_xXs');
+
+        return view('admin.subject.detail', compact('tema', 'videoKey'));
     }
 
     
@@ -144,8 +167,32 @@ class SubjectController extends Controller
     public function edit($id){
         
         $tema = Subject::findOrFail($id);
-        echo $id;
-        //return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
+
+        return view('admin.subject.edit')->with(compact('tema'));
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Subject $subject)
+    {
+
+        //dd($request);
+
+        $subject->fill($request->all());
+
+        //luego grabamos todo lo rellenado
+        $subject->save();
+
+    
+        //return view('admin.users.index', ['$users' => $users]);
+        return view('admin.subject.index');
+
+    }
+
 
 }
