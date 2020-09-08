@@ -23,8 +23,8 @@ class SubjectController extends Controller
         $userAuth = User::findOrFail((int) $idUser);
 
         $course = DegreeLevelCourse::find($id);
-        $subjects = Subject::where('level_course_id',$id)
-                        ->where('status', 1)->get();
+        $subjects = Subject::where('level_course_id',$id)->get();
+                        //->where('status', 1)
 
         // Comentario de prueba
 
