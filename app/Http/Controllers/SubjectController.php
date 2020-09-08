@@ -193,7 +193,7 @@ class SubjectController extends Controller
 
         //return view('admin.users.index', ['$users' => $users]);
         //return view('level-course');
-        return redirect('/subject/'.$level_course_id);
+        return redirect('/level-course/'.$level_course_id);
 
     }
 
