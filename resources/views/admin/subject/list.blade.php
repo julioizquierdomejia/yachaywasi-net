@@ -38,29 +38,11 @@
                     <tbody>
                       
                       @forelse($temas as $tema)
-                        <?php
-                          //array de Meses
-                          $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                          $dias = [
-                            0=>'Domingo',
-                            1=>'Lunes', 
-                            2=>'Martes', 
-                            3=>'Miércoles', 
-                            4=>'Jueves', 
-                            5=>'Viernes', 
-                            6=>'Sábado'
-                          ];
-
-                          $diaDeSemana = $dias[ $tema->date->dayOfWeek ];
-                          $dia = $tema->date->day;
-                          $mes = $tema[ $tema->date->month -1 ];
-                          $anio = $tema->date->year;
-                        ?>
-
+                        
                         <tr>
                           <td><b>Bimestre-{{ $tema->bimester  }}</b> / <b>Unidad-{{ $tema->unit  }}</b> / <b>TEMA-{{ $tema->position  }}</b></td>
                           <td>{{ $tema->name  }}</td>
-                          <td>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} </td>
+                          <td>{{ $tema->date  }}</td>
                           <td>Pendiente</td>
                           <td>
                             <a href=" {{ route('temadetalle', $tema->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>

@@ -21,16 +21,6 @@
 
     @if ( Auth::user()->roles->first()->name == 'superadmin')
       <div class="content">
-        <!-- 
-        <div class="row mb-3">
-          <div class="col">
-            <div class="update ml-auto mr-auto">
-              <a href="{{ route('user.create') }}" class="btn btn-primary btn-round">Registrar Docente</a>
-            </div>
-          </div>
-        </div>
-      -->
-
         <div class="row">
           <div class="col">
             <h3 class="text-primary">Colegios - {{ $docentes->count() }}</h3>

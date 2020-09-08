@@ -3,6 +3,10 @@
 @section('content')
 
 	<div class="col-12">
+    <a href="/dashboard" class="btn btn-primary">
+      <i class="fas fa-arrow-circle-left" style='font-size: 18px; margin-right: 5px; margin-top: 2px;'></i>
+        Volver a cursos
+    </a>
 		<p>Nivel {{ $course->degree_level->level->name }} - {{ $course->degree_level->degree->name }}</p>
 	    <h2 class="display-4">{{ $course->course->name }}</h2>
 
@@ -21,26 +25,26 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Nombre del Tema</label>
-                        <input type="text" class="form-control" placeholder=""  name="name" value="">
+                        <input type="text" class="form-control" placeholder=""  name="name" value="" required>
                       </div>
                     </div>
 
                     <div class="col-md-2 pr-1">
                       <div class="form-group">
                         <label>Bimestre</label>
-                        <input type="text" class="form-control" name="bimester" placeholder="" value="">
+                        <input type="text" class="form-control" name="bimester" placeholder="" value="" required>
                       </div>
                     </div>
                     <div class="col-md-2 px-1">
                       <div class="form-group">
                         <label>Unidad</label>
-                        <input type="text" class="form-control"  name="unit" placeholder="" value="">
+                        <input type="text" class="form-control"  name="unit" placeholder="" value="" required>
                       </div>
                     </div>
                     <div class="col-md-2 pl-1">
                       <div class="form-group">
                         <label>Número de Tema</label>
-                        <input type="text" class="form-control"  name="position"  placeholder="" value="">
+                        <input type="text" class="form-control"  name="position"  placeholder="" value="" required>
                       </div>
                     </div>
                   </div>
@@ -73,7 +77,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                         <label>Fecha</label>
-                        <input type="date" class="form-control" placeholder="" name="date" value="Aqui un date Picker">
+                        <input type="date" class="form-control" placeholder="" name="date" value="Aqui un date Picker" required>
                         <input type="hidden" name="user_id" class="form-control mb-2" value="{{ Auth::user()->id }}">
                         <input type="hidden" name="school_id" class="form-control mb-2" value="{{ Auth::user()->parent_id }}">
                       </div>
@@ -120,29 +124,11 @@
                     <tbody>
                       
                       @forelse($subjects as $subject)
-                        <?php
-                          //array de Meses
-                          $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                          $dias = [
-                            0=>'Domingo',
-                            1=>'Lunes', 
-                            2=>'Martes', 
-                            3=>'Miércoles', 
-                            4=>'Jueves', 
-                            5=>'Viernes', 
-                            6=>'Sábado'
-                          ];
-
-                          $diaDeSemana = $dias[ $subject->date->dayOfWeek ];
-                          $dia = $subject->date->day;
-                          $mes = $meses[ $subject->date->month -1 ];
-                          $anio = $subject->date->year;
-                        ?>
-
+                        
                         <tr>
                           <td><b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>{{ $subject->name  }}</td>
-                          <td>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} </td>
+                          <td>{{ $subject->date  }}</td>
                           <td>
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
 

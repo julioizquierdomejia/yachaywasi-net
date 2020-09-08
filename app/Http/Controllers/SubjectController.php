@@ -19,13 +19,13 @@ class SubjectController extends Controller
     public function index($id)
     {
 
+
         $idUser = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $idUser);
 
         $course = DegreeLevelCourse::find($id);
         $subjects = Subject::where('level_course_id',$id)->get();
                         //->where('status', 1)
-
         // Comentario de prueba
 
         return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
@@ -97,6 +97,7 @@ class SubjectController extends Controller
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
                 ->where('degree_level_courses.id', $course_id)->get();
+
 
         $bimestres = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
@@ -181,16 +182,18 @@ class SubjectController extends Controller
     public function update(Request $request, Subject $subject)
     {
 
-        //dd($request);
+        $level_course_id = $subject->level_course_id;
 
         $subject->fill($request->all());
+
+        //$subject->update($request->all());       
 
         //luego grabamos todo lo rellenado
         $subject->save();
 
-    
         //return view('admin.users.index', ['$users' => $users]);
-        return view('admin.subject.index');
+        //return view('level-course');
+        return redirect('/subject/'.$level_course_id);
 
     }
 
@@ -198,14 +201,12 @@ class SubjectController extends Controller
 
         $temas = Subject::all();
 
-        /*$temas = DB::table('subjects')
-            ->join('users', 'users.id', 'subjects.user_id')
-            ->select('users.name as name_docente', 'subjects.*')
+        /*
+        $temas = DB::table('users')
+            ->join('subjects', 'subjects.user_id', 'users.id')
+            ->select('subjects.*', 'users.name as name_docente')
             ->get();
             */
-
-            
-
 
         return view('admin.subject.all', compact('temas'));
     }
