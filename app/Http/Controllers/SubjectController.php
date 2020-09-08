@@ -55,13 +55,13 @@ class SubjectController extends Controller
         if ($request->hasFile('file_drive')) {
             $file = $request->file('file_drive');
             $subject->file_drive = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path().'/images/subject/', $subject->file_drive);
+            $file->move(public_path().'/material/subject/', $subject->file_drive);
         }
 
         if ($request->hasFile('file_drive_second')) {
             $file = $request->file('file_drive_second');
             $subject->file_drive_second = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path().'/images/subject/', $subject->file_drive_second);
+            $file->move(public_path().'/material/subject/', $subject->file_drive_second);
         }
 
         $subject->save();
