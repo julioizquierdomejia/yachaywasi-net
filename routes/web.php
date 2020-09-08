@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/subject/all', 'SubjectController@all')->name('subject.all');
+
 Route::resource('messages', 'MessagesController');
 
 Route::middleware(['auth'])->group(function () {

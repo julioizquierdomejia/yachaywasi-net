@@ -21,6 +21,8 @@
   <link href="{{ asset('css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
   
   <link href="{{ asset('demo/demo.css') }}" rel="stylesheet" />
+  <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet" />
+
 </head>
 
 <body class="">
@@ -131,6 +133,9 @@
 
   <script src="{{asset('js/javascript.js')}}"></script>
 
+  <script src="{{asset('js/datatables.js')}}"></script>
+
+
   <!-- Script para el modal de active -->
   <script>
     $('#exampleModal').on('show.bs.modal', function (event) {
@@ -167,6 +172,13 @@
     })
 
     $('.button-tooltip').tooltip()
+
+    $('#table_subjects').DataTable( {
+        "pagingType": "full_numbers"
+    } );
+
+
+
 
 
   </script>
