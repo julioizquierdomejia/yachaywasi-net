@@ -194,5 +194,21 @@ class SubjectController extends Controller
 
     }
 
+    public function all(){
+
+        $temas = Subject::all();
+
+        /*$temas = DB::table('subjects')
+            ->join('users', 'users.id', 'subjects.user_id')
+            ->select('users.name as name_docente', 'subjects.*')
+            ->get();
+            */
+
+            
+
+
+        return view('admin.subject.all', compact('temas'));
+    }
+
 
 }

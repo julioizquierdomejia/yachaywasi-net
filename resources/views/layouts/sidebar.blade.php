@@ -72,6 +72,12 @@
                     <p>Estudiantes</p>
                   </a>
                 </li>
+                <li class="{{ request()->routeIs('subject.all') ? 'active'  : '' }}">
+                  <a href="{{ route('subject.all') }}">
+                    <i class="fab fa-elementor"></i>
+                    <p>Temas Publicados</p>
+                  </a>
+                </li>
               </ul>
             @endif
 

@@ -5,8 +5,7 @@
 <div class="container-fluid bg-light p-5">
 	
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
-	<h4> Curso : {{ $curso_current->name }} / A cargo de : {{ $docente_current->name }}</h4>
-
+	
 
 	<div class="content">
         <div class="row">
@@ -17,7 +16,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table display" id="table_subjects">
                     <thead class=" text-primary">
                       <th>
                         Numero del tema
@@ -58,6 +57,7 @@
                         ?>
 
                         <tr>
+                        	
                           <td><b>Bimestre-{{ $tema->bimester  }}</b> / <b>Unidad-{{ $tema->unit  }}</b> / <b>TEMA-{{ $tema->position  }}</b></td>
                           <td>{{ $tema->name  }}</td>
                           <td>{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}} </td>
