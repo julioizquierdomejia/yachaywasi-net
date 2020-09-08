@@ -151,7 +151,7 @@ class SubjectController extends Controller
             return $url;
         }
         
-        $videoKey = YoutubeID('https://youtu.be/kDWmJBz_xXs');
+        $videoKey = YoutubeID($video);
 
         return view('admin.subject.detail', compact('tema', 'videoKey'));
     }
