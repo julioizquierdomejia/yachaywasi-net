@@ -47,7 +47,7 @@ $anio = $tema->date->year;
 	      </div>
 	    </div>
 	    
-	    <div class="card">
+	    <!--div class="card">
 	      <div class="card-header">
 	        <h4 class="card-title">Mensajes</h4>
 	      </div>
@@ -69,7 +69,7 @@ $anio = $tema->date->year;
 
 	      </div>
 	    </div>
-	  </div>
+	  </div-->
 
 	  <div class="col-md-6 d-none">
 	    <div class="card card-user">

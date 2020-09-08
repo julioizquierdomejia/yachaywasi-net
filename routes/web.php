@@ -29,13 +29,14 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('user', 'UsersController');
 
 	Route::resource('student', 'StudentController');
-
 	Route::resource('course', 'CourseController');
+
+	Route::resource('subject', 'SubjectController');
 
 	Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
 	Route::post('subject/store', 'SubjectController@store')->name('subject.store');
 	Route::post('subject/edit', 'SubjectController@store')->name('subject.edit');
-	Route::put('subject/{tema_id}', 'SubjectController@update')->name('subject.update');
+	//Route::put('subject/{tema_id}', 'SubjectController@update')->name('subject.update');
 	
 	Route::resource('competencie', 'competencieController');
 
