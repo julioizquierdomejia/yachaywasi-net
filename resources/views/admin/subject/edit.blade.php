@@ -76,7 +76,12 @@
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
-                        <label>Fecha : </label>{{$tema->date->format('d/m/Y')}}
+                        <label>Fecha : </label>
+                        @if($tema->date == null)
+                           no tiene fecha
+                        @else
+                          {{$tema->date->format('d/m/Y')}}
+                        @endif
                         <input type="date" class="form-control" placeholder="" name="date" value=" " required>
                         <input type="hidden" name="user_id" class="form-control mb-2" value="{{ Auth::user()->parent_id }}">
                         <input type="hidden" name="level_course_id" class="form-control mb-2" value="{{$tema->id}}">
