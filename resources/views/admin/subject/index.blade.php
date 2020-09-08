@@ -49,7 +49,7 @@
                     </div>
                   </div>
                   
-                  <!--div class="row">
+                  <div class="row">
     		            <div class="col-md-6">
     		              <div class="form-group">
     		              	<div class="custom-file custom-file-browser">
@@ -66,7 +66,7 @@
                       </div>
                     </div>
                   </div>
-		            </div-->
+		            </div>
                   <div class="row">
                     <div class="col-md-8">
                       <div class="form-group">

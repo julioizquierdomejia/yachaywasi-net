@@ -34,8 +34,6 @@ class SubjectController extends Controller
     public function store(SubjectRequest $request)
     {
 
-
-
         $urlVideoWatch = $request->input('link_youtube');
         $urlVideoEmbed = str_replace("watch?v=", "embed/", $urlVideoWatch);
 
@@ -48,7 +46,7 @@ class SubjectController extends Controller
         $subject->date = $request->input('date');
         $subject->user_id = $request->input('user_id');
         $subject->school_id = $request->input('school_id');
-        $subject->link_youtube = $urlVideoEmbed; //$request->input('link_youtube');
+        $subject->link_youtube = $request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
         $subject->status = 1;
