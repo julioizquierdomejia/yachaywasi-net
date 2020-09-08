@@ -25,7 +25,7 @@ $anio = $tema->date->year;
 	    <div class="card card-user">
 	      
 	      		@if($videoKey == null)
-	      			no hay video
+	      			
 	      		@else
 	      		<div class="card-body">
 		      	  	<div class="embed-responsive embed-responsive-16by9">
