@@ -24,9 +24,13 @@ $anio = $tema->date->year;
 	  <div class="col-md-6">
 	    <div class="card card-user">
 	      <div class="card-body">
+	      		@if($videoKey == null)
+	      			no hay video
+	      		@else
 	      	  <div class="embed-responsive embed-responsive-16by9">
 				  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
 				</div>
+				@endif
 	      </div>
 	      
 	      <div class="card-footer">
