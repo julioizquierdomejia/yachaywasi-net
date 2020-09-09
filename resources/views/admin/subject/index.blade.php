@@ -11,6 +11,7 @@
 	    <h2 class="display-4">{{ $course->course->name }}</h2>
 
 		<div class="content">
+    
 		<div class="row">
 			<div class="col-md-12">
             <div class="card card-user">
@@ -49,7 +50,7 @@
                     </div>
                   </div>
                   
-                  <div class="row">
+                  <!--div class="row">
     		            <div class="col-md-6">
     		              <div class="form-group">
     		              	<div class="custom-file custom-file-browser">
@@ -66,7 +67,7 @@
                       </div>
                     </div>
                   </div>
-		            </div>
+		            </div-->
                   <div class="row">
                     <div class="col-md-8">
                       <div class="form-group">

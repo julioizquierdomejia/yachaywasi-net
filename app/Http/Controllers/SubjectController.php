@@ -94,7 +94,11 @@ class SubjectController extends Controller
         $temas = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
-                ->where('degree_level_courses.id', $course_id)->get();
+                ->where('degree_level_courses.id', $course_id)
+                ->orderBy('bimester', 'desc')
+                ->orderBy('unit', 'desc')
+                ->orderBy('position', 'desc')
+                ->get();
 
 
         $bimestres = Subject::
