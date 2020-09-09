@@ -208,7 +208,7 @@ class SubjectController extends Controller
             ->join('subjects', 'subjects.user_id', 'users.id')
             ->select('subjects.*', 'users.name as name_docente')
             ->get();
-            */
+        */
 
         return view('admin.subject.all', compact('temas'));
     }

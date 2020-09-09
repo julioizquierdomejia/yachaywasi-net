@@ -39,7 +39,11 @@
                       @forelse($temas as $tema)
                         
                         <tr>
-                          <td><b>Bimestre-{{ $tema->bimester  }}</b> / <b>Unidad-{{ $tema->unit  }}</b> / <b>TEMA-{{ $tema->position  }}</b></td>
+                          <td>
+                            <a href="{{ route('temadetalle', $tema->id) }}">
+                            <b>Bimestre-{{ $tema->bimester  }}</b> / <b>Unidad-{{ $tema->unit  }}</b> / <b>TEMA-{{ $tema->position  }}</b>
+                            </a>
+                          </td>
                           <td>{{ $tema->name  }}</td>
                           <td>{{ $tema->date  }}</td>
                           <td>Pendiente</td>
