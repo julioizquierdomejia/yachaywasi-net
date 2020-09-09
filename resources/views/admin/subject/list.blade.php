@@ -7,7 +7,7 @@
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
 	<h4> Curso : {{ $curso_current->name }} / A cargo de : {{ $docente_current->name }}</h4>
 
-	<div class="content">
+	<div class="content p-0">
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -24,10 +24,10 @@
                       <th>
                         TEMA
                       </th>
-                      <th>
+                      <th class="d-none d-sm-block">
                         Fecha del Tema
                       </th>
-                      <th>
+                      <th class="d-none d-sm-block">
                       	Estado
                       </th>
                       <th>
@@ -45,8 +45,8 @@
                             </a>
                           </td>
                           <td>{{ $tema->name  }}</td>
-                          <td>{{ $tema->date  }}</td>
-                          <td>Pendiente</td>
+                          <td class="d-none d-sm-block">{{ $tema->date  }}</td>
+                          <td class="d-none d-sm-block">Pendiente</td>
                           <td>
                             <a href=" {{ route('temadetalle', $tema->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
                           </td>
