@@ -11,6 +11,7 @@
 	    <h2 class="display-4">{{ $course->course->name }}</h2>
 
 		<div class="content">
+    
 		<div class="row">
 			<div class="col-md-12">
             <div class="card card-user">

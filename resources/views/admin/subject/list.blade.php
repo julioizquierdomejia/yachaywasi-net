@@ -7,7 +7,6 @@
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
 	<h4> Curso : {{ $curso_current->name }} / A cargo de : {{ $docente_current->name }}</h4>
 
-
 	<div class="content">
         <div class="row">
           <div class="col-md-12">
