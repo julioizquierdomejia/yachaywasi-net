@@ -123,7 +123,7 @@
                       </th>
                     </thead>
                     <tbody>
-                      
+
                       @forelse($subjects as $subject)
                         
                         <tr>

@@ -24,7 +24,11 @@ class SubjectController extends Controller
         $userAuth = User::findOrFail((int) $idUser);
 
         $course = DegreeLevelCourse::find($id);
-        $subjects = Subject::where('level_course_id',$id)->get();
+        $subjects = Subject::where('level_course_id',$id)
+                ->orderBy('bimester', 'desc')
+                ->orderBy('unit', 'desc')
+                ->orderBy('position', 'desc')
+                ->get();
                         //->where('status', 1)
         // Comentario de prueba
 
