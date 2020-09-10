@@ -25,10 +25,10 @@
                       <th>
                         TEMA
                       </th>
-                      <th class="d-none d-sm-block">
+                      <th>
                         Fecha del Tema
                       </th>
-                      <th class="d-none d-sm-block">
+                      <th>
                       	Estado
                       </th>
                       <th>
@@ -38,7 +38,6 @@
                     <tbody>
                       
                       @forelse($temas as $tema)
-                        
                         <tr>
                           <td>
                             <a href="{{ route('temadetalle', $tema->id) }}">
@@ -46,8 +45,8 @@
                             </a>
                           </td>
                           <td>{{ $tema->name  }}</td>
-                          <td class="d-none d-sm-block">{{ $tema->date  }}</td>
-                          <td class="d-none d-sm-block">Pendiente</td>
+                          <td >{{ $tema->date  }}</td>
+                          <td>Pendiente</td>
                           <td>
                             <a href=" {{ route('temadetalle', $tema->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
                           </td>
