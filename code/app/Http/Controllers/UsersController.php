@@ -240,25 +240,62 @@ class UsersController extends Controller
 
 
         //luego grabamos todo lo rellenado
-        $user->save();
+        //$user->save();
 
         // Asociar Usuario -Nivel - Grado con cursos
         $courses = $request->courses;
-
-        // Eliminar cusros asociados a nivel y grado del usuario
+        $coursesFound = [];
+        $coursesNotFound = [];
         $userLevelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
-
-        foreach ($userLevelDegrees as $userLevelDegree) {
-          DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->delete();
-        }
 
         if($courses){
           foreach ($courses as $course) {
             $degreeLevelCourseExplode = explode('_', $course);
-            DegreeLevelCourse::create([
+            $degreeLevelCourse =  DegreeLevelCourse::where([
               'degree_level_id' =>$degreeLevelCourseExplode[0],
               'course_id'=>$degreeLevelCourseExplode[1]
-            ]);
+            ])->first();
+
+            if(!$degreeLevelCourse){
+              $degreeLevelCourse = DegreeLevelCourse::create([
+                'degree_level_id' =>$degreeLevelCourseExplode[0],
+                'course_id'=>$degreeLevelCourseExplode[1]
+              ]);
+            }
+
+            $coursesFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
+          }
+        }
+        // Eliminar cusros asociados a nivel y grado del usuario, si es que en un primer momento se le asignó cursos y ahora han disminuido
+        if(count($courses) == 0){
+          foreach ($userLevelDegrees as $userLevelDegree) {
+            DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->delete();
+          }
+        }
+
+        if(count($userLevelDegrees) > 0){
+          foreach ($userLevelDegrees as $userLevelDegree) {
+            $degreeLevelCourses = DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->get();
+
+            foreach ($degreeLevelCourses as $degreeLevelCourse) {
+              $isFound = false;
+
+              foreach ($coursesFound as $course) {
+                if(key($course) == $degreeLevelCourse->degree_level_id && $course[key($course)] == $degreeLevelCourse->course_id){
+                  $isFound = true;
+                }
+              }
+
+              if(!$isFound){
+                $coursesNotFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
+              }
+            }
+          }
+
+          if(count($coursesNotFound) > 0 ){
+            foreach ($coursesNotFound as $course) {
+              DegreeLevelCourse::where(['degree_level_id'=>key($course),'course_id'=>$course[key($course)]])->delete();
+            }
           }
         }
 
