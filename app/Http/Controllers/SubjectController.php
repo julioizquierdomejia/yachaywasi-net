@@ -76,12 +76,11 @@ class SubjectController extends Controller
     public function show($course_id)
     {
 
+
         //aqui obtengo datos para el nombre del curso actual
         $temaCurrent = DB::table('subjects')
                         //->where('subjects.id', $course_id)->first();
                         ->where('subjects.level_course_id', $course_id)->first();
-
-
 
         $curso_current = DB::table('degree_level_courses')
                     //->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
@@ -89,7 +88,7 @@ class SubjectController extends Controller
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
         
-        
+
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
         $docente_current = DB::table('users')
