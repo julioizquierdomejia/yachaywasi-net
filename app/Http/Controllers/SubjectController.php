@@ -78,10 +78,14 @@ class SubjectController extends Controller
 
         //aqui obtengo datos para el nombre del curso actual
         $temaCurrent = DB::table('subjects')
-                        ->where('subjects.id', $course_id)->first();
+                        //->where('subjects.id', $course_id)->first();
+                        ->where('subjects.level_course_id', $course_id)->first();
+
+
 
         $curso_current = DB::table('degree_level_courses')
-                    ->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
+                    //->join('subjects', 'subjects.id', 'degree_level_courses.degree_level_id')
+                    ->join('subjects', 'subjects.level_course_id', 'degree_level_courses.id')
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
         
