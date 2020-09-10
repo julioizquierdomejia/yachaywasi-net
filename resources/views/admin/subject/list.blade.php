@@ -8,7 +8,6 @@
 	<h4> Curso : {{ $curso_current->name }} / A cargo de : {{ $docente_current->name }}</h4>
 
 	<div class="content p-0">
-
         <div class="row">
           <div class="col-md-12">
             <div class="card">
