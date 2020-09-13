@@ -188,6 +188,11 @@
                             @if( $subject->urldrive != null)
                               <img src="{{ asset('images/logo_drive.png') }}" width="20px;">
                             @endif
+
+                            @if( $subject->zoom != null)
+                              <img src="{{ asset('images/logo_zoom.png') }}" width="20px;">
+                            @endif
+
                           </td>
 
                           <td class="d-none d-sm-inline-block">{{ $subject->date }}</td>
