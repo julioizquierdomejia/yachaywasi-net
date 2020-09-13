@@ -22,51 +22,33 @@
                   @csrf
                   <!--input type="hidden" name="level_course_id" value="{{ $tema->id }}"-->
                   <div class="row">
-                    <div class="col-md-6 pr-1">
+                    <div class="col-md-6 pr-sm-1">
                       <div class="form-group">
-                        <label>Nombre del Tema</label>
+                        <label>Nombre del Tema <span class="text-danger">(*)</span></label>
                         <input type="text" class="form-control" placeholder=""  name="name" value=" {{$tema->name}} ">
                       </div>
                     </div>
 
-                    <div class="col-md-2 pr-1">
+                    <div class="col-md-2 pr-sm-1">
                       <div class="form-group">
-                        <label>Bimestre</label>
+                        <label>Bimestre <span class="text-danger">(*) (Ejem. 1, 2, 3)</span> </label>
                         <input type="text" class="form-control" name="bimester" placeholder="" value=" {{$tema->bimester}} ">
                       </div>
                     </div>
-                    <div class="col-md-2 px-1">
+                    <div class="col-md-2 px-sm-1">
                       <div class="form-group">
-                        <label>Unidad</label>
+                        <label>Unidad <span class="text-danger">(*) (Ejem. 1, 2, 3)</span> </label>
                         <input type="text" class="form-control"  name="unit" placeholder="" value=" {{$tema->unit}} ">
                       </div>
                     </div>
-                    <div class="col-md-2 pl-1">
+                    <div class="col-md-2 pl-sm-1">
                       <div class="form-group">
-                        <label>Número de Tema</label>
+                        <label>Número de Tema <span class="text-danger">(*) (Ejem. 1, 2, 3)</span> </label>
                         <input type="text" class="form-control"  name="position"  placeholder="" value=" {{$tema->position}} ">
                       </div>
                     </div>
                   </div>
-                  
-                  <!--div class="row">
-    		            <div class="col-md-6">
-    		              <div class="form-group">
-    		              	<div class="custom-file custom-file-browser">
-            						  <input name='file_drive' type="file" class="custom-file-input form-control" id="customFileLang" lang="es">
-            						  <label class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
-            						</div>
-    		              </div>
-    		            </div>
-                    <div class="col-md-6">
-                    <div class="form-group">
-                      <div class="custom-file custom-file-browser">
-                        <input name='file_drive_second' type="file" class="custom-file-input form-control" id="customFileLang" lang="es">
-                        <label class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
-                      </div>
-                    </div>
-                  </div>
-		            </div-->
+
                   <div class="row">
                     <div class="col-md-8">
                       <div class="form-group">
@@ -88,13 +70,57 @@
                     </div>
                   </div>
 
-                  
+                  <h5 class="card-title">Material Adicional Opcional</h5>
+
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>Link ZOOM</label>
+                        <input type="text" class="form-control" placeholder="" name="zoom" value="{{$tema->zoom}}">
+                      </div>
+                    </div>
+
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>URL - Documento PDF</label>
+                        <input type="text" class="form-control" placeholder="" name="urlpdf" value="{{$tema->urlpdf}}">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label>URL - Documento Drive</label>
+                        <input type="text" class="form-control" placeholder="" name="urldrive" value="{{$tema->urldrive}}">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>URL - Tarea (Ejem. Formulario)</label>
+                        <input type="text" class="form-control" placeholder="" name="homework" value="{{$tema->homework}}">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Fecha de vencimiento de la tarea: </label>
+                        @if($tema->fecha_vencimiento == null)
+                           <input type="date" class="form-control" placeholder="" name="fecha_vencimiento" value="">
+                        @else
+                          <input type="date" class="form-control" placeholder="" name="fecha_vencimiento" value="{{$tema->fecha_vencimiento->format('Y-m-d')}}">
+                        @endif
+                      </div>
+                    </div>
+
+                  </div>
+
                   <div class="row">
                     <div class="update ml-auto mr-auto">
                       <button type="submit" class="btn btn-primary btn-round">Actualizar Tema</button>
                     </div>
                   </div>
                 </form>
+                <span class="text-danger">(*) Campos Obligatorios</span>
               </div>
             </div>
           </div>

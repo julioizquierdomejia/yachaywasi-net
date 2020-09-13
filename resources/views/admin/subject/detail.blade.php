@@ -22,19 +22,17 @@ $anio = $tema->date->year;
 
 	<div class="row">
 	  <div class="col-md-6">
+	    
+	    @if($videoKey != null)
+
 	    <div class="card card-user">
-	      
-	      		@if($videoKey == null)
-	      			
-	      		@else
-	      		<div class="card-body">
-		      	  	<div class="embed-responsive embed-responsive-16by9">
-					  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
-					</div>
+	      		
+			<div class="card-body">
+	      	  	<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
 				</div>
-				@endif
-	      
-	      
+			</div>
+
 	      <div class="card-footer">
 	        <hr>
 	        <div class="button-container">
@@ -52,6 +50,51 @@ $anio = $tema->date->year;
 	        </div>
 	      </div>
 	    </div>
+	    @endif
+
+
+
+	    @if ( $tema->homework != null || $tema->urldrive != null || $tema->urlpdf != null)
+	    	<div class="card">
+	          <div class="card-header">
+	            <h4 class="card-title"> Material de Apoyo</h4>
+	            	<div class="card-body">
+					@if($tema->homework != null)
+						<div>
+							<p>Para resolver el siguiente formulario hacer click en el boton</p>
+		            		<a href="{{ $tema->homework }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Tarea</a>
+		            	</div>
+		            	<hr>
+					@endif
+					@if($tema->urldrive != null)
+						<div>
+							<p>Abrir el material de Apoyo</p>
+		            		<a href="{{ $tema->urldrive }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Ver archivo Drive</a>
+		            	</div>
+		            	<hr>
+					@endif
+					@if($tema->urlpdf != null)
+						<div>
+							<a href="{{ $tema->urlpdf }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Ver PDF</a>
+						</div>
+					@endif
+
+					</div>
+
+					<div class="card-footer">
+						<hr>
+				        footer
+				    </div>
+
+	           </div>
+	         </div>
+	    @else
+
+	    @endif
+
+
+	    
+
 	    
 	    <!--div class="card">
 	      <div class="card-header">
