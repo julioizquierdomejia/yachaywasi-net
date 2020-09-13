@@ -56,61 +56,103 @@ $anio = $tema->date->year;
 
 	    @if ( $tema->homework != null || $tema->urldrive != null || $tema->urlpdf != null)
 
-	    <div class="row">
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <h5 class="card-title">Special title treatment</h5>
-		        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-		        <a href="#" class="btn btn-primary">Go somewhere</a>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-sm-6">
-		    <div class="card">
-		      <div class="card-body">
-		        <h5 class="card-title">Special title treatment</h5>
-		        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-		        <a href="#" class="btn btn-primary">Go somewhere</a>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+	    
+	    <!-- skjdfhsjdfhshdfhdjfg -->
+	    <h5 class="mt-3">Material de Apoyo</h5>
+	    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+	    	@if($tema->homework != null)
+	    		<div class="col mb-4">
+		            <div class="card">
+		              <!-- card Body -->
+		              <div class="card-body text-center mt-3">
+		                <a href="{{ $tema->homework }}" type="button" class="">
+		                	<img src="{{ asset('images/icon-google-forms.png') }}" width="64px;">
+		                </a>
+		              </div>
+		              <!-- end card Body -->
+		              <!-- card Footer -->
+		              <div class="card-footer ">
+		                <hr>
+		                <div class="stats text-primary">
+		                  <i class="fas fa-book-reader text-danger"></i>
+		                  Vence el - {{$tema->fecha_vencimiento->format('d-m-Y')}}
+		                </div>
+		              </div>
+		              <!-- end card Footer -->
+		            </div>
+		          </div>
+			@endif
 
-		
-	    	<div class="card">
-	          <div class="card-header">
-	            <h4 class="card-title"> Material de Apoyo</h4>
-	            	<div class="card-body">
-					@if($tema->homework != null)
-						<div>
-							<p>Para resolver el siguiente formulario hacer click en el boton</p>
-		            		<a href="{{ $tema->homework }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Tarea</a>
-		            	</div>
-		            	<hr>
-					@endif
-					@if($tema->urldrive != null)
-						<div>
-							<p>Abrir el material de Apoyo</p>
-		            		<a href="{{ $tema->urldrive }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Ver archivo Drive</a>
-		            	</div>
-		            	<hr>
-					@endif
-					@if($tema->urlpdf != null)
-						<div>
-							<a href="{{ $tema->urlpdf }}" type="button" class="btn btn-primary"><i class="fas fa-book-reader"></i> - Ver PDF</a>
-						</div>
-					@endif
+			@if($tema->urldrive != null)
+	    		<div class="col mb-4">
+		            <div class="card">
+		              <!-- card Body -->
+		              <div class="card-body text-center mt-3">
+		                <a href="{{ $tema->urldrive }}" type="button" class="">
+		                	<img src="{{ asset('images/logo_drive.png') }}" width="64px;">
+		                </a>
+		              </div>
+		              <!-- end card Body -->
+		              <!-- card Footer -->
+		              <div class="card-footer ">
+		                <hr>
+		                <div class="stats text-primary">
+		                  <i class="fas fa-book-reader text-danger"></i>
+		                  Ver archivo
+		                </div>
+		              </div>
+		              <!-- end card Footer -->
+		            </div>
+		          </div>
+			@endif
 
-					</div>
+			@if($tema->urlpdf != null)
+	    		<div class="col mb-4">
+		            <div class="card">
+		              <!-- card Body -->
+		              <div class="card-body text-center mt-3">
+		                <a href="{{ $tema->urlpdf }}" type="button" class="">
+		                	<img src="{{ asset('images/logo_pdf.png') }}" width="64px;">
+		                </a>
+		              </div>
+		              <!-- end card Body -->
+		              <!-- card Footer -->
+		              <div class="card-footer ">
+		                <hr>
+		                <div class="stats text-primary">
+		                  <i class="fas fa-book-reader text-danger"></i>
+		                  Desacrgar PDF
+		                </div>
+		              </div>
+		              <!-- end card Footer -->
+		            </div>
+		          </div>
+			@endif
 
-					<div class="card-footer">
-						<hr>
-				        Fecha de vencimiento para la Tarea : {{$tema->fecha_vencimiento}}
-				    </div>
+			@if($tema->zoom != null)
+	    		<div class="col mb-4">
+		            <div class="card">
+		              <!-- card Body -->
+		              <div class="card-body text-center mt-3">
+		                <a href="{{ $tema->zoom }}" type="button" class="">
+		                	<img src="{{ asset('images/logo_zoom.png') }}" width="64px;">
+		                </a>
+		              </div>
+		              <!-- end card Body -->
+		              <!-- card Footer -->
+		              <div class="card-footer ">
+		                <hr>
+		                <div class="stats text-primary">
+		                  <i class="fas fa-book-reader text-danger"></i>
+		                  Ingresar el : {{$tema->date->format('d-m-Y')}}
+		                </div>
+		              </div>
+		              <!-- end card Footer -->
+		            </div>
+		          </div>
+			@endif
 
-	           </div>
-	         </div>
+      </div>
 	    @else
 
 	    @endif
