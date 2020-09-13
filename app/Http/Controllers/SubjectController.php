@@ -53,6 +53,21 @@ class SubjectController extends Controller
         $subject->link_youtube = $request->input('link_youtube');
         $subject->file_drive = $request->input('file_drive');
         $subject->file_drive_second = $request->input('file_drive_second');
+        $subject->urldrive = $request->input('urldrive');
+        $subject->urlpdf = $request->input('urlpdf');
+        $subject->homework = $request->input('homework');
+        $subject->zoom = $request->input('zoom');
+
+
+        if ($request->input('homework') != null){
+            if ($request->input('fecha_vencimiento') == null){
+                $fecha_generada = strtotime($request->input('date')."+ 2 days");
+                $subject->fecha_vencimiento = $fecha_generada;
+            }else{
+                $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
+            }
+        }
+
         $subject->status = 1;
 
         
@@ -193,7 +208,17 @@ class SubjectController extends Controller
 
         $level_course_id = $subject->level_course_id;
 
-        $subject->fill($request->all());
+        //$subject->fill($request->all());
+        $subject->fill($request->except('fecha_vencimiento'));
+
+        if ($request->input('homework') != null){
+            if ($request->input('fecha_vencimiento') == null){
+                $fecha_generada = strtotime($request->input('date')."+ 2 days");
+                $subject->fecha_vencimiento = $fecha_generada;
+            }else{
+                $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
+            }
+        }
 
         //$subject->update($request->all());       
 

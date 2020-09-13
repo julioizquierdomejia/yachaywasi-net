@@ -8,9 +8,9 @@ class Subject extends Model
 {
     //
 
-    protected $dates = ['date'];
+    protected $dates = ['date', 'fecha_vencimiento'];
 
     protected $fillable = [
-        'bimester', 'unit', 'name', 'position', 'link_youtube', 'date',
+        'bimester', 'unit', 'name', 'position', 'link_youtube', 'date', 'urldrive', 'urlpdf', 'homework', 'fecha_vencimiento', 'zoom',
     ];
 }
