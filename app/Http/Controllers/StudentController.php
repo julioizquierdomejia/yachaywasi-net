@@ -78,6 +78,8 @@ class StudentController extends Controller
      */
     public function show($user_id)
     {
+
+
         $alumno = User::findOrFail((int) $user_id);
         /*$degree_level_users = User::where('users.id', $user_id)
                 ->join('degree_level_users', 'degree_level_users.user_id','users.id')
@@ -95,6 +97,8 @@ class StudentController extends Controller
         
         $levelDegrees = DegreeLevelUser::where('user_id',$user_id)->get();
 
+        $niveles = Level::all();
+
         if ($levelDegrees->first()->count()) {
             $level = $levelDegrees->first()->level->name;
             $degree = $levelDegrees->first()->degree->name;
@@ -110,7 +114,7 @@ class StudentController extends Controller
                     ->join('courses', 'courses.user_id','users.id')
                     ->get();*/
 
-        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level'));
+        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles'));
     }
 
     /**

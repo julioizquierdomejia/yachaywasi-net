@@ -177,6 +177,15 @@
         "pagingType": "full_numbers"
     } );
 
+    $('#table_studens').DataTable( {
+        "pagingType": "full_numbers",
+        "paging":   false,
+        "ordering": false,
+        "info":     false,
+        "dom": '<"top"i>ll<"top"flp><"clear">'
+    } );
+
+
 
 
 

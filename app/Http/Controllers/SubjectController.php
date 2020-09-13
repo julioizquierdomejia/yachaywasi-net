@@ -120,8 +120,8 @@ class SubjectController extends Controller
                 ->distinct('subjects.bimester')
                 ->distinct('subjects.unit')
                 ->where('degree_level_courses.id', $course_id)->get();
-        
-        
+
+
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current'));
         
     }

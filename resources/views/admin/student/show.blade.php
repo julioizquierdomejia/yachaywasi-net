@@ -10,10 +10,10 @@
 		      <div class="card-header">
 		      	<h5 class="card-title">Registrar Alumno</h5>
 		      </div>
-
 		      <div class="card-body">
-		        <form class="form-group" method="POST" action="/user" enctype="multipart/form-data">
-					@csrf
+		        <form class="form-group" method="POST" action="/user/{{$alumno->id}}" enctype="multipart/form-data">
+		        	@method('PUT')
+					@csrf	
 		          <div class="row">
 		            <div class="col-md-12 pr-1">
 		              <div class="form-group">
@@ -27,7 +27,6 @@
 		          	<div class="col-md-4 pr-1">
 		              <div class="form-group">
 		                <label for="exampleInputEmail1">Contraseña</label>
-		                <input type="password" name="password" placeholder="Ingrese contraseña" class="form-control mb-2">
 		              </div>
 		            </div>
 		            <div class="col-md-4">
@@ -71,6 +70,28 @@
 		              </div>
 		            </div>
 		          </div>
+
+		          <!-- Inicio CARDS -->
+					<!-- Grilla de Niveles / Para asginar Grados -->
+					<div class="row row-cols-1 row-cols-md-3">
+						@foreach ($niveles as $nivel)
+						  <div class="col mb-4">
+						    <div class="card">
+						      <div class="card-body">
+						        <h5 class="card-title">Nivel - {{$nivel->name}}</h5>
+						        @foreach ($nivel->degrees as $grado)
+						        <div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" name="grades[]" value="{{ $nivel->id }}_{{ $grado->id }}" id="level_{{ $nivel->id}}_grade_{{ $grado->id }}">
+								  <label class="custom-control-label" for="level_{{ $nivel->id}}_grade_{{ $grado->id }}">{{$grado->name}}</label>
+								</div>
+								@endforeach
+						      </div>
+						    </div>
+						  </div>
+						 @endforeach
+					</div>
+
+					<!-- Fin CARDS -->
 
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">
