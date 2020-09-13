@@ -360,23 +360,8 @@
         </div>
       </div>
   </div>
-  <!--
-      <div class="row">
-        <div class="col">
-          <ul class="list-unstyled">
-          @foreach($cursos as $curso)
-            @foreach($curso as $curso_item)
-              <li><h5><a href="{{route('vertemas', ['course_id'=>$curso_item->dlc_id])}}">{{$curso_item->course_name}}</a></h5></li>
-            @endforeach
-          @endforeach
-          </ul>
-        </div>
-      </div>
-    @endif
-  -->
-
-    <!-- FIN DE la vista Dashboard para ALUMNO --> 
-
+  
+@endif
 @endif
 
 

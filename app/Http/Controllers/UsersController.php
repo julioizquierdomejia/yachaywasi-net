@@ -208,102 +208,170 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
 
+        if($request->role_id == 'lector'){
+          $user->fill($request->except('avatar'));
 
-        //lo primero que debemos hacer es
-        //rellenar los campos con todo lo que viene del formulario
-        //menos el avatar
+          if ($request->hasFile('avatar')) {
 
-        $user->fill($request->except('avatar'));
+              $current_avatar = public_path().'/images/avatar/'.$user->avatar;
+              if (@getimagesize($current_avatar)) {
+                  unlink($current_avatar);
+              }
+              
+              //preguntamos si este usuario ya tiene una foto
+              //en la carpeta public
+              $current_avatar = public_path().'/images/avatar/'.$user->avatar;
 
-        if ($request->hasFile('avatar')) {
+              //guardamos el archivo en uan variable
+              $file = $request->file('avatar');
+              //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
+              $name = time().'_'.$file->getClientOriginalName();
+              //aqui le damos al campo avatar el nombre para que lo grabe
+              $user->avatar = $name;
+              //ahora para subirlo a nuestra aplicacion hay que moverlo 
+              //a nuestra carpeta publica public_path()
+              $file->move(public_path().'/images/avatar/', $name);
+          }
 
-            $current_avatar = public_path().'/images/avatar/'.$user->avatar;
-            if (@getimagesize($current_avatar)) {
-                unlink($current_avatar);
+
+
+          $levelGrades = $request->grades;
+
+          $degreeLevelUsers = DegreeLevelUser::where('user_id',$user->id)->get();
+
+          foreach($degreeLevelUsers as $degreeLevelUser){
+            DegreeLevelUser::destroy($degreeLevelUser->id);
+          }
+
+          if($levelGrades){
+            foreach ($levelGrades as $levelGrade) {
+
+                $levelGradeExplode =  explode('_', $levelGrade);
+                DegreeLevelUser::create([
+                  'user_id'=>$user->id,
+                  'level_id'=>$levelGradeExplode[0],
+                  'degree_id'=>$levelGradeExplode[1]
+                ]);
             }
-            
-            //preguntamos si este usuario ya tiene una foto
-            //en la carpeta public
-            $current_avatar = public_path().'/images/avatar/'.$user->avatar;
+          }
 
-            //guardamos el archivo en uan variable
-            $file = $request->file('avatar');
-            //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
-            $name = time().'_'.$file->getClientOriginalName();
-            //aqui le damos al campo avatar el nombre para que lo grabe
-            $user->avatar = $name;
-            //ahora para subirlo a nuestra aplicacion hay que moverlo 
-            //a nuestra carpeta publica public_path()
-            $file->move(public_path().'/images/avatar/', $name);
-            
-        }
+          $user->save();
+
+          //y retornamos una vista
+          $users = User::orderBy('id', 'asc')->get();
+
+          return redirect('/student');
+        }else{
+          //lo primero que debemos hacer es
+          //rellenar los campos con todo lo que viene del formulario
+          //menos el avatar
+
+          $user->fill($request->except('avatar'));
+
+          if ($request->hasFile('avatar')) {
+
+              $current_avatar = public_path().'/images/avatar/'.$user->avatar;
+              if (@getimagesize($current_avatar)) {
+                  unlink($current_avatar);
+              }
+              
+              //preguntamos si este usuario ya tiene una foto
+              //en la carpeta public
+              $current_avatar = public_path().'/images/avatar/'.$user->avatar;
+
+              //guardamos el archivo en uan variable
+              $file = $request->file('avatar');
+              //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
+              $name = time().'_'.$file->getClientOriginalName();
+              //aqui le damos al campo avatar el nombre para que lo grabe
+              $user->avatar = $name;
+              //ahora para subirlo a nuestra aplicacion hay que moverlo 
+              //a nuestra carpeta publica public_path()
+              $file->move(public_path().'/images/avatar/', $name);
+              
+          }
 
 
-        //luego grabamos todo lo rellenado
-        //$user->save();
+          $levelGrades = $request->grades;
 
-        // Asociar Usuario -Nivel - Grado con cursos
-        $courses = $request->courses;
-        $coursesFound = [];
-        $coursesNotFound = [];
-        $userLevelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
+          if($levelGrades){
+            foreach ($levelGrades as $levelGrade) {
+                $levelGradeExplode =  explode('_', $levelGrade) ;
+                DegreeLevelUser::create([
+                  'user_id'=>$users->id,
+                  'level_id'=>$levelGradeExplode[0],
+                  'degree_id'=>$levelGradeExplode[1]
+                ]);
+            }
+          }
 
-        if($courses){
-          foreach ($courses as $course) {
-            $degreeLevelCourseExplode = explode('_', $course);
-            $degreeLevelCourse =  DegreeLevelCourse::where([
-              'degree_level_id' =>$degreeLevelCourseExplode[0],
-              'course_id'=>$degreeLevelCourseExplode[1]
-            ])->first();
+          //luego grabamos todo lo rellenado
+          //$user->save();
 
-            if(!$degreeLevelCourse){
-              $degreeLevelCourse = DegreeLevelCourse::create([
+          // Asociar Usuario -Nivel - Grado con cursos
+          $courses = $request->courses;
+          $coursesFound = [];
+          $coursesNotFound = [];
+          $userLevelDegrees = DegreeLevelUser::where('user_id',$user->id)->get();
+
+          if($courses){
+            foreach ($courses as $course) {
+              $degreeLevelCourseExplode = explode('_', $course);
+              $degreeLevelCourse =  DegreeLevelCourse::where([
                 'degree_level_id' =>$degreeLevelCourseExplode[0],
                 'course_id'=>$degreeLevelCourseExplode[1]
-              ]);
+              ])->first();
+
+              if(!$degreeLevelCourse){
+                $degreeLevelCourse = DegreeLevelCourse::create([
+                  'degree_level_id' =>$degreeLevelCourseExplode[0],
+                  'course_id'=>$degreeLevelCourseExplode[1]
+                ]);
+              }
+
+              $coursesFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
             }
-
-            $coursesFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
           }
-        }
-        // Eliminar cusros asociados a nivel y grado del usuario, si es que en un primer momento se le asignó cursos y ahora han disminuido
-        if(count($courses) == 0){
-          foreach ($userLevelDegrees as $userLevelDegree) {
-            DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->delete();
+
+          // Eliminar cusros asociados a nivel y grado del usuario, si es que en un primer momento se le asignó cursos y ahora han disminuido
+          if(count($courses) == 0){
+            foreach ($userLevelDegrees as $userLevelDegree) {
+              DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->delete();
+            }
           }
-        }
 
-        if(count($userLevelDegrees) > 0){
-          foreach ($userLevelDegrees as $userLevelDegree) {
-            $degreeLevelCourses = DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->get();
+          if(count($userLevelDegrees) > 0){
+            foreach ($userLevelDegrees as $userLevelDegree) {
+              $degreeLevelCourses = DegreeLevelCourse::where('degree_level_id',$userLevelDegree->id)->get();
 
-            foreach ($degreeLevelCourses as $degreeLevelCourse) {
-              $isFound = false;
+              foreach ($degreeLevelCourses as $degreeLevelCourse) {
+                $isFound = false;
 
-              foreach ($coursesFound as $course) {
-                if(key($course) == $degreeLevelCourse->degree_level_id && $course[key($course)] == $degreeLevelCourse->course_id){
-                  $isFound = true;
+                foreach ($coursesFound as $course) {
+                  if(key($course) == $degreeLevelCourse->degree_level_id && $course[key($course)] == $degreeLevelCourse->course_id){
+                    $isFound = true;
+                  }
+                }
+
+                if(!$isFound){
+                  $coursesNotFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
                 }
               }
+            }
 
-              if(!$isFound){
-                $coursesNotFound[][$degreeLevelCourse->degree_level_id] = $degreeLevelCourse->course_id;
+            if(count($coursesNotFound) > 0 ){
+              foreach ($coursesNotFound as $course) {
+                DegreeLevelCourse::where(['degree_level_id'=>key($course),'course_id'=>$course[key($course)]])->delete();
               }
             }
           }
 
-          if(count($coursesNotFound) > 0 ){
-            foreach ($coursesNotFound as $course) {
-              DegreeLevelCourse::where(['degree_level_id'=>key($course),'course_id'=>$course[key($course)]])->delete();
-            }
-          }
+          //y retornamos una vista
+          $users = User::orderBy('id', 'asc')->get();
+
+          //return view('admin.users.index', ['$users' => $users]);
+          return redirect('/user')->with('status','El Registro se actualizo correctamente');
         }
-
-        //y retornamos una vista
-        $users = User::orderBy('id', 'asc')->get();
-
-        //return view('admin.users.index', ['$users' => $users]);
-        return redirect('/user')->with('status','El Registro se actualizo correctamente');
 
     }
 

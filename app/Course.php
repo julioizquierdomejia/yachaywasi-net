@@ -53,6 +53,9 @@ class Course extends Model
         return $this->belongsToMany('App\Degree', 'course_degree_level_user');
     }
 
+    public function testing(){
+        return 'mensaje de prueba';
+    }
 
     public function verifyCourseInLevelDegree($userId,$levelId,$degreeId){
         $courseId = $this->attributes['id'];

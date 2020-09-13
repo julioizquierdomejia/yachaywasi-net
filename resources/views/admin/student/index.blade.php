@@ -120,45 +120,47 @@
                 <h4 class="card-title">Listado general de Alumnos</h4>
               </div>
               <div class="card-body">
-                <ul class="list-unstyled team-members">
-                	@foreach ($alumnos as $alumno)
-	                  <li>
-	                  	<div>
-	                  	</div>
-	                    <div class="row">
-	                      <div class="col-md-2 col-2">
-	                        <div class="avatar">
-	                        	@if($alumno->avatar == null)
-	                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
-	                        	@else
-	                        		<img src="images/avatar/{{ $alumno->avatar }}" class="img-circle img-no-padding img-responsive">
-	                        	@endif
-
-	                          
-	                        </div>
-	                      </div>
-	                      <div class="col-md-7 col-7">
-	                        {{ $alumno->name }}
-	                        <br />
-	                        <span class="text-muted"><small>{{ $alumno->classroom }}</small></span>
-	                      </div>
-	                      <div class="col-md-3 col-3 text-right">
-	                      	<a href="{{ route('student.show', $alumno->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
-	                      		<i class="far fa-edit"></i>
-	                      	</a>
-	                        <!--form class="form-group d-inline" method="POST" action="/user/{{$alumno->id}}" id="form-delete-user">
-						      	@csrf
-								@method('DELETE')
-								<button type="button" class="btn btn-sm btn-outline-danger btn-round btn-icon" data-toggle="modal" data-target="#exampleModalCenter">
-									<i class="far fa-trash-alt"></i>
-								</button>
-						    </form-->
-	                        
-	                      </div>
-	                    </div>
-	                  </li>
-                  @endforeach
-                </ul>
+              	<div class="list-unstyled team-members">
+              		<table class="table display list-unstyled team-members" id="table_studens">
+	              		<thead class=" text-primary">
+	                      <th>
+	                        Imagen
+	                      </th>
+	                      <th>
+	                        Nombre
+	                      </th>
+	                      <th>
+	                        Tool
+	                      </th>
+	                    </thead>
+	                    <tbody>
+	                      
+	                      @forelse($alumnos as $alumno)
+	                        <tr>
+	                          <td><b>
+		                          	@if($alumno->avatar == null)
+		                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
+		                        	@else
+		                        		<img src="images/avatar/{{ $alumno->avatar }}" class="img-circle img-no-padding img-responsive">
+		                        	@endif
+	                          </b></td>
+	                          <td>
+	                          	{{ $alumno->name }}
+	                          	<br />
+		                        <span class="text-muted"><small>{{ $alumno->classroom }}</small></span>
+	                          </td>
+	                          <td><a href="{{ route('student.show', $alumno->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
+		                      		<i class="far fa-edit"></i></td>
+	                        </tr>
+	                      @empty
+	                        <tr>
+	                          <td colspan="4" class="text-center">No existen datos</td>
+	                        </tr>
+	                      @endforelse
+	                    </tbody>
+	              	</table>
+              	</div>
+              	
               </div>
             </div>
 		</div>
