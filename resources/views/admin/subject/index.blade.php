@@ -154,10 +154,10 @@
                       <th>
                         TEMA
                       </th>
-                      <th class="d-none d-sm-block">
+                      <th class="d-none d-sm-inline-block">
                         Fecha del Tema
                       </th>
-                      <th class="d-none d-sm-block">
+                      <th class="d-none d-sm-inline-block">
                         Tools
                       </th>
                     </thead>
@@ -167,7 +167,9 @@
 
                         <tr>
                           <td class="d-none d-sm-block">
-                            <b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
+                            <b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b>
+                          </td>
+                          
                           <td>
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="text-dark ml-3" data-toggle="tooltip" title="Ver Tema">{{ $subject->name }}</a>
 
@@ -176,7 +178,7 @@
                             @endif
 
                             @if( $subject->homework != null)
-                              <img src="{{ asset('images/logo_zoom.png') }}" width="20px;">
+                              <img src="{{ asset('images/icon-google-forms.png') }}" width="20px;">
                             @endif
 
                             @if( $subject->urlpdf != null)
@@ -186,15 +188,16 @@
                             @if( $subject->urldrive != null)
                               <img src="{{ asset('images/logo_drive.png') }}" width="20px;">
                             @endif
-                            
                           </td>
-                          <td class="d-none d-sm-block">{{ $subject->date }}</td>
-                          <td class="d-none d-sm-block">
+
+                          <td class="d-none d-sm-inline-block">{{ $subject->date }}</td>
+                          
+                          <td class="d-none d-sm-inline-block">
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
 
                             <a href=" {{ route('temaedit', $subject->id) }} " class="btn btn-danger button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a>
-
                           </td>
+
                         </tr>
                       @empty
                         <tr>
