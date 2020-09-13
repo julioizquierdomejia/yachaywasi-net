@@ -55,6 +55,29 @@ $anio = $tema->date->year;
 
 
 	    @if ( $tema->homework != null || $tema->urldrive != null || $tema->urlpdf != null)
+
+	    <div class="row">
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <h5 class="card-title">Special title treatment</h5>
+		        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		        <a href="#" class="btn btn-primary">Go somewhere</a>
+		      </div>
+		    </div>
+		  </div>
+		  <div class="col-sm-6">
+		    <div class="card">
+		      <div class="card-body">
+		        <h5 class="card-title">Special title treatment</h5>
+		        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+		        <a href="#" class="btn btn-primary">Go somewhere</a>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+		
 	    	<div class="card">
 	          <div class="card-header">
 	            <h4 class="card-title"> Material de Apoyo</h4>
@@ -83,7 +106,7 @@ $anio = $tema->date->year;
 
 					<div class="card-footer">
 						<hr>
-				        footer
+				        Fecha de vencimiento para la Tarea : {{$tema->fecha_vencimiento}}
 				    </div>
 
 	           </div>
