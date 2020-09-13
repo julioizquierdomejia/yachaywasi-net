@@ -148,16 +148,16 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th class="d-none">
+                      <th class="d-none d-sm-block">
                         Numero del tema
                       </th>
                       <th>
                         TEMA
                       </th>
-                      <th class="d-none">
+                      <th class="d-none d-sm-block">
                         Fecha del Tema
                       </th>
-                      <th class="d-none">
+                      <th class="d-none d-sm-block">
                         Tools
                       </th>
                     </thead>
@@ -166,7 +166,7 @@
                       @forelse($subjects as $subject)
 
                         <tr>
-                          <td class="d-none">
+                          <td class="d-none d-sm-block">
                             <b>Bimestre-{{ $subject->bimester  }}</b> / <b>Unidad-{{ $subject->unit  }}</b> / <b>TEMA-{{ $subject->position  }}</b></td>
                           <td>
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="text-dark ml-3" data-toggle="tooltip" title="Ver Tema">{{ $subject->name }}</a>
@@ -188,8 +188,8 @@
                             @endif
                             
                           </td>
-                          <td class="d-none">{{ $subject->date }}</td>
-                          <td class="d-none">
+                          <td class="d-none d-sm-block">{{ $subject->date }}</td>
+                          <td class="d-none d-sm-block">
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
 
                             <a href=" {{ route('temaedit', $subject->id) }} " class="btn btn-danger button-tooltip" data-toggle="tooltip" title="Editar Curso"><i class="far fa-edit"></i></a>
