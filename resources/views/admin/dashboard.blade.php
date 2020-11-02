@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Dashborad - Yachaywasi
+@endsection
+
 @section('content')
 
   @if ( Auth::user()->status == 0)
