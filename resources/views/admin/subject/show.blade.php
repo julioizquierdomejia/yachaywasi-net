@@ -22,7 +22,7 @@ $anio = $tema->date->year;
 <div class="row">
 	<div class="col-6">
 		<div class="embed-responsive embed-responsive-16by9">
-		  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
+		  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
 		  <!--iframe width="1070" height="602" src="https://www.youtube.com/embed/4xCtUN0XhQw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe-->
 		<!--
 		  https://www.youtube.com/embed/4xCtUN0XhQw
