@@ -37,7 +37,7 @@ Coded by www.creative-tim.com
 <body class="">
   <div class="wrapper ">
     <!--<div class="sidebar" data-background-color="black" data-active-color="warning">-->
-    <div class="sidebar" data-color="black" data-active-color="warning">
+    <div class="sidebar bg-primary" data-color="black" data-active-color="warning">
       <div class="logo">
         <a href="https://www.creative-tim.com" class="simple-text logo-mini">
           <!-- <div class="logo-image-small">
@@ -55,7 +55,7 @@ Coded by www.creative-tim.com
 
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <!--li class="active ">
             <a href="{{ route('login') }}">
               <i class="nc-icon nc-single-02"></i>
               <p>Login</p>
@@ -66,7 +66,7 @@ Coded by www.creative-tim.com
               <i class="nc-icon nc-diamond"></i>
               <p>Registro</p>
             </a>
-          </li>
+          </li-->
         </ul>
       </div>
     </div>
