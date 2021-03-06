@@ -149,7 +149,7 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <th class="d-none d-sm-block">
-                        Numero del tema
+                        Número del tema
                       </th>
                       <th>
                         TEMA

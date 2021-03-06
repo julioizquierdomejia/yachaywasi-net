@@ -19,7 +19,7 @@
                   <table class="table display" id="table_subjects">
                     <thead class=" text-primary">
                       <th>
-                        Numero del tema
+                        Número del tema
                       </th>
                       <th>
                         TEMA

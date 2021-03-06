@@ -7,19 +7,16 @@ use Illuminate\Http\Request;
 use App\DegreeLevelCourse;
 use App\DegreeLevelUser;
 use App\Subject;
+use App\SubjectView;
 use App\Course;
 use App\Http\Requests\SubjectRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-
-
 class SubjectController extends Controller
 {
     public function index($id)
     {
-
-
         $idUser = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $idUser);
 
@@ -143,16 +140,35 @@ class SubjectController extends Controller
 
     public function detail($subject_id)
     {
-
-
         $tema = Subject::findOrFail($subject_id);
 
+        $user_role = \Auth::user()->roles()->first();
+        if ($user_role) {
+            $now = Carbon::now();
+            $now_date = $now->format('Y-m-d');
+            if ($user_role->name == 'lector') {
+                $subject_viewed = SubjectView::where('user_id', \Auth::id())->first();
+                if ($subject_viewed) {
+                    $subject_viewed->views++;
+                    $subject_viewed->updated_at = $now;
+                    $subject_viewed->save();
+                } else {
+                    $subject_view = SubjectView::create([
+                        'subject_id' => $subject_id,
+                        'user_id' => \Auth::id(),
+                        'at_time' => $tema->date->format('Y-m-d') == $now_date ? 'P' : 'F',
+                        'views' => 1,
+                    ]);
+                }
+            }
+        }
+
+
         /*
-        $user_id = \Auth::user()->id;
-        /*$user_id = \Auth::user()->id;
+        /*$user_id = \Auth::id();
         $dataClient = new Client;
         $dataClient->tema_id = $tema->id;
-        $dataClient->user_id = \Auth::user()->id;
+        $dataClient->user_id = $user_id;
         $dataClient->date = date('Y-m-d');
         $dataClient->hour = date('H:i:s');
         $dataClient->save();*/
@@ -179,7 +195,7 @@ class SubjectController extends Controller
 
         $videoKey = YoutubeID($video);
 
-        return view('admin.subject.detail', compact('tema', 'videoKey'));
+        return view('admin.subject.detail', compact('tema', 'videoKey', 'user_role'));
     }
 
     

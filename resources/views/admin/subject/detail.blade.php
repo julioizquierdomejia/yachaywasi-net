@@ -151,16 +151,10 @@ $anio = $tema->date->year;
 		            </div>
 		          </div>
 			@endif
-
       </div>
 	    @else
 
 	    @endif
-
-
-	    
-
-	    
 	    <!--div class="card">
 	      <div class="card-header">
 	        <h4 class="card-title">Mensajes</h4>
@@ -199,9 +193,29 @@ $anio = $tema->date->year;
 	    </div>
 	  </div>
 	</div>
+
+	@if ($user_role->name == 'editor')
+	<div class="col-12">
+		<h5 class="h6">Alumnos que vieron el tema</h5>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Alumno</th>
+					<th>Asistencia</th>
+					<th>Veces visto</th>
+				</tr>
+			</thead>
+			<tbody>
+			@foreach ($tema->views as $item)
+			<tr>
+				<td class="mb-0">{{$item->user->name}}</td>
+				<td>{!!$item->at_time == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Fató</span>' !!}</td>
+				<td>{{$item->views}}</td>
+			</tr>
+			@endforeach
+			</tbody>
+		</table>
+	@endif
+	</div>
 </div>
-
-
-
-
 @endsection
