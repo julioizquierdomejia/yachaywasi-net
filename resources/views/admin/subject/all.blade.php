@@ -1,7 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-
+@php
+  //array de Meses
+  $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  $dias = [
+    0=>'Domingo',
+    1=>'Lunes', 
+    2=>'Martes', 
+    3=>'Miércoles', 
+    4=>'Jueves', 
+    5=>'Viernes', 
+    6=>'Sábado'
+  ];
+@endphp
 <div class="container-fluid bg-light p-5">
 	
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
@@ -38,18 +50,6 @@
                       
                       @forelse($temas as $tema)
                         <?php
-                          //array de Meses
-                          $meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                          $dias = [
-                            0=>'Domingo',
-                            1=>'Lunes', 
-                            2=>'Martes', 
-                            3=>'Miércoles', 
-                            4=>'Jueves', 
-                            5=>'Viernes', 
-                            6=>'Sábado'
-                          ];
-
                           $diaDeSemana = $dias[ $tema->date->dayOfWeek ];
                           $dia = $tema->date->day;
                           $mes = $tema[ $tema->date->month -1 ];

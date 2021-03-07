@@ -18,4 +18,9 @@ class Subject extends Model
     {
         return $this->hasMany('App\SubjectView', 'subject_id');
     }
+
+    public function user_views()
+    {
+    	return $this->views()->where('user_id', auth()->id());
+    }
 }

@@ -87,8 +87,6 @@ class SubjectController extends Controller
 
     public function show($course_id)
     {
-
-
         //aqui obtengo datos para el nombre del curso actual
         $temaCurrent = DB::table('subjects')
                         //->where('subjects.id', $course_id)->first();

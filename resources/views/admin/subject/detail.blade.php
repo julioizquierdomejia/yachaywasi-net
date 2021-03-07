@@ -209,7 +209,7 @@ $anio = $tema->date->year;
 			@foreach ($tema->views as $item)
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
-				<td>{!!$item->at_time == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Fató</span>' !!}</td>
+				<td>{!!$item->at_time == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
 				<td>{{$item->views}}</td>
 			</tr>
 			@endforeach

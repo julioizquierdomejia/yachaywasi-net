@@ -195,7 +195,7 @@
 
                           </td>
 
-                          <td class="d-none d-sm-inline-block">{{ $subject->date }}</td>
+                          <td class="d-none d-sm-inline-block">{{ $subject->date->format('d-m-Y') }}</td>
                           
                           <td class="d-none d-sm-inline-block">
                             <a href=" {{ route('temadetalle', $subject->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
