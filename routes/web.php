@@ -24,6 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/subject/all', 'SubjectController@all')->name('subject.all');
 
 Route::resource('messages', 'MessagesController');
+Route::get('messages/{tema_id}/list', [App\Http\Controllers\MessagesController::class, 'list'])->name('messages.list');
+Route::post('messages/{student_id}/{docente_id}', [App\Http\Controllers\MessagesController::class, 'store'])->name('messages.store');
 
 Route::middleware(['auth'])->group(function () {
 	Route::resource('user', 'UsersController');

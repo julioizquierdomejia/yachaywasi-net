@@ -52,7 +52,9 @@ $anio = $tema->date->year;
 	    </div>
 	    @endif
 
-
+	    <div class="buttons">
+	    	<button class="btn btn-light btnAddComment" data-docenteid="{{$tema->user_id}}" data-temaid="{{$tema->id}}" type="button"><i class="fa fa-comments"></i></button>
+	    </div>
 
 	    @if ( $tema->homework != null || $tema->urldrive != null || $tema->urlpdf != null)
 
