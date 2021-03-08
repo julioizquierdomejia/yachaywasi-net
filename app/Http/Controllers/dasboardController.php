@@ -77,8 +77,11 @@ class dasboardController extends Controller
         
         $degreeLevelUser = DegreeLevelUser::where('user_id',$id)->get();
 
+        //Page title
+        $title = 'Mis Cursos';
+
     	//llamamos a todos los docentes relacionados con este colegio
-    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser', 'alumnos', 'userAuth', 'temas_total'));
+    	return view('admin.dashboard', compact('docentes', 'cursos','degreeLevelUser', 'alumnos', 'userAuth', 'temas_total', 'title'));
 
     }
 }

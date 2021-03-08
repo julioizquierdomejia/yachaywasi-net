@@ -55,7 +55,7 @@
   }
   .dataTable.comments_dt tbody tr:before {
     content: '';
-    font-family: "Font Awesome 5 Pro";
+    font-family: "FontAwesome";
     font-weight: 900;
     font-size: 22px;
     line-height: 20px;
@@ -83,7 +83,7 @@
   .dataTable.comments_dt tbody .row-other:before {
     color: #fff;
     left: -4px;
-    top: -8px;
+    top: -7px;
     content: "\F0D9";
     transform: rotate(135deg);
   }

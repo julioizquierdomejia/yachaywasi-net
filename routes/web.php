@@ -12,22 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('auth.login');
+Route::middleware(['guest'])->group(function () {
+	Route::get('/', function () {
+	    return view('auth.login');
+	});
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/subject/all', 'SubjectController@all')->name('subject.all');
-
-Route::resource('messages', 'MessagesController');
-Route::get('messages/{tema_id}/list', [App\Http\Controllers\MessagesController::class, 'list'])->name('messages.list');
-Route::post('messages/{student_id}/{docente_id}', [App\Http\Controllers\MessagesController::class, 'store'])->name('messages.store');
-
 Route::middleware(['auth'])->group(function () {
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::get('/subject/all', 'SubjectController@all')->name('subject.all');
+
+	Route::resource('messages', 'MessagesController');
+	Route::get('messages/{tema_id}/list', [App\Http\Controllers\MessagesController::class, 'list'])->name('messages.list');
+	Route::post('messages/{student_id}/{docente_id}', [App\Http\Controllers\MessagesController::class, 'store'])->name('messages.store');
 	Route::resource('user', 'UsersController');
 
 	Route::resource('student', 'StudentController');

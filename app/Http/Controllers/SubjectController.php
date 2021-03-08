@@ -27,9 +27,10 @@ class SubjectController extends Controller
                 ->orderBy('position', 'desc')
                 ->get();
                         //->where('status', 1)
-        // Comentario de prueba
+        // Page title
+        $title = 'Curso ' . $course->course->name;
 
-        return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth'));
+        return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth', 'title'));
     }
 
     public function store(SubjectRequest $request)
@@ -131,8 +132,9 @@ class SubjectController extends Controller
                 ->distinct('subjects.unit')
                 ->where('degree_level_courses.id', $course_id)->get();
 
+        $title = 'Tema ' . $temaCurrent->name;
 
-        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current'));
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title'));
         
     }
 
@@ -192,8 +194,9 @@ class SubjectController extends Controller
         
 
         $videoKey = YoutubeID($video);
+        $title = 'Tema: ' . $tema->name;
 
-        return view('admin.subject.detail', compact('tema', 'videoKey', 'user_role'));
+        return view('admin.subject.detail', compact('tema', 'videoKey', 'user_role', 'title'));
     }
 
     
@@ -207,8 +210,9 @@ class SubjectController extends Controller
     public function edit($id){
         
         $tema = Subject::findOrFail($id);
+        $title = 'Tema: ' . $tema->name;
 
-        return view('admin.subject.edit')->with(compact('tema'));
+        return view('admin.subject.edit')->with(compact('tema', 'title'));
     }
 
     /**
@@ -249,6 +253,7 @@ class SubjectController extends Controller
     public function all(){
 
         $temas = Subject::all();
+        $title = 'Temas';
 
         /*
         $temas = DB::table('users')
@@ -257,7 +262,7 @@ class SubjectController extends Controller
             ->get();
         */
 
-        return view('admin.subject.all', compact('temas'));
+        return view('admin.subject.all', compact('temas', 'title'));
     }
 
 

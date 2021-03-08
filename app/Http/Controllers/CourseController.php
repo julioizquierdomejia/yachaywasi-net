@@ -21,8 +21,9 @@ class CourseController extends Controller
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
         $cursos = Course::where('user_id',$userAuth->id)->get();
+        $title = 'Cursos';
 
-        return view('admin.course.index', compact('cursos'));
+        return view('admin.course.index', compact('cursos', 'title'));
     }
 
     /**
@@ -83,8 +84,10 @@ class CourseController extends Controller
     {
 
         $competencias = $course->competencie;
+
+        $title = 'Curso '. $course->name;
         
-        return view('admin.course.show', compact('course', 'competencias'));
+        return view('admin.course.show', compact('course', 'competencias', 'title'));
 
         
     }
@@ -98,7 +101,8 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $curso = $course;
-        return view('admin.course.edit', compact('curso'));
+        $title = 'Editar ' . $course->name;
+        return view('admin.course.edit', compact('curso', 'title'));
     }
 
     /**
@@ -153,8 +157,6 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        
-        
         $course->delete();
         return redirect('/course');
     }

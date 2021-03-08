@@ -221,3 +221,6 @@ $anio = $tema->date->year;
 	</div>
 </div>
 @endsection
+@section('script')
+@include('admin.subject.comments')
+@endsection
