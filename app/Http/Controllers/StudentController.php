@@ -45,8 +45,9 @@ class StudentController extends Controller
         //listamos todos los grados de nivel Primaria
         $grados_primaria = Degree::where('level_id','=', 2)->get();
 
+        $title = 'Alumnos';
 
-        return view('admin.student.index',compact('docentes', 'alumnos', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria'));
+        return view('admin.student.index',compact('docentes', 'alumnos', 'userAuth', 'cursos', 'niveles', 'grados', 'grados_inicial', 'grados_primaria', 'title'));
     }
 
     /**
@@ -78,8 +79,6 @@ class StudentController extends Controller
      */
     public function show($user_id)
     {
-
-
         $alumno = User::findOrFail((int) $user_id);
         /*$degree_level_users = User::where('users.id', $user_id)
                 ->join('degree_level_users', 'degree_level_users.user_id','users.id')
@@ -113,8 +112,9 @@ class StudentController extends Controller
         /*$cursos = User::where('users.id', $user_id)
                     ->join('courses', 'courses.user_id','users.id')
                     ->get();*/
+        $title = $alumno->name;
 
-        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles'));
+        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title'));
     }
 
     /**

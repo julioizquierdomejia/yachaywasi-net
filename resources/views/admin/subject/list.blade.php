@@ -19,7 +19,7 @@
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Numero del tema
+                        Número del tema
                       </th>
                       <th>
                         TEMA
@@ -44,8 +44,17 @@
                             </a>
                           </td>
                           <td>{{ $tema->name  }}</td>
-                          <td >{{ $tema->date  }}</td>
-                          <td>Pendiente</td>
+                          <td >{{ $tema->date->format('d-m-Y')  }}</td>
+                          <td>
+                            @if ($userAuth->roles->first()->name == 'lector')
+                            {!! $tema->user_views->count() ? '<span class="badge badge-success px-3">Visto</span>' : '<span class="badge badge-warning px-3">Pendiente</span>' !!}
+                            @else
+                            {{$tema->views->count() . ' veces visto' ?? 'Pendiente'}}
+                            @endif
+                          </td>
+                          @php
+                            
+                          @endphp
                           <td>
                             <a href=" {{ route('temadetalle', $tema->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
                           </td>

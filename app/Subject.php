@@ -13,4 +13,14 @@ class Subject extends Model
     protected $fillable = [
         'bimester', 'unit', 'name', 'position', 'link_youtube', 'date', 'urldrive', 'urlpdf', 'homework', 'fecha_vencimiento', 'zoom',
     ];
+
+    public function views()
+    {
+        return $this->hasMany('App\SubjectView', 'subject_id');
+    }
+
+    public function user_views()
+    {
+    	return $this->views()->where('user_id', auth()->id());
+    }
 }
