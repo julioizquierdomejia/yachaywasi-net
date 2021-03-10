@@ -204,6 +204,7 @@ $anio = $tema->date->year;
 				<tr>
 					<th>Alumno</th>
 					<th>Asistencia</th>
+					<th>Fecha vista</th>
 					<th>Veces visto</th>
 				</tr>
 			</thead>
@@ -212,6 +213,7 @@ $anio = $tema->date->year;
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!$item->at_time == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
+				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
 			@endforeach

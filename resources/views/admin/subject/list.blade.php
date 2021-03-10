@@ -18,21 +18,12 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th>
-                        Número del tema
-                      </th>
-                      <th>
-                        TEMA
-                      </th>
-                      <th>
-                        Fecha del Tema
-                      </th>
-                      <th>
-                      	Estado
-                      </th>
-                      <th>
-                        Tools
-                      </th>
+                      <th>Número del tema</th>
+                      <th>TEMA</th>
+                      <th>Fecha del Tema</th>
+                      <th>Fecha vista</th>
+                      <th>Estado</th>
+                      <th>Tools</th>
                     </thead>
                     <tbody>
                       
@@ -46,15 +37,15 @@
                           <td>{{ $tema->name  }}</td>
                           <td >{{ $tema->date->format('d-m-Y')  }}</td>
                           <td>
+                            {{$tema->user_views->count() ? $tema->user_views->first()->created_at->format('d-m-Y') : ''}}
+                          </td>
+                          <td>
                             @if ($userAuth->roles->first()->name == 'lector')
                             {!! $tema->user_views->count() ? '<span class="badge badge-success px-3">Visto</span>' : '<span class="badge badge-warning px-3">Pendiente</span>' !!}
                             @else
                             {{$tema->views->count() . ' veces visto' ?? 'Pendiente'}}
                             @endif
                           </td>
-                          @php
-                            
-                          @endphp
                           <td>
                             <a href=" {{ route('temadetalle', $tema->id) }} " class="btn btn-warning button-tooltip" data-toggle="tooltip" title="Ver Tema"><i class="fas fa-search"></i></a>
                           </td>
