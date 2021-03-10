@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<?php
+$meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio','Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+$dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+?>
 <div class="container-fluid bg-light p-5">
 	
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
@@ -21,13 +24,33 @@
                       <th>Número del tema</th>
                       <th>TEMA</th>
                       <th>Fecha del Tema</th>
+                      @if ($role == 'lector')
                       <th>Fecha vista</th>
+                      @endif
                       <th>Estado</th>
                       <th>Tools</th>
                     </thead>
                     <tbody>
-                      
                       @forelse($temas as $tema)
+                      @php
+                        $diaDeSemana = $dias[ $tema->date->dayOfWeek ];
+                        $dia = $tema->date->day;
+                        $mes = $meses[ $tema->date->month -1 ];
+                        $anio = $tema->date->year;
+
+                        $tema_date = $diaDeSemana.', '.$dia .' de '. $mes. ' del '. $anio;
+                        $v_date = '<span class="badge badge-warning px-3">Pendiente</span>';
+                      @endphp
+                      @if ($tema->user_views->count())
+                        @php
+                          $tema_v_date = $tema->user_views->first()->created_at;
+                          $diaDeSemana = $dias[ $tema_v_date->dayOfWeek ];
+                          $dia = $tema_v_date->day;
+                          $mes = $meses[ $tema_v_date->month -1 ];
+                          $anio = $tema_v_date->year;
+                          $v_date = $diaDeSemana.', '.$dia .' de '. $mes. ' del '. $anio;
+                        @endphp
+                      @endif
                         <tr>
                           <td>
                             <a href="{{ route('temadetalle', $tema->id) }}">
@@ -35,12 +58,14 @@
                             </a>
                           </td>
                           <td>{{ $tema->name  }}</td>
-                          <td >{{ $tema->date->format('d-m-Y')  }}</td>
+                          <td >{{$tema_date}}</td>
+                          @if ($role == 'lector')
                           <td>
-                            {{$tema->user_views->count() ? $tema->user_views->first()->created_at->format('d-m-Y') : ''}}
+                            {!!$v_date!!}
                           </td>
+                          @endif
                           <td>
-                            @if ($userAuth->roles->first()->name == 'lector')
+                            @if ($role == 'lector')
                             {!! $tema->user_views->count() ? '<span class="badge badge-success px-3">Visto</span>' : '<span class="badge badge-warning px-3">Pendiente</span>' !!}
                             @else
                             {{$tema->views->count() . ' veces visto' ?? 'Pendiente'}}

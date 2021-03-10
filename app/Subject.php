@@ -21,6 +21,15 @@ class Subject extends Model
 
     public function user_views()
     {
-    	return $this->views()->where('user_id', auth()->id());
+        $roles = auth()->user()->roles->first();
+        $role = '';
+        if ($roles) {
+            $role = $roles->name;
+        }
+        if ($role == 'lector') {
+            return $this->views()->where('user_id', auth()->id());
+        } else {
+            return $this->views();
+        }
     }
 }
