@@ -20,7 +20,7 @@ class ScheduleController extends Controller
         $id = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $id);
         $cursos = Course::where('user_id',$userAuth->id)->get();
-        $title = 'Cursos';
+        $title = 'Horario';
 
         //IDS Nivel y grado
         $nivel_id = DB::table('degree_level_users')->where('user_id', $id)->value('level_id');
@@ -34,7 +34,7 @@ class ScheduleController extends Controller
         $rol_id = DB::table('role_user')->where('user_id', $id)->value('role_id');
         $rol = DB::table('roles')->where('id', $rol_id)->value('name');
 
-        return view('admin.schedule.index', compact('nivel_id', 'grado_id', 'nivel', 'grado', 'rol_id', 'rol'));
+        return view('admin.schedule.index', compact('nivel_id', 'grado_id', 'nivel', 'grado', 'rol_id', 'rol', 'title'));
     }
 
 }

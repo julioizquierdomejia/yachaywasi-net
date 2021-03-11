@@ -18,7 +18,7 @@ public/css/*
 public/js/*
 public/fonts/vendor/*
 public/media
-public/images/vendor/*
+public/images/*
 public/uploads
 storage/uploads
 public/cms/uploads
