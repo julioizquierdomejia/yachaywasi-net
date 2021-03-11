@@ -56,6 +56,6 @@ Route::middleware(['auth'])->group(function () {
 
 	//Horario
 	Route::get('/horario', 'ScheduleController@index')->name('horario');
-
+	Route::get('/horario/detalle', 'ScheduleController@detail')->name('horario.detalle');
 
 });

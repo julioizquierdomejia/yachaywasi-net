@@ -37,4 +37,14 @@ class ScheduleController extends Controller
         return view('admin.schedule.index', compact('nivel_id', 'grado_id', 'nivel', 'grado', 'rol_id', 'rol', 'title'));
     }
 
+    public function detail(Request $request)
+    {
+        $title = 'Detalle de horario';
+        
+        $docentes = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
+        $cursos = Course::all();
+
+        return view('admin.schedule.detail', compact('docentes', 'cursos', 'title'));
+    }
+
 }
