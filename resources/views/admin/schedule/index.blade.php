@@ -2,14 +2,20 @@
 
 @section('content')
 	
-	<h1>Horario</h1>
-	<h2>{{$grado}} de {{$nivel}}</h2>
-	@if($rol == 'editor')
-		<h3>Maestro</h3>
-	@else
-		<h3>Alumno</h3>
-	@endif
-	
+	<div class="page-title row">
+		<div class="p-title col-12 col-md-8">
+			<h1>Horario</h1>
+		<h2>{{$grado}} de {{$nivel}}</h2>
+		@if($rol == 'editor')
+			<h3>Maestro</h3>
+		@else
+			<h3>Alumno</h3>
+		@endif
+		</div>
+		<div class="buttons col-12 col-md-4 text-center text-md-right">
+			<a class="btn btn-primary" href="{{route('schedule.assign')}}">Asignar horario</a>
+		</div>
+	</div>
 
 		<table class="table table-bordered">
 			<thead>
