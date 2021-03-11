@@ -7,6 +7,8 @@ use App\Course;
 use App\Role;
 use App\Degree;
 use App\Level;
+use App\Day;
+use App\Hour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,8 +45,24 @@ class ScheduleController extends Controller
         
         $docentes = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 3)->get();
         $cursos = Course::all();
+        $days = Day::where('status', 1)->get();
+        $hours = Hour::where('status', 1)->get();
 
-        return view('admin.schedule.assign', compact('docentes', 'cursos', 'title'));
+        return view('admin.schedule.assign', compact('docentes', 'cursos', 'days', 'hours', 'title'));
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+        $rules = array(
+            'name'       => 'string|required|unique:areas',
+            'enabled'      => 'boolean',
+        );
+        $this->validate($request, $rules);
+
+
+
+        return response()->json(['data'=>json_encode($cost_card->id),'success'=>true]);
     }
 
 }

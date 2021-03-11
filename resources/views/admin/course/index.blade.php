@@ -7,7 +7,7 @@
 	<h1 class="display-4">Cursos</h1>
 	
 		<div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-			@foreach ($cursos as $curso)
+			@forelse ($cursos as $curso)
 				<div class="col mb-4">
 					<div class="card" style='height: 500px;'>
 						@if($curso->images == null)
@@ -39,9 +39,12 @@
 
 
 					</div>
-					
 				</div>
-			@endforeach
+			@empty
+			<div class="col mb-4 text-muted">
+				No se agregaron cursos.
+			</div>
+			@endforelse
 		</div>
 
 		<!-- Modal confirmacion de eliminacion de Registro-->
