@@ -60,11 +60,24 @@ $days = [
 				</button>
 			</div>
 			<div class="modal-body">
-				<ul>
+				<ul class="list-inline">
 					@for ($i = 0; $i < 7; $i++)
 					<li>
-						<input type="checkbox" name="" id="hour_{{$i}}">
-						<label for="hour_{{$i}}">{{$days[$i]}}, 8 am</label>
+						<div class="card card-body py-0">
+							<span class="text-primary d-flex py-1" data-toggle="collapse"
+							data-target="#collapseD{{$i}}" aria-expanded="false" aria-controls="collapseD{{$i}}" style="cursor: pointer;">{{ $days[$i] }} <i class="fa fa-angle-down ml-auto"></i></span>
+							<div class="collapse" id="collapseD{{$i}}">
+								<h6>Horas</h6>
+								<ul class="list-inline row">
+									@for ($j = 8; $j <= 12; $j++)
+									<li class="col-4 col-md-3">
+										<input type="checkbox" name="day[{{$i}}][1]" id="hour_{{$i}}_{{$j}}">
+										<label for="hour_{{$i}}_{{$j}}">{{$j}} am</label>
+									</li>
+									@endfor
+								</ul>
+							</div>
+						</div>
 					</li>
 					@endfor
 				</ul>
