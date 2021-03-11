@@ -85,8 +85,14 @@
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
-                    <i class="fas fa-chart-line"></i>
-                    <p>Dashboard</p>
+                    <i class="fas fa-book-reader"></i>
+                    <p>Cursos</p>
+                  </a>
+                </li>
+                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
+                  <a href="{{ route('horario') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Horario</p>
                   </a>
                 </li>
               </ul>
@@ -96,8 +102,15 @@
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
-                    <i class="fas fa-chart-line"></i>
-                    <p>Dashboard</p>
+                    <i class="fas fa-book-reader"></i>
+                    <p>Mis Cursos</p>
+                  </a>
+                </li>
+
+                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
+                  <a href="{{ route('horario') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Horario</p>
                   </a>
                 </li>
 

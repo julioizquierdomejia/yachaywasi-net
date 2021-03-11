@@ -53,4 +53,9 @@ Route::middleware(['auth'])->group(function () {
 		Route::get('/tema/edit/{tema_id}', 'SubjectController@edit')->name('temaedit');
 
 	});
+
+	//Horario
+	Route::get('/horario', 'ScheduleController@index')->name('horario');
+
+
 });
