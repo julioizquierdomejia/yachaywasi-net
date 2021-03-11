@@ -107,7 +107,7 @@ class SubjectController extends Controller
 
         $idUser = \Auth::user()->id;
         $userAuth = User::findOrFail((int) $idUser);
-
+        $role = $userAuth->roles->first()->name;
 
         $temas = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
@@ -134,7 +134,7 @@ class SubjectController extends Controller
 
         $title = 'Tema ' . $temaCurrent->name;
 
-        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title'));
+        return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         
     }
 
