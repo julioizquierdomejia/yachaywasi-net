@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CompetencieTableSeeder::class);
         $this->call(LevelTableSeeder::class);
         $this->call(DegreeTableSeeder::class);
+        $this->call(DaySeeder::class);
+        $this->call(HourSeeder::class);
     }
 }
