@@ -47,6 +47,15 @@
 		              </div>
 		            </div>
 		          </div>
+
+		          <div class="row">
+		          	<div class="col">
+		          		<div class="form-group">
+			          		<label for="favcolor">Elija un color para su Curso</label>
+	  						<input type="color" id="favcolor" name="color" value="#ff0000"><br><br>
+	  					</div>
+		          	</div>
+		          </div>
 		          
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">

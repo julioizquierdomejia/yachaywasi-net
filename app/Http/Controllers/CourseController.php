@@ -65,6 +65,7 @@ class CourseController extends Controller
         $course->name = $request->input('name');
         $course->descripcion = $request->input('descripcion');
         $course->abreviatura = $request->input('abreviatura');
+        $course->color = $request->input('color');
         $course->images = $name;
         $id_user = \Auth::user()->id;
         $course->user_id = $id_user;
