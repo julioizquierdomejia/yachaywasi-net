@@ -4,7 +4,7 @@
 	<h5>{{$title}}</h5>
 	<div class="card">
 		<div class="card-body">
-			<ul class="list list-inline pl-4">
+			<ul class="list list-inline">
 				@forelse ($docentes as $docente)
 				<li class="list-item docente-item">
 					<h5 class="docente-name">{{$docente->name}}</h5>
