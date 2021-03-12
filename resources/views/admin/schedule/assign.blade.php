@@ -4,14 +4,14 @@
 	<h5>{{$title}}</h5>
 	<div class="card">
 		<div class="card-body">
-			<ul class="list list-inline pl-4">
+			<ul class="list list-inline">
 				@forelse ($docentes as $docente)
 				<li class="list-item docente-item">
 					<h5 class="docente-name">{{$docente->name}}</h5>
 					@php
 					$levelDegrees = \App\DegreeLevelUser::where('user_id', $docente->id)->get();
 					@endphp
-					<div class="row row-cols-1 row-cols-md-3">
+					<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 						@foreach($levelDegrees as $levelDegree)
 						<div class="col mb-3">
 							<div class="card h-100 mb-0">
@@ -21,14 +21,16 @@
 									<ul class="list-inline">
 										@foreach ($cursos as $curso)
 										@if ($curso->verifyCourseInLevelDegree($docente->id,$levelDegree->level_id,$levelDegree->degree_id))
-										<li class="course">
-											<span class="course-name">{{$curso->name}}</span>
-											<button class="btn btn-primary btn-assign btn-sm" data-toggle="modal" data-target="#modalAssign"
+										<li class="course row align-items-center">
+											<span class="course-name col-6">- {{$curso->name}}</span>
+											<span class="col-6 text-right">
+											<button class="btn btn-primary btn-assign btn-sm my-1" data-toggle="modal" data-target="#modalAssign"
 											data-user_id="{{$docente->id}}"
 											data-course_id="{{$curso->id}}"
 											data-level_id="{{$levelDegree->level_id}}"
 											data-degree_id="{{$levelDegree->degree_id}}"
-											type="button"><i class="fa fa-plus pr-2"></i> Asignar</button>
+											type="button" style="font-size: 11px"><i class="fa fa-plus pr-2"></i> Asignar</button>
+											</span>
 										</li>
 										@endif
 										@endforeach
@@ -60,7 +62,6 @@
 			</div>
 			<div class="modal-body">
 				<div class="hours-container" style="font-size: 13px">
-					<h6>Horario:</h6>
 					<p class="mb-0"><span class="docente-name"></span></p>
 					<p class="mb-0"><span class="degree-name"></span></p>
 					<p class="mb-0"><span class="course-name"></span></p>
@@ -77,9 +78,9 @@
 						<div id="collapse{{$day->id}}" class="collapse" aria-labelledby="heading{{$day->id}}" data-parent="#hoursAccordion">
 							<div class="card-body pt-1">
 								<p class="mb-1"><strong>Horas</strong></p>
-								<ul class="list-inline row" style="font-size: 12px;">
+								<ul class="list-inline row" style="font-size: 13px;margin: 0 -10px;">
 									@forelse ($hours as $hkey => $hour)
-									<li class="col-12 col-md-4 col-lg-3">
+									<li class="col-6 col-md-4 col-lg-3" style="padding: 0 10px;">
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][user_id]' class="input_user_id" value="" />
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][course_id]' class="input_course_id" value="" />
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][level_id]' class="input_level_id" value="" />
@@ -160,7 +161,7 @@
 			$('.input_degree_id').val(btn.data('degree_id'))
 			$('#modalAssign .docente-name').text(docente);
 			$('#modalAssign .degree-name').text(parent.find('.card-title').text());
-			$('#modalAssign .course-name').text(btn.parent().find('.course-name').text());
+			$('#modalAssign .course-name').text(btn.parents('.course').find('.course-name').text());
 
 			getList(
 				btn.data('user_id'),
