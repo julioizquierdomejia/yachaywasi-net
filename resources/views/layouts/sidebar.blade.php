@@ -1,3 +1,6 @@
+@php
+  $role = Auth::user()->roles->first()->name;
+@endphp
 <div class="sidebar" data-color="black" data-active-color="danger">
       <div class="logo">
         <a href="https://www.creative-tim.com" class="simple-text logo-mini">
@@ -17,7 +20,7 @@
         @if ( Auth::user()->status == 0 )
             
         @elseif ( Auth::user()->status == 1 )
-            @if ( Auth::user()->roles->first()->name == 'superadmin')
+            @if ( $role == 'superadmin')
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
@@ -46,7 +49,7 @@
               </ul>
             @endif
 
-            @if ( Auth::user()->roles->first()->name == 'admin')
+            @if ( $role == 'admin')
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
@@ -78,10 +81,16 @@
                     <p>Temas Publicados</p>
                   </a>
                 </li>
+                <li class="{{ request()->routeIs('schedule.assign') ? 'active'  : '' }}">
+                  <a href="{{ route('schedule.assign') }}">
+                    <i class="far fa-calendar-check"></i>
+                    <p>Asignar horario</p>
+                  </a>
+                </li>
               </ul>
             @endif
 
-            @if ( Auth::user()->roles->first()->name == 'editor')
+            @if ( $role == 'editor')
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
@@ -98,7 +107,7 @@
               </ul>
             @endif
 
-            @if ( Auth::user()->roles->first()->name == 'lector')
+            @if ( $role == 'lector')
               <ul class="nav">
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
                   <a href="{{ route('dashboard') }}">
