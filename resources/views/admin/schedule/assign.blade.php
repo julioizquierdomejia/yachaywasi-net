@@ -22,7 +22,7 @@
 										@foreach ($cursos as $curso)
 										@if ($curso->verifyCourseInLevelDegree($docente->id,$levelDegree->level_id,$levelDegree->degree_id))
 										<li class="course row align-items-center">
-											<span class="course-name col-6">{{$curso->name}}</span>
+											<span class="course-name col-6">- {{$curso->name}}</span>
 											<span class="col-6 text-right">
 											<button class="btn btn-primary btn-assign btn-sm my-1" data-toggle="modal" data-target="#modalAssign"
 											data-user_id="{{$docente->id}}"
@@ -62,7 +62,6 @@
 			</div>
 			<div class="modal-body">
 				<div class="hours-container" style="font-size: 13px">
-					<h6>Horario:</h6>
 					<p class="mb-0"><span class="docente-name"></span></p>
 					<p class="mb-0"><span class="degree-name"></span></p>
 					<p class="mb-0"><span class="course-name"></span></p>
