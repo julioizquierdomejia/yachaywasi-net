@@ -9,9 +9,10 @@ use App\Degree;
 use App\Level;
 use App\Day;
 use App\Hour;
+use App\UserHoursAssign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Validation\Rule;
 
 class ScheduleController extends Controller
 {
@@ -53,16 +54,74 @@ class ScheduleController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
+        $dayhour = $request->input('dayhour');
+        //$new_arr = array_unique($dayhour, SORT_REGULAR);
         $rules = array(
-            'name'       => 'string|required|unique:areas',
-            'enabled'      => 'boolean',
+            'dayhour'   => 'array|required|min:1',
         );
+
+        $uha_deleted = UserHoursAssign::where('user_id', reset($dayhour)['user_id'])->delete();
+
+        foreach ($dayhour as $key => $val) {
+            $rules['dayhour.'.$key.'.*'] = Rule::unique('user_hours_assign')->where(function ($query) use($val) {
+                return $query
+                            ->where('user_id', $val['user_id'])
+                            ->where('course_id', $val['course_id'])
+                            ->where('level_id', $val['level_id'])
+                            ->where('degree_id', $val['degree_id'])
+                            ->where('day_id', $val['day_id'])
+                            ->where('hour_id', $val['hour_id'])
+                            ->where('enabled', 1);
+            });
+        }
         $this->validate($request, $rules);
 
+        foreach ($dayhour as $key => $item) {
+            $userhoursassign = new UserHoursAssign();
+            $userhoursassign->user_id = $item['user_id'];
+            $userhoursassign->course_id = $item['course_id'];
+            $userhoursassign->level_id = $item['level_id'];
+            $userhoursassign->degree_id = $item['degree_id'];
+            $userhoursassign->day_id = $item['day_id'];
+            $userhoursassign->hour_id = $item['hour_id'];
+            $userhoursassign->save();
+        }
 
+        return response()->json(['data'=>[], 'success'=>true]);
+    }
 
-        return response()->json(['data'=>json_encode($cost_card->id),'success'=>true]);
+    public function getUserHoursAssigned(Request $request)
+    {
+        $user_id = $request->get('user_id');
+        $course_id = $request->get('course_id');
+        $level_id = $request->get('level_id');
+        $degree_id = $request->get('degree_id');
+        $hoursassign_byuser = UserHoursAssign::join('users', 'users.id', '=', 'user_hours_assign.user_id')
+                                ->join('days', 'days.id', '=', 'user_hours_assign.day_id')
+                                ->join('hours', 'hours.id', '=', 'user_hours_assign.hour_id')
+                                ->join('courses', 'courses.id', '=', 'user_hours_assign.course_id')
+                                ->join('degrees', 'degrees.id', '=', 'user_hours_assign.degree_id')
+                                ->join('levels', 'levels.id', '=', 'user_hours_assign.level_id')
+                                ->select(
+                                    'days.id as day_id',
+                                    'hours.id as hour_id',
+                                    'courses.id as course_id',
+                                    'degrees.id as degree_id',
+                                    'levels.id as level_id',
+                                    'days.name as day',
+                                    'hours.name as hour',
+                                    'courses.name as course',
+                                    'user_hours_assign.enabled'
+                                )
+                                ->where('user_hours_assign.user_id', $user_id)
+                                ->where('user_hours_assign.course_id', $course_id)
+                                ->where('user_hours_assign.level_id', $level_id)
+                                ->where('user_hours_assign.degree_id', $degree_id)
+                                ->where('enabled', 1)
+                                ->orderBy('days.name', 'asc')
+                                ->get();
+
+        return response()->json(['data'=>json_encode($hoursassign_byuser), 'success'=>true]);
     }
 
 }

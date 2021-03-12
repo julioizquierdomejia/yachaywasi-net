@@ -89,8 +89,8 @@
                     <p>Cursos</p>
                   </a>
                 </li>
-                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
-                  <a href="{{ route('horario') }}">
+                <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
+                  <a href="{{ route('schedule') }}">
                     <i class="far fa-calendar-alt"></i>
                     <p>Horario</p>
                   </a>
@@ -107,8 +107,8 @@
                   </a>
                 </li>
 
-                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
-                  <a href="{{ route('horario') }}">
+                <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
+                  <a href="{{ route('schedule') }}">
                     <i class="far fa-calendar-alt"></i>
                     <p>Horario</p>
                   </a>
