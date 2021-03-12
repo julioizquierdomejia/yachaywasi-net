@@ -59,6 +59,9 @@ class ScheduleController extends Controller
         $rules = array(
             'dayhour'   => 'array|required|min:1',
         );
+
+        $uha_deleted = UserHoursAssign::where('user_id', reset($dayhour)['user_id'])->delete();
+
         foreach ($dayhour as $key => $val) {
             $rules['dayhour.'.$key.'.*'] = Rule::unique('user_hours_assign')->where(function ($query) use($val) {
                 return $query
@@ -67,7 +70,8 @@ class ScheduleController extends Controller
                             ->where('level_id', $val['level_id'])
                             ->where('degree_id', $val['degree_id'])
                             ->where('day_id', $val['day_id'])
-                            ->where('hour_id', $val['hour_id']);
+                            ->where('hour_id', $val['hour_id'])
+                            ->where('enabled', 1);
             });
         }
         $this->validate($request, $rules);
@@ -95,11 +99,26 @@ class ScheduleController extends Controller
         $hoursassign_byuser = UserHoursAssign::join('users', 'users.id', '=', 'user_hours_assign.user_id')
                                 ->join('days', 'days.id', '=', 'user_hours_assign.day_id')
                                 ->join('hours', 'hours.id', '=', 'user_hours_assign.hour_id')
-                                ->select('days.name as day', 'hours.name as hour')
-                                ->where('user_id', $user_id)
-                                ->where('course_id', $course_id)
-                                ->where('level_id', $level_id)
-                                ->where('degree_id', $degree_id)
+                                ->join('courses', 'courses.id', '=', 'user_hours_assign.course_id')
+                                ->join('degrees', 'degrees.id', '=', 'user_hours_assign.degree_id')
+                                ->join('levels', 'levels.id', '=', 'user_hours_assign.level_id')
+                                ->select(
+                                    'days.id as day_id',
+                                    'hours.id as hour_id',
+                                    'courses.id as course_id',
+                                    'degrees.id as degree_id',
+                                    'levels.id as level_id',
+                                    'days.name as day',
+                                    'hours.name as hour',
+                                    'courses.name as course',
+                                    'user_hours_assign.enabled'
+                                )
+                                ->where('user_hours_assign.user_id', $user_id)
+                                ->where('user_hours_assign.course_id', $course_id)
+                                ->where('user_hours_assign.level_id', $level_id)
+                                ->where('user_hours_assign.degree_id', $degree_id)
+                                ->where('enabled', 1)
+                                ->orderBy('days.name', 'asc')
                                 ->get();
 
         return response()->json(['data'=>json_encode($hoursassign_byuser), 'success'=>true]);
