@@ -13,7 +13,7 @@ class Course extends Model
 {
 
     protected $fillable = [
-        'name', 'abreviatura', 'descripcion', 'images',
+        'name', 'abreviatura', 'descripcion', 'images', 'bg-color', 'color',
     ];
 
     /*

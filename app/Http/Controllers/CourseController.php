@@ -47,6 +47,14 @@ class CourseController extends Controller
     {
         $course = new Course();
 
+        $request->validate([
+            'name' => 'required',
+            'abreviatura' => 'required',
+            'images' => 'required',
+            'bg_color' => 'required',
+            'color' => 'required',
+        ]);
+
         //preguntamos si el requesta contienen algun archivo
         if ($request->hasFile('images')) {
 
@@ -65,6 +73,7 @@ class CourseController extends Controller
         $course->name = $request->input('name');
         $course->descripcion = $request->input('descripcion');
         $course->abreviatura = $request->input('abreviatura');
+        $course->bg_color = $request->input('bg_color');
         $course->color = $request->input('color');
         $course->images = $name;
         $id_user = \Auth::user()->id;
@@ -137,7 +146,18 @@ class CourseController extends Controller
             $course->images = $name;
             //ahora para subirlo a nuestra aplicacion hay que moverlo 
             //a nuestra carpeta publica public_path()
-            $file->move(public_path().'/images/course/', $name);
+            //$file->move(public_path().'/images/course/', $name);
+
+            if (DIRECTORY_SEPARATOR === '/') {
+                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/course' : public_path('/images/course');
+                // unix, linux, mac
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $file->move($dir, $uniqueFileName);
+            } else {
+                $file->move(public_path('/images/course'), $uniqueFileName);
+            }
         }
 
         //luego grabamos todo lo rellenado
