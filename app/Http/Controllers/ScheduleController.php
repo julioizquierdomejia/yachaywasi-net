@@ -104,8 +104,8 @@ class ScheduleController extends Controller
                 ->where('day_id', $dhour['day_id'])
                 ->where('hour_id', $dhour['hour_id'])
                 ->where('enabled', 1)
-                ->exists();
-            if ($uha_exists) {
+                ->first();
+            if ($uha_exists && $uha_exists->user_id != $dhour['user_id']) {
                 $dayhour_exist[$key]['level_id'] = $dhour['level_id'];
                 $dayhour_exist[$key]['degree_id'] = $dhour['degree_id'];
                 $dayhour_exist[$key]['day_id'] = $dhour['day_id'];

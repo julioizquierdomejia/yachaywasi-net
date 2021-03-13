@@ -120,7 +120,18 @@ class UsersController extends Controller
             //creamos la ruta
             //ahora para subirlo a nuestra aplicacion hay que moverlo 
             //a nuestra carpeta publica public_path()
-            $file->move(public_path().'/images/avatar/', $name);
+            //$file->move(public_path().'/images/avatar/', $name);
+
+            if (DIRECTORY_SEPARATOR === '/') {
+                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/avatar' : public_path('/images/avatar');
+                // unix, linux, mac
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $file->move($dir, $name);
+            } else {
+                $file->move(public_path('images/avatar'), $name);
+            }
         }else{
             $name = null;
         }
@@ -230,7 +241,18 @@ class UsersController extends Controller
               $user->avatar = $name;
               //ahora para subirlo a nuestra aplicacion hay que moverlo 
               //a nuestra carpeta publica public_path()
-              $file->move(public_path().'/images/avatar/', $name);
+              //$file->move(public_path().'/images/avatar/', $name);
+
+              if (DIRECTORY_SEPARATOR === '/') {
+                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/avatar' : public_path('/images/avatar');
+                // unix, linux, mac
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $file->move($dir, $name);
+              } else {
+                  $file->move(public_path('images/avatar'), $name);
+              }
           }
 
 
@@ -287,7 +309,17 @@ class UsersController extends Controller
               $user->avatar = $name;
               //ahora para subirlo a nuestra aplicacion hay que moverlo 
               //a nuestra carpeta publica public_path()
-              $file->move(public_path().'/images/avatar/', $name);
+              //$file->move(public_path().'/images/avatar/', $name);
+              if (DIRECTORY_SEPARATOR === '/') {
+                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/avatar' : public_path('/images/avatar');
+                // unix, linux, mac
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $file->move($dir, $name);
+              } else {
+                  $file->move(public_path('images/avatar'), $name);
+              }
               
           }
 
