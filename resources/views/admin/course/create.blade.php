@@ -17,13 +17,23 @@
 		            <div class="col-md-8 pr-1">
 		              <div class="form-group">
 		                <label>nombre de Área</label>
-							<input type="text" name="name" placeholder="Nombre del Curso" class="form-control mb-2">
+							<input type="text" name="name" placeholder="Nombre del Curso" class="form-control mb-2" value="{{ old('name') }}">
+							@error('name')
+			                    <span class="invalid-feedback d-block" role="alert">
+			                        <strong>{{ $message }}</strong>
+			                    </span>
+			                @enderror
 		              </div>
 		            </div>
 		            <div class="col-md-4 pl-1">
 		              <div class="form-group">
 		                <label>Abreviatura</label>
-		                <input type="text" name="abreviatura" placeholder="Ingresa abreviatura" class="form-control mb-2">
+		                <input type="text" name="abreviatura" placeholder="Ingresa abreviatura" class="form-control mb-2" value="{{ old('abreviatura') }}" >
+		                @error('abreviatura')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
 		              </div>
 		            </div>
 		          </div>
@@ -31,7 +41,7 @@
 		          	<div class="col-md-12">
 		              <div class="form-group">
 		                <label >Descripción</label>
-		                <input type="text" name="descripcion" placeholder="" class="form-control mb-2" rows="3">
+		                <input type="text" name="descripcion" placeholder="" class="form-control mb-2" rows="3" value="{{ old('descripcion') }}">
 		              </div>
 		            </div>
 		          </div>
@@ -43,9 +53,31 @@
 		              		<input name='images' type="file" class="custom-file-input form-control" id="customFileLang" lang="es">
 		              		<label name='images' class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
 						</div>
-
+						@error('images')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
 		              </div>
 		            </div>
+		          </div>
+
+		          <div class="row mt-3">
+		          	<div class="col">
+		          		<div class="form-group">
+			          		<label for="favcolor">Elija un color para su Curso</label>
+	  						<input type="color" id="favcolor" name="bg_color" value="{{ old('bg_color') }}"><br><br>
+	  					</div>
+		          	</div>
+		          </div>
+
+		          <div class="row">
+		          	<div class="col">
+		          		<div class="form-group">
+			          		<label for="favcolor">Elija un color de texto</label>
+	  						<input type="color" id="favcolor" name="color" value="{{ old('color') }}"><br><br>
+	  					</div>
+		          	</div>
 		          </div>
 		          
 		          <div class="row">
@@ -62,14 +94,6 @@
 		    </div>
 		  </div>
 		</div>
-
-	@if ($errors->any())
-		@foreach($errors->all() as $error)
-			<div class="alert alert-danger">
-				<span><i class="fas fa-exclamation-triangle"></i> {{ $error }}</span>
-			</div>
-		@endforeach
-	@endif
 	</div>
 
 

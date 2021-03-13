@@ -18,6 +18,8 @@ class CreateCoursesTable extends Migration
             $table->string('name')->unique();
             $table->string('descripcion')->nullable();
             $table->string('abreviatura');
+            $table->string('bg_color');
+            $table->string('color');
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
 
