@@ -130,10 +130,19 @@ class UsersController extends Controller
         //luego empezmaos a pasarle la info de los campos que vienen por medio de $request
         $password = bcrypt($request->input('password'));
         
+        $users->title = $request->input('title');
+
         $users->name = $request->input('name');
         $users->email = $request->input('email');
         $users->password = $password;
         $users->classroom = $request->input('classroom');
+
+        $users->slug = $request->input('slug');
+
+        $users->url_zoom = $request->input('url_zoom');
+        $users->id_zoom = $request->input('id_zoom');
+        $users->clave_zoom = $request->input('clave_zoom');
+
         $users->avatar = $name;
         $users->parent_id = $request->input('parent_id');
         $users->status = 1; 
