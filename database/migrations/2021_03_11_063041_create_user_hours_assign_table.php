@@ -35,7 +35,7 @@ class CreateUserHoursAssignTable extends Migration
 
             $table->boolean('enabled')->default(1);
 
-            $table->unique(['user_id', 'course_id', 'level_id', 'degree_id', 'day_id', 'hour_id'], 'user_hours_assign_unique');
+            //$table->unique(['user_id', 'course_id', 'level_id', 'degree_id', 'day_id', 'hour_id'], 'user_hours_assign_unique');
 
             $table->timestamps();
         });
