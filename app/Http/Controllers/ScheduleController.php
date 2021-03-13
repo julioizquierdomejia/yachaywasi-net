@@ -52,7 +52,7 @@ class ScheduleController extends Controller
         return view('admin.schedule.assign', compact('docentes', 'cursos', 'days', 'hours', 'title'));
     }
 
-    public function store(Request $request)
+    public function old_store(Request $request)
     {
         $dayhour = $request->input('dayhour');
         //$new_arr = array_unique($dayhour, SORT_REGULAR);
@@ -69,6 +69,90 @@ class ScheduleController extends Controller
                             ->where('course_id', $val['course_id'])
                             ->where('level_id', $val['level_id'])
                             ->where('degree_id', $val['degree_id'])
+                            ->where('day_id', $val['day_id'])
+                            ->where('hour_id', $val['hour_id'])
+                            ->where('enabled', 1);
+            });
+        }
+        $this->validate($request, $rules);
+
+        foreach ($dayhour as $key => $item) {
+            $userhoursassign = new UserHoursAssign();
+            $userhoursassign->user_id = $item['user_id'];
+            $userhoursassign->course_id = $item['course_id'];
+            $userhoursassign->level_id = $item['level_id'];
+            $userhoursassign->degree_id = $item['degree_id'];
+            $userhoursassign->day_id = $item['day_id'];
+            $userhoursassign->hour_id = $item['hour_id'];
+            $userhoursassign->save();
+        }
+
+        return response()->json(['data'=>[], 'success'=>true]);
+    }
+
+    public function store(Request $request)
+    {
+        $dayhour = $request->input('dayhour');
+        $rules = array(
+            'dayhour'   => 'array|required|min:1',
+        );
+
+        $dayhour_exist = [];
+        foreach ($dayhour as $key => $dhour) {
+            $uha_exists = UserHoursAssign::where('level_id', $dhour['level_id'])
+                ->where('degree_id', $dhour['degree_id'])
+                ->where('day_id', $dhour['day_id'])
+                ->where('hour_id', $dhour['hour_id'])
+                ->where('enabled', 1)
+                ->exists();
+            if ($uha_exists) {
+                $dayhour_exist[$key]['level_id'] = $dhour['level_id'];
+                $dayhour_exist[$key]['degree_id'] = $dhour['degree_id'];
+                $dayhour_exist[$key]['day_id'] = $dhour['day_id'];
+                $dayhour_exist[$key]['hour_id'] = $dhour['hour_id'];
+            }
+        }
+
+        if ($uha_exists) {
+            $returnData = array(
+                'status' => 'error',
+                'message' => 'Ya existe el registro',
+                'not_allowed' => true,
+                'errors' => $dayhour_exist
+            );
+            return response()->json([
+                'data' => $returnData,
+                'success' => false
+            ], 422);
+        }
+
+        $dayhour_f_exist = [];
+        foreach ($dayhour as $key => $dhour) {
+            $uha_exists = UserHoursAssign::where('day_id', $dhour['day_id'])
+                ->where('hour_id', $dhour['hour_id'])
+                ->where('enabled', 1)
+                ->exists();
+            if ($uha_exists) {
+                $dayhour_f_exist[$key]['day_id'] = $dhour['day_id'];
+                $dayhour_f_exist[$key]['hour_id'] = $dhour['hour_id'];
+            }
+        }
+        if ($uha_f_exists) {
+            $returnData = array(
+                'status' => 'error',
+                'message' => 'Ya existe el registro',
+                'not_allowed' => true,
+                'errors' => $dayhour_f_exist
+            );
+            return response()->json([
+                'data' => $returnData,
+                'success' => false
+            ], 422);
+        }
+
+        foreach ($dayhour as $key => $val) {
+            $rules['dayhour.'.$key.'.*'] = Rule::unique('user_hours_assign')->where(function ($query) use($val) {
+                return $query
                             ->where('day_id', $val['day_id'])
                             ->where('hour_id', $val['hour_id'])
                             ->where('enabled', 1);

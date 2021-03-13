@@ -65,29 +65,33 @@
 					<p class="mb-0"><span class="docente-name"></span></p>
 					<p class="mb-0"><span class="degree-name"></span></p>
 					<p class="mb-0"><span class="course-name"></span></p>
-					<ul class="list-inline hours-list mb-0"></ul>
+					<div class="card card-body">
+						<ul class="list-inline hours-list mb-0 row"></ul>
+					</div>
 				</div>
 				@csrf
 				<ul class="list-inline" id="hoursAccordion">
 					@forelse ($days as $key => $day)
 					<li class="card mb-1">
-						<div class="card-header" id="heading{{$day->id}}">
+						<div class="card-header pt-2" id="heading{{$day->id}}">
 							<span class="text-primary d-flex py-1" data-toggle="collapse"
 							data-target="#collapse{{$day->id}}" aria-expanded="false" aria-controls="collapse{{$day->id}}" style="cursor: pointer;">{{ $day->name }} <i class="fa fa-angle-down ml-auto"></i></span>
 						</div>
 						<div id="collapse{{$day->id}}" class="collapse" aria-labelledby="heading{{$day->id}}" data-parent="#hoursAccordion">
-							<div class="card-body pt-1">
+							<div class="card-body pt-0 text-center">
 								<p class="mb-1"><strong>Horas</strong></p>
 								<ul class="list-inline row" style="font-size: 13px;margin: 0 -10px;">
 									@forelse ($hours as $hkey => $hour)
-									<li class="col-6 col-md-4 col-lg-3" style="padding: 0 10px;">
+									<li class="col-6 col-md-4 col-lg-3" style="padding: 3px 8px;">
+										<span class="d-block label-checkbox" style="padding: 2px;">
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][user_id]' class="input_user_id" value="" />
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][course_id]' class="input_course_id" value="" />
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][level_id]' class="input_level_id" value="" />
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][degree_id]' class="input_degree_id" value="" />
-										<input type="checkbox" name="" data-name="dayhour[{{$day->id.$hour->id}}][day_id]" class="frm-input input_day_id" id="hour_{{$day->id.$hour->id}}" value="{{$day->id}}">
+										<input type="checkbox" name="" data-name="dayhour[{{$day->id.$hour->id}}][day_id]" class="frm-input input_day_id align-middle" id="hour_{{$day->id.$hour->id}}" value="{{$day->id}}">
 										<input type='hidden' name="" data-name='dayhour[{{$day->id.$hour->id}}][hour_id]' class="input_hour_id" value="{{$hour->id}}" />
-										<label class="align-middle pl-1" for="hour_{{$day->id.$hour->id}}">{{$hour->name}}</label>
+										<label class="align-middle pl-1 mb-0" for="hour_{{$day->id.$hour->id}}">{{$hour->name}}</label>
+										</span>
 									</li>
 									@empty
 									<li class="text-muted">No hay horas ingresadas.</li>
@@ -100,6 +104,7 @@
 					<li class="text-muted">No hay días ingresados.</li>
 					@endforelse
 				</ul>
+				<div class="alert alert-danger" style="display: none;"></div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -133,16 +138,19 @@
 				success: function(response) {
 					if (response.success) {
 						data = $.parseJSON(response.data);
-						if(data) {
+						if(Object.keys(data).length) {
+							$('.hours-list').empty();
 							$.each(data, function (id, item) {
 								$('[data-name="dayhour['+item.day_id+item.hour_id+'][day_id]"]').attr('checked', true).change();
 
-								/*$('.hours-list').append(`
-									<li>Día: `+item.day+`, Hora: `+item.hour+`</li>
-									`);*/
+								$('.hours-list').append(`
+									<li class="col-12 col-md-6">Día: `+item.day+`, Hora: `+item.hour+`</li>
+									`);
 							})
 						} else {
-							//$('.hours-list').empty();
+							$('.hours-list').html(`
+								<li class="col-12 text-muted">No se seleccionaron horarios.</li>
+								`);
 						}
 					}
 				},
@@ -171,7 +179,9 @@
 			);
 		})
 		$('#modalAssign').on('hide.bs.modal', function (event) {
-			//$('.hours-list').empty();
+			$('.hours-list').html(`
+				<li class="col-12 text-muted">No se seleccionaron horarios.</li>
+				`);
 
 			$('#modalAssign input[type=checkbox]').attr('checked', false).change();
 
@@ -207,6 +217,7 @@
 				processData: false,
 				contentType: false,
 				beforeSend: function() {
+					$('.alert').empty().hide();
 					$('.btn-assign-hour').attr('disabled', true);
 				},
 				success: function(response) {
@@ -224,8 +235,20 @@
 				complete: function () {
 					//$('.modal.show').modal('hide');
 				},
-				error: function(request, status, error) {
+				error: function(data) {
 					$('.btn-assign-hour').attr('disabled', false);
+
+					var errors = data.responseJSON;
+					console.log(errors)
+	                errorsHtml = '<ul class="mb-0">';
+	                errorsHtml += '<li>'+ errors.data.message + '</li>';
+	                errorsHtml += '</ul>';
+	                $('.alert').html(errorsHtml).show();
+	                /*Swal.fire(
+	                  'Seguridad',
+	                  errorsHtml,
+	                  'error'
+	                )*/
 				}
 			});
 		})
