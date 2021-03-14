@@ -81,12 +81,14 @@
                     <p>Temas Publicados</p>
                   </a>
                 </li>
+                {{--
                 <li class="{{ request()->routeIs('schedule.assign') ? 'active'  : '' }}">
                   <a href="{{ route('schedule.assign') }}">
                     <i class="far fa-calendar-check"></i>
                     <p>Asignar horario</p>
                   </a>
                 </li>
+                {{--
               </ul>
             @endif
 
