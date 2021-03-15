@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('course', 'CourseController');
 
 	Route::resource('subject', 'SubjectController');
+	Route::resource('subject-works', 'SubjectWorkController');
+	//Route::get('subject-works/{subject_id}', 'SubjectController@list')->name('subject.works');
 
 	Route::get('level-course/{course_id}', 'SubjectController@index')->name('subject');
 	Route::post('subject/store', 'SubjectController@store')->name('subject.store');
