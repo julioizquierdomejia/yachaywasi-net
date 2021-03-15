@@ -62,4 +62,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/horario/asignar/lista', 'ScheduleController@getUserHoursAssigned')->name('assign.list');
 	*/
 
+	//para horario hecho a mano
+	Route::get('/horario', 'horarioController@index')->name('horario');
+
 });

@@ -120,6 +120,13 @@
                   </a>
                 </li>
 
+                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
+                  <a href="{{ route('horario') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Horario</p>
+                  </a>
+                </li>
+
                 {{--
                 <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
                   <a href="{{ route('schedule') }}">
