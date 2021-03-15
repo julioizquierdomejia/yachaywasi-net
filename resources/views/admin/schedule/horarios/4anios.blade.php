@@ -111,7 +111,7 @@
 			<td>
 				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Religión</a>
 				<br>
-			 	<span>Miss Romina</span>
+			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
 				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
