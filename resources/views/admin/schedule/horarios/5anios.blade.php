@@ -21,7 +21,7 @@
 			<td>
 				<a href="https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Religión</a>
 				<br>
-			 	<span>Miss Romina</span>
+			 	<span class="d-block">Miss Alejandra</span>
 			</td>
 			<td>
 				<a href="https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09" class="btn btn-sm" style="background-color: #FF86CF " target="_blank">Comunicación</a>
