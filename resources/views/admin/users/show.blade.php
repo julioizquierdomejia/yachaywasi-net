@@ -67,13 +67,19 @@
 		        	@method('PUT')
 					@csrf
 		          <div class="row">
+		            <div class="col-md-1 pr-1">
+		              <div class="form-group">
+		                <label>Titulo</label>
+						<input type="text" name="title" class="form-control mb-2"value='{{$user->title}}'>
+		              </div>
+		            </div>
 		            <div class="col-md-6 pr-1">
 		              <div class="form-group">
 		                <label>Nombre del Docente</label>
 						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2"value='{{$user->name}}'>
 		              </div>
 		            </div>
-		            <div class="col-md-6 pl-1">
+		            <div class="col-md-5 pl-1">
 		              <div class="form-group">
 		                <label>Telefono</label>
 		                <input type="text" name="phone" placeholder="Telefono Celular" class="form-control mb-2" value="{{$user->phone}}">
@@ -103,7 +109,7 @@
 		              <div class="form-group">
 		                
 		              	<div class="custom-file custom-file-browser">
-						  <input name='avatar' type="file" class="custom-file-input form-control" id="customFileLang" lang="es">
+						  <input name='avatar' type="file" class="custom-file-input form-control" id="customFileLang" lang="es" value="hola">
 						  <label class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
 						</div>
 

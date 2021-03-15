@@ -81,12 +81,14 @@
                     <p>Temas Publicados</p>
                   </a>
                 </li>
+                {{--
                 <li class="{{ request()->routeIs('schedule.assign') ? 'active'  : '' }}">
                   <a href="{{ route('schedule.assign') }}">
                     <i class="far fa-calendar-check"></i>
                     <p>Asignar horario</p>
                   </a>
                 </li>
+                {{--
               </ul>
             @endif
 
@@ -98,12 +100,14 @@
                     <p>Cursos</p>
                   </a>
                 </li>
+                {{--
                 <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
                   <a href="{{ route('schedule') }}">
                     <i class="far fa-calendar-alt"></i>
                     <p>Horario</p>
                   </a>
                 </li>
+                --}}
               </ul>
             @endif
 
@@ -116,12 +120,14 @@
                   </a>
                 </li>
 
+                {{--
                 <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
                   <a href="{{ route('schedule') }}">
                     <i class="far fa-calendar-alt"></i>
                     <p>Horario</p>
                   </a>
                 </li>
+                --}}
 
               </ul>
             @endif

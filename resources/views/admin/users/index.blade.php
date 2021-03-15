@@ -2,14 +2,6 @@
 
 @section('content')
 
-@if ($errors->any())
-			@foreach($errors->all() as $error)
-				<div class="alert alert-danger">
-					<span><i class="fas fa-exclamation-triangle"></i> {{ $error }}</span>
-				</div>
-			@endforeach
-		@endif
-
 <div class="content">
         <div class="row">
           <div class="col-md-4">
@@ -74,7 +66,7 @@
 	                        </div>
 	                      </div>
 	                      <div class="col-md-7 col-7">
-	                        Miss - {{ $docente->name }}
+	                        {{ $docente->title}} - {{ $docente->name }}
 	                        <br />
 	                        <span class="text-muted"><small>{{ $docente->classroom }}</small></span>
 	                      </div>
@@ -114,25 +106,48 @@
 		        <form class="form-group" method="POST" action="/user" enctype="multipart/form-data">
 					@csrf
 		          <div class="row">
-		            <div class="col-md-6 pr-1">
-		              <div class="form-group">
-		                <label>Nombre del Docente</label>
-						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2">
-		              </div>
 
-		            </div>
-		            <div class="col-md-6 pl-1">
+		           	 <div class="col-md-1 pr-1">
 		              <div class="form-group">
-		                <label>Username</label>
+		                <label>Titulo</label>
+						<input type="text" name="title" placeholder="" class="form-control mb-2">
+		              </div>
+		            </div>
+
+		            <div class="col-md-6">
+		              <div class="form-group">
+		                <label>Nombre del Docente <span style="color: red; font-size: 18px;">*</span></label>
+						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2">
+						@error('name')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
+		              </div>
+		            </div>
+		            <div class="col-md-5 pl-1">
+		              <div class="form-group">
+		                <label>Nombre de Usuario <span style="color: red; font-size: 18px;">*</span></label>
 		                <input type="email" name="email" placeholder="Ingrese el Email" class="form-control mb-2">
+		                @error('email')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
 		              </div>
 		            </div>
 		          </div>
+		          
 		          <div class="row">
 		          	<div class="col-md-4 pr-1">
 		              <div class="form-group">
-		                <label for="exampleInputEmail1">Contraseña</label>
+		                <label for="exampleInputEmail1">Contraseña <span style="color: red; font-size: 18px;">*</span></label>
 		                <input type="password" name="password" placeholder="Ingrese contraseña" class="form-control mb-2">
+		                @error('password')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
 		              </div>
 		            </div>
 		            <div class="col-md-4">
@@ -148,6 +163,37 @@
 		              </div>
 		            </div>
 		          </div>
+
+		          <div class="row">
+		          	<div class="col-md-12 pr-1">
+		              <div class="form-group">
+		                <label for="url_zoom">URL Zoom</label>
+		                <input type="text" name="url_zoom" placeholder="Ingrese url de sala Zoom" class="form-control mb-2">
+		                @error('url_zoom')
+		                    <span class="invalid-feedback d-block" role="alert">
+		                        <strong>{{ $message }}</strong>
+		                    </span>
+		                @enderror
+		              </div>
+		            </div>
+		          </div>
+
+		          <div class="row">
+		            <div class="col-md-6">
+		              <div class="form-group">
+		                <label>Id Zoom</label>
+		                <input type="text" name="id_zoom" placeholder="Ingresar el ID de la sala Zoom" class="form-control mb-2">
+		              </div>
+		            </div>
+		            <div class="col-md-6 pl-1">
+		              <div class="form-group">
+		                <label>Contraseña Zoom</label>
+		                <input type="text" name="clave_zoom" placeholder="Contraseñoa de la sala Zoom" class="form-control mb-2">
+		              </div>
+		            </div>
+		          </div>
+
+
 		          <div class="row">
 		            <div class="col-md-6 pr-1">
 		              <div class="form-group">

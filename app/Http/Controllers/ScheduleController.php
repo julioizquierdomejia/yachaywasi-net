@@ -98,6 +98,7 @@ class ScheduleController extends Controller
         );
 
         $dayhour_exist = [];
+        
         foreach ($dayhour as $key => $dhour) {
             $uha_exists = UserHoursAssign::where('level_id', $dhour['level_id'])
                 ->where('degree_id', $dhour['degree_id'])

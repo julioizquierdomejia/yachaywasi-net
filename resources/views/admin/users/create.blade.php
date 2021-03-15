@@ -23,7 +23,7 @@
 		          <div class="row">
 		            <div class="col-md-6 pr-1">
 		              <div class="form-group">
-		                <label>Nombre del Docente</label>
+		                <label>Nombre del Alumno</label>
 							<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2">
 		              </div>
 		            </div>
