@@ -198,6 +198,7 @@ $anio = $tema->date->year;
 	@endif
 </div>
 </div>
+<hr>
 <div class="works-section">
 	<h5>Trabajos</h5>
 	<div class="row">
@@ -237,6 +238,7 @@ $anio = $tema->date->year;
 	@endif
 	@if ($user_role->name == 'lector')
 		<div class="suject-works col-12 col-md-6 col-lg-7">
+			<div class="table-responsive">
 			<table class="table display list-unstyled team-members" id="table_students">
 				<thead class=" text-primary">
 					<th>Imagen</th>
@@ -271,9 +273,11 @@ $anio = $tema->date->year;
 					@endforelse
 				</tbody>
 			</table>
+			</div>
 		</div>
 	@else
 		<div class="suject-works col-12">
+			<div class="table-responsive">
 			<table class="table display list-unstyled team-members" id="table_students">
 				<thead class=" text-primary">
 					<th>Imagen</th>
@@ -311,6 +315,7 @@ $anio = $tema->date->year;
 					@endforelse
 				</tbody>
 			</table>
+			</div>
 		</div>
 	@endif
 	</div>
