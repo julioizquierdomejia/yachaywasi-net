@@ -86,8 +86,9 @@ class SubjectWorkController extends Controller
             $works = SubjectWork::where('subject_id', $subject)
                     ->get();
         }
+        $title = 'Tareas para '. $current_subject->name;
 
-        return view('admin.subject_works.index', compact('works', 'subject', 'current_subject', 'user_role'));
+        return view('admin.subject_works.index', compact('works', 'subject', 'current_subject', 'user_role', 'title'));
     }
 
     /**
