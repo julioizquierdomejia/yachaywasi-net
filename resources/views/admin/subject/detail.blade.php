@@ -188,7 +188,8 @@ $anio = $tema->date->year;
 			@foreach ($tema->views as $item)
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
-				<td>{!!$item->at_time == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
+				<td>{!!
+					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') == $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
 				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
@@ -248,17 +249,8 @@ $anio = $tema->date->year;
 				<tbody>
 					@forelse($works as $work)
 					@php
-						$file = '';
+						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
 					@endphp
-					@if($work->file == null)
-						@php
-							$file = '/images/avatar/guest-user.jpg';
-						@endphp
-						@else
-						@php
-							$file = '/images/subject-works/'. $work->file;
-						@endphp
-						@endif
 					<tr>
 						<td><b>
 							<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSubjectWork" data-src="{{$file}}"><i class="fa fa-eye"></i></button>

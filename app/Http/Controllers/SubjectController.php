@@ -157,7 +157,7 @@ class SubjectController extends Controller
                     $subject_view = SubjectView::create([
                         'subject_id' => $subject_id,
                         'user_id' => \Auth::id(),
-                        'at_time' => $tema->date->format('Y-m-d') == $now_date ? 'P' : 'F',
+                        //'at_time' => $tema->date->format('Y-m-d') == $now_date ? 'P' : 'F',
                         'views' => 1,
                     ]);
                 }
