@@ -30,6 +30,10 @@ class CreateDegreeLevelCoursesTable extends Migration
      */
     public function down()
     {
+        Schema::table('degree_level_courses', function (Blueprint $table) {
+            $table->dropForeign('degree_level_coursesdegree_level_id_foreign');
+            $table->dropForeign('degree_level_coursescourse_id_foreign');
+        });
         Schema::dropIfExists('degree_level_courses');
     }
 }
