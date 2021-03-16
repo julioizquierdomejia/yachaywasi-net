@@ -18,4 +18,9 @@ class SubjectWork extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+
+    public function subject()
+    {
+        return $this->hasOne('App\Subject', 'id', 'subject_id');
+    }
 }

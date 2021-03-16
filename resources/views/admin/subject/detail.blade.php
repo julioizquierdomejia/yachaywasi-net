@@ -189,7 +189,7 @@ $anio = $tema->date->year;
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!
-					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') == $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
+					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
 				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
