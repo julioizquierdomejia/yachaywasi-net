@@ -1,0 +1,12 @@
+id,level_course_id,bimester,unit,"name",position,"link_youtube","file_drive","file_drive_second","date","created_at","updated_at",user_id,school_id,status,"homework","urlpdf","urldrive","fecha_vencimiento","zoom"
+1,14,1,1,"Cuento plan lector",1,"https://youtu.be/rb_r2XtsV3c",NULL,NULL,"2021-03-15","2021-03-14 22:23:31","2021-03-14 22:23:31",5,2,1,NULL,NULL,NULL,NULL,NULL
+2,14,1,1,"Yo me llamo",2,"https://youtu.be/FnQ0V2v0NlU",NULL,NULL,"2021-03-15","2021-03-14 22:24:23","2021-03-14 22:24:23",5,2,1,NULL,NULL,NULL,NULL,NULL
+3,23,1,1,"Padre nuestro",1,"https://youtu.be/bZ4FQZ0h_zA",NULL,NULL,"2021-03-15","2021-03-14 22:27:14","2021-03-14 22:27:14",5,2,1,NULL,NULL,NULL,NULL,NULL
+4,43,1,1,"Los Primeros Pobladores I",2,"https://www.youtube.com/watch?v=Bf173uEHt5o",NULL,NULL,"2021-03-15","2021-03-15 04:55:27","2021-03-15 04:55:27",9,2,1,NULL,NULL,NULL,NULL,NULL
+5,57,1,1,"Classroom Language",2,NULL,NULL,NULL,"2021-03-15","2021-03-15 08:04:52","2021-03-15 08:04:52",11,2,1,NULL,"https://drive.google.com/file/d/1lPjWJhPu2azKdIERxUhs9pCWx3RG03Fe/view?usp=sharing",NULL,NULL,NULL
+6,54,1,1,"Classroom Language",2,NULL,NULL,NULL,"2021-03-15","2021-03-15 08:07:16","2021-03-15 08:07:16",11,2,1,NULL,"https://drive.google.com/file/d/1-LX5QebOPFyJ-yhzuyhwaVLlXLCDJJpV/view?usp=sharing",NULL,NULL,NULL
+7,46,1,1,"¿Cómo aparece el hombre sobre la tierra?",2,"https://www.youtube.com/watch?v=iabwUnwWcbk",NULL,NULL,"2021-03-15","2021-03-15 08:09:14","2021-03-15 08:09:14",9,2,1,NULL,NULL,NULL,NULL,NULL
+8,52,1,1,"Classroom Language",2,"https://www.youtube.com/watch?v=b1Lot2v25o4",NULL,NULL,"2021-03-15","2021-03-15 09:35:10","2021-03-15 09:35:10",11,2,1,NULL,"https://drive.google.com/file/d/10Vafi1V2x7u2EkkJzwIh5CPaD9QT4KQv/view?usp=sharing",NULL,NULL,NULL
+9,13,1,1,"APRENDIENDO LA ORACION DEL PADRE NUESTRO",1,"https://www.youtube.com/watch?v=E25Y2KzikG4",NULL,NULL,"2021-03-15","2021-03-15 12:34:58","2021-03-15 12:34:58",4,2,1,NULL,NULL,NULL,NULL,"https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09"
+10,6,1,1,"DERECHO A UN NOMBRE: ESCRIBO",1,"https://www.youtube.com/watch?v=PMn2XKDad2M",NULL,NULL,"2021-03-15","2021-03-15 12:38:52","2021-03-15 12:38:52",4,2,1,NULL,NULL,NULL,NULL,"https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09"
+11,7,1,1,"RECORDAMOS FIGURAS Y COLORES",1,"https://www.youtube.com/watch?v=Xy7GRBldcxI",NULL,NULL,"2021-03-15","2021-03-15 12:45:18","2021-03-15 12:45:18",4,2,1,NULL,NULL,NULL,NULL,"https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09"
