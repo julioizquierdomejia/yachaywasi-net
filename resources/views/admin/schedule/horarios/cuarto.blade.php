@@ -31,7 +31,7 @@
 
 			{{-- MARTES 1 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09" class="btn btn-sm" style="background-color: #FF86CF ">Comunicación</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #FF86CF ">Comunicación</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Wendy</span><br>
 			 	<span>ID : 314 164 6611</span><br>
