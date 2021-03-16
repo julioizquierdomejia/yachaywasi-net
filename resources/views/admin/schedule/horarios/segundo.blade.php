@@ -129,7 +129,7 @@
 
 			{{-- MARTES 3 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
@@ -156,7 +156,7 @@
 
 			{{-- VIERNES 3 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
@@ -180,7 +180,7 @@
 
 			{{-- MARTES 4 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
@@ -207,7 +207,7 @@
 
 			{{-- VIERNES 4 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
@@ -227,7 +227,7 @@
 			
 			{{-- LUNES 5 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
@@ -245,7 +245,7 @@
 
 			{{-- MIERCOLES 5 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
