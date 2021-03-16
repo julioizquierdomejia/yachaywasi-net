@@ -22,7 +22,7 @@ $anio = $tema->date->year;
 			<div class="card card-user">
 				<div class="card-body">
 					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="http://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
+						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{$videoKey}}" allowfullscreen></iframe>
 					</div>
 				</div>
 				<div class="card-footer">

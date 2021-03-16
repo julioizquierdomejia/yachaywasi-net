@@ -30,11 +30,11 @@
 
 			{{-- MARTES 1 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Romina</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- MIERCOLES 1 --}}
@@ -80,11 +80,11 @@
 
 			{{-- MARTES 2 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Romina</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- MIERCOLES 2 --}}
@@ -254,16 +254,16 @@
 
 			{{-- JUEVES 5 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- VIERNES 5 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
 				<br>
 			 	<span>Miss Wendy</span><br>
 			 	<span>ID : 314 164 6611</span><br>
