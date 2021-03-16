@@ -33,8 +33,8 @@
 				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- MIERCOLES 1 --}}
@@ -83,8 +83,8 @@
 				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- MIERCOLES 2 --}}
@@ -257,8 +257,8 @@
 				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span>ID : 570 500 3524</span><br>
+				<span>Clave : 2021</span>
 			</td>
 
 			{{-- VIERNES 5 --}}
