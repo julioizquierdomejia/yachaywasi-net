@@ -16,9 +16,9 @@ class CreateSubjectViewsTable extends Migration
         Schema::create('subject_views', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('subject_id')->unsigned();
-            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('at_time');
             $table->integer('views');
@@ -33,6 +33,10 @@ class CreateSubjectViewsTable extends Migration
      */
     public function down()
     {
+        Schema::table('subject_views', function (Blueprint $table) {
+            $table->dropForeign('subject_views_subject_id_foreign');
+            $table->dropForeign('subject_views_user_id_foreign');
+        });
         Schema::dropIfExists('subject_views');
     }
 }

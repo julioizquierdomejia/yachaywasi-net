@@ -11,7 +11,10 @@ $anio = $tema->date->year;
 ?>
 <h2 style='font-size: 22px;'><b>Bimestre </b>{{$tema->bimester}} / <b>Unidad</b> {{$tema->unit}} </h2>
 <h1 style='font-size: 38px;'><b>Tema: {{$tema->position}} </b> / {{$tema->name}}</h1>
-<h5 style='font-size: 16px; margin-top: -20px; padding-top: 0;'>Fecha: {{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}</h5>
+<h5 style='font-size: 16px; margin-top: -20px; padding-top: 0;'>Fecha: {{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}
+<span class="buttons">
+	<button class="btn btn-light btnAddComment" data-docenteid="{{$tema->user_id}}" data-temaid="{{$tema->id}}" type="button"><i class="fa fa-comments"></i></button>
+</span></h5>
 <div class="content">
 	<div class="row">
 		<div class="col-md-6">
@@ -23,33 +26,26 @@ $anio = $tema->date->year;
 					</div>
 				</div>
 				<div class="card-footer">
-					<div class="subject-works">
-						@if ($user_role->name == 'lector')
-						<a class="btn btn-primary" href="{{ route('subject-works.show', $tema->id) }}">Adjuntar tarea</a>
-						@else
-						<a class="btn btn-primary" href="{{ route('subject-works.show', $tema->id) }}">Ver tareas</a>
-						@endif
-					</div>
 					<hr>
 					<div class="button-container">
 						<div class="row">
 							<div class="col-lg-3 col-md-6 col-6 ml-auto">
 								<h5>Bimestre<br><small>{{$tema->bimester}}</small></h5>
 							</div>
-							<div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
+							<div class="col-lg-3 col-md-6 col-6 ml-auto mr-auto">
 								<h5>Unidad<br><small>{{$tema->unit}}</small></h5>
 							</div>
 							<div class="col-lg-3 mr-auto">
 								<h5>Tema<br><small>{{$tema->position}}</small></h5>
+							</div>
+							<div class="col-lg-3 mr-auto subject-works text-center">
+								<button class="btn btn-primary px-1 py-2" data-href="{{ route('subject-works.show', $tema->id) }}">{{$user_role->name == 'lector' ? 'Adjuntar tarea' : 'Ver tareas'}}</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			@endif
-			<div class="buttons">
-				<button class="btn btn-light btnAddComment" data-docenteid="{{$tema->user_id}}" data-temaid="{{$tema->id}}" type="button"><i class="fa fa-comments"></i></button>
-			</div>
 			@if ( $tema->homework != null || $tema->urldrive != null || $tema->urlpdf != null)
 			
 			<!-- skjdfhsjdfhshdfhdjfg -->
@@ -202,7 +198,150 @@ $anio = $tema->date->year;
 	@endif
 </div>
 </div>
+<hr>
+<div class="works-section">
+	<h5>Trabajos</h5>
+	<div class="row">
+	@if ($user_role->name == 'lector')
+		<form class="form-group col-12 col-md-6 col-lg-5" method="POST" action="/subject-works" enctype="multipart/form-data">
+			@csrf
+			@if ($errors->any())
+		    <div class="alert alert-danger">
+		        <ul>
+		            @foreach ($errors->all() as $error)
+		            <li>{{ $error }}</li>
+		            @endforeach
+		        </ul>
+		    </div>
+			@endif
+			<input type="hidden" name="subject_id" value="{{$tema->id}}">
+			<div class="form-group">
+				<label for="lbltitle">Título</label>
+				<input class="form-control" type="text" name="title" id="lbltitle">
+			</div>
+			<div class="form-group">
+				<label for="lblDescription">Descripción</label>
+				<textarea name="description" class="form-control" id="lblDescription" rows="3"></textarea>
+			</div>
+			<div class="form-group">
+				<div class="custom-file custom-file-browser">
+					<input name="file" type="file" class="custom-file-input form-control" id="customFile" lang="es">
+					<label class="custom-file-label label-file" for="customFile">Seleccionar Archivo</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="update ml-auto mr-auto">
+					<button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane mr-2"></i> Enviar </button>
+				</div>
+			</div>
+		</form>
+	@endif
+	@if ($user_role->name == 'lector')
+		<div class="suject-works col-12 col-md-6 col-lg-7">
+			<div class="table-responsive">
+			<table class="table display list-unstyled team-members" id="table_students">
+				<thead class=" text-primary">
+					<th>Imagen</th>
+					<th>Título</th>
+					<th>Descripción</th>
+				</thead>
+				<tbody>
+					@forelse($works as $work)
+					@php
+						$file = '';
+					@endphp
+					@if($work->file == null)
+						@php
+							$file = '/images/avatar/guest-user.jpg';
+						@endphp
+						@else
+						@php
+							$file = '/images/subject-works/'. $work->file;
+						@endphp
+						@endif
+					<tr>
+						<td><b>
+							<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSubjectWork" data-src="{{$file}}"><i class="fa fa-eye"></i></button>
+						</b></td>
+						<td>{{ $work->title }}</td>
+						<td>{!! $work->description !!}</td>
+					</tr>
+					@empty
+					<tr>
+						<td colspan="4" class="text-center">No existen datos</td>
+					</tr>
+					@endforelse
+				</tbody>
+			</table>
+			</div>
+		</div>
+	@else
+		<div class="suject-works col-12">
+			<div class="table-responsive">
+			<table class="table display list-unstyled team-members" id="table_students">
+				<thead class=" text-primary">
+					<th>Imagen</th>
+					<th>Usuario</th>
+					<th>Título</th>
+					<th>Descripción</th>
+				</thead>
+				<tbody>
+					@php
+						$colors = array('primary', 'secondary', 'danger', 'warning', 'dark', 'info', 'success', 'light');
+						$x = 0;
+					@endphp
+					@forelse($works as $work_index => $work)
+					@php
+						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
+						if(!isset($colors[$x])){
+							$x = 0; //if color will less then records it will start from 0 again
+						}
+						$is_different = $work_index > 0 && $work->user->name == $works[$work_index - 1]->user->name;
+						if(!$is_different) 
+							$x++;
+					@endphp
+					<tr>
+						<td>
+							<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSubjectWork" data-src="{{$file}}"><i class="fa fa-eye"></i></button>
+						</td>
+						<td>{!! $is_different ? ('<span class="badge badge-'.$colors[$x].' px-3 py-2">'.$work->user->name.'</span>') : '<span class="badge badge-'.$colors[$x].' px-3 py-2">'.$work->user->name.'</span>' !!}</td>
+						<td>{{ $work->title }}</td>
+						<td>{!! $work->description !!}</td>
+					</tr>
+					@empty
+					<tr>
+						<td colspan="4" class="text-center">No existen datos</td>
+					</tr>
+					@endforelse
+				</tbody>
+			</table>
+			</div>
+		</div>
+	@endif
+	</div>
+	</div>
+</div>
+<div class="modal fade" tabindex="-1" id="modalSubjectWork">
+    <div class="modal-dialog modal-lg" style="max-height: calc(100vh - 40px)">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Foto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <div class="modal-body h-100 text-center">
+            <img class="image img-fluid" src="" width="600" style="width: auto;">
+        </div>
+    </div>
+  </div>
+</div>
 @endsection
 @section('script')
 @include('admin.subject.comments')
+<script type="text/javascript">
+	$('#modalSubjectWork').on('show.bs.modal', function (event) {
+    		$('#modalSubjectWork .modal-body .image').attr('src', $(event.relatedTarget).data('src'))
+    	})
+</script>
 @endsection

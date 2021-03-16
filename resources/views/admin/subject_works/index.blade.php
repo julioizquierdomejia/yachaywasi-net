@@ -88,17 +88,8 @@
 				<tbody>
 					@forelse($works as $work)
 					@php
-						$file = '';
+						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
 					@endphp
-					@if($work->file == null)
-						@php
-							$file = '/images/avatar/guest-user.jpg';
-						@endphp
-						@else
-						@php
-							$file = '/images/subject-works/'. $work->file;
-						@endphp
-						@endif
 					<tr>
 						<td>
 							<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSubjectWork" data-src="{{$file}}"><i class="fa fa-eye"></i></button>

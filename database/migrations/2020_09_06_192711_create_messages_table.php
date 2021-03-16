@@ -18,13 +18,13 @@ class CreateMessagesTable extends Migration
             $table->longText('messages');
 
             $table->bigInteger('subject_id')->unsigned();
-            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
 
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->bigInteger('docente_id')->unsigned();
-            $table->foreign('docente_id')->references('id')->on('users');
+            $table->foreign('docente_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->integer('status');
 
@@ -39,6 +39,11 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
+        Schema::table('messages', function (Blueprint $table) {
+            $table->dropForeign('messages_subject_id_foreign');
+            $table->dropForeign('messages_user_id_foreign');
+            $table->dropForeign('messages_docente_id_foreign');
+        });
         Schema::dropIfExists('messages');
     }
 }

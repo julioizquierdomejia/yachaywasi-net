@@ -19,19 +19,19 @@ class CreateUserHoursAssignTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->bigInteger('course_id')->unsigned();
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
             $table->bigInteger('level_id')->unsigned();
-            $table->foreign('level_id')->references('id')->on('levels');
+            $table->foreign('level_id')->references('id')->on('levels')->onDelete('cascade');
 
             $table->bigInteger('degree_id')->unsigned();
-            $table->foreign('degree_id')->references('id')->on('degrees');
+            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
 
             $table->bigInteger('day_id')->unsigned();
-            $table->foreign('day_id')->references('id')->on('days');
+            $table->foreign('day_id')->references('id')->on('days')->onDelete('cascade');
 
             $table->bigInteger('hour_id')->unsigned();
-            $table->foreign('hour_id')->references('id')->on('hours');
+            $table->foreign('hour_id')->references('id')->on('hours')->onDelete('cascade');
 
             $table->boolean('enabled')->default(1);
 

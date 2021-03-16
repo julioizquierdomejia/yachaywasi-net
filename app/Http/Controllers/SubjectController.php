@@ -8,6 +8,7 @@ use App\DegreeLevelCourse;
 use App\DegreeLevelUser;
 use App\Subject;
 use App\SubjectView;
+use App\SubjectWork;
 use App\Course;
 use App\Http\Requests\SubjectRequest;
 use Carbon\Carbon;
@@ -162,7 +163,14 @@ class SubjectController extends Controller
                 }
             }
         }
-
+        if ($user_role->name == 'lector') {
+            $works = SubjectWork::where('user_id', auth()->id())
+                    ->where('subject_id', $tema->id)
+                    ->get();
+        } else {
+            $works = SubjectWork::where('subject_id', $tema->id)
+                    ->get();
+        }
 
         /*
         /*$user_id = \Auth::id();
@@ -177,26 +185,20 @@ class SubjectController extends Controller
 
         $video = $tema->link_youtube;
 
-        function YoutubeID($url)
-        {
-            if(strlen($url) > 11)
-            {
-                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
-                {
+        function YoutubeID($url) {
+            if(strlen($url) > 11) {
+                if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
                     return $match[1];
                 }
                 else
                     return false;
             }
-
             return $url;
         }
-        
-
         $videoKey = YoutubeID($video);
         $title = 'Tema: ' . $tema->name;
 
-        return view('admin.subject.detail', compact('tema', 'videoKey', 'user_role', 'title'));
+        return view('admin.subject.detail', compact('tema', 'videoKey', 'user_role', 'works', 'title'));
     }
 
     
