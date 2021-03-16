@@ -202,7 +202,7 @@
 
 			{{-- JUEVES 4 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/5953106226?pwd=WXFocjVLNGxXWmlTaEYrSUJLcjdXUT09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
 				<br>
 			 	<span>Miss Wendy</span><br>
 			 	<span>ID : 314 164 6611</span><br>
