@@ -30,9 +30,9 @@
 
 			{{-- MARTES 1 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Romina</span><br>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
 				<span>Clave : vygotsky</span>
 			</td>
@@ -80,9 +80,9 @@
 
 			{{-- MARTES 2 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Romina</span><br>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
 				<span>Clave : vygotsky</span>
 			</td>
@@ -254,7 +254,7 @@
 
 			{{-- JUEVES 5 --}}
 			<td>
-				<a href="https://us05web.zoom.us/j/3873364069?pwd=cTM3cmJSd2psa09HWENGb1N1YWFHdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tecnología</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Jomira</span><br>
 				<span>ID : 387 336 4069</span><br>
