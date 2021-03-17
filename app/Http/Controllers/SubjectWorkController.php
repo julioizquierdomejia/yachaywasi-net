@@ -39,29 +39,35 @@ class SubjectWorkController extends Controller
         $rules = array(
             'title'       => 'string|required',
             'description'    => 'string',
+            'file'    => 'required|mimes:jpeg,png,bmp,tiff |max:10096',
         );
-        $this->validate($request, $rules);
+        $messages = array(
+            'title.string' => 'El título debe ser un texto.',
+            'title.required' => 'El título debe ser escrito.',
+            'description.required' => 'El título debe ser un texto.',
+            'file.required' => 'La imagen es necesaria.',
+            'file.mimes' => 'Solo se aceptan imágenes'
+        );
+        $this->validate($request, $rules, $messages);
 
         $subjectwork = new SubjectWork();
         $subjectwork = $subjectwork->fill($request->except(['file, user_id']));
         $subjectwork->user_id = auth()->id();
 
-        if ($request->hasFile('file')) {
-            $file = $request->file('file');
-            $file_name = time().'_'.$file->getClientOriginalName();
-            //aqui le damos al campo avatar el nombre para que lo grabe
-            $subjectwork->file = $file_name;
+        $file = $request->file('file');
+        $file_name = time().'_'.$file->getClientOriginalName();
+        //aqui le damos al campo avatar el nombre para que lo grabe
+        $subjectwork->file = $file_name;
 
-            if (DIRECTORY_SEPARATOR === '/') {
-                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/subject-works' : public_path('/images/subject-works');
-                // unix, linux, mac
-                if (!is_dir($dir)) {
-                    mkdir($dir, 0777, true);
-                }
-                $file->move($dir, $file_name);
-            } else {
-                $file->move(public_path('/images/subject-works'), $file_name);
+        if (DIRECTORY_SEPARATOR === '/') {
+            $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/subject-works' : public_path('/images/subject-works');
+            // unix, linux, mac
+            if (!is_dir($dir)) {
+                mkdir($dir, 0777, true);
             }
+            $file->move($dir, $file_name);
+        } else {
+            $file->move(public_path('/images/subject-works'), $file_name);
         }
         $subjectwork->save();
 

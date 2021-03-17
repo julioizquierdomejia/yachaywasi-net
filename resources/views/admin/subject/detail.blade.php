@@ -204,7 +204,7 @@ $anio = $tema->date->year;
 	<h5>Trabajos</h5>
 	<div class="row">
 	@if ($user_role->name == 'lector')
-		<form class="form-group col-12 col-md-6 col-lg-5" method="POST" action="/subject-works" enctype="multipart/form-data">
+		<form class="form-group col-12 col-md-6 col-lg-5" id="frmWork" method="POST" action="/subject-works" enctype="multipart/form-data">
 			@csrf
 			@if ($errors->any())
 		    <div class="alert alert-danger">
@@ -225,14 +225,15 @@ $anio = $tema->date->year;
 				<textarea name="description" class="form-control" id="lblDescription" rows="3"></textarea>
 			</div>
 			<div class="form-group">
+				<label for="lblImage">Imagen</label>
 				<div class="custom-file custom-file-browser">
-					<input name="file" type="file" class="custom-file-input form-control" id="customFile" lang="es">
+					<input name="file" type="file" class="custom-file-input form-control" id="lblImage" lang="es" accept="image/*">
 					<label class="custom-file-label label-file" for="customFile">Seleccionar Archivo</label>
 				</div>
 			</div>
 			<div class="row">
 				<div class="update ml-auto mr-auto">
-					<button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane mr-2"></i> Enviar </button>
+					<button type="submit" class="btn btn-primary btn-sendwork"><i class="fas fa-paper-plane mr-2"></i> Enviar </button>
 				</div>
 			</div>
 		</form>
@@ -333,8 +334,21 @@ $anio = $tema->date->year;
 @section('script')
 @include('admin.subject.comments')
 <script type="text/javascript">
-	$('#modalSubjectWork').on('show.bs.modal', function (event) {
-    		$('#modalSubjectWork .modal-body .image').attr('src', $(event.relatedTarget).data('src'))
-    	})
+	$(document).ready(function (event) {
+		$('#modalSubjectWork').on('show.bs.modal', function (event) {
+			$('#modalSubjectWork .modal-body .image').attr('src', $(event.relatedTarget).data('src'))
+		})
+		$('.custom-file-input').on('change', function (event) {
+			if($(this).val().length) {
+				let fileName = $(this).val().split('\\').pop(); 
+				$(this).parent().find('.custom-file-label').text(fileName);
+			} else {
+				$(this).parent().find('.custom-file-label').text('Seleccionar Archivo');
+			}
+		})
+		$('#frmWork').on('submit', function (e) {
+			$('.btn-sendwork').attr('disabled', true);
+		})
+	})
 </script>
 @endsection
