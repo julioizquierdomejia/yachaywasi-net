@@ -108,7 +108,6 @@ class SubjectController extends Controller
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
 
-        dd($course_id);
         
         $nameCourse = Course::findOrFail($course_id);
         dd($nameCourse->name);
