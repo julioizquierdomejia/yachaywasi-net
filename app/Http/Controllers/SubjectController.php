@@ -110,7 +110,6 @@ class SubjectController extends Controller
 
         
         $nameCourse = Course::findOrFail($course_id);
-        dd($nameCourse->name);
 
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
