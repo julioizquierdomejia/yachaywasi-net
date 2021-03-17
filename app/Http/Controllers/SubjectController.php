@@ -57,7 +57,7 @@ class SubjectController extends Controller
         $subject->homework = $request->input('homework');
         $subject->zoom = $request->input('zoom');
 
-
+        /*
         if ($request->input('homework') != null){
             if ($request->input('fecha_vencimiento') == null){
                 $fecha_generada = strtotime($request->input('date')."+ 2 days");
@@ -66,7 +66,15 @@ class SubjectController extends Controller
                 $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
             }
         }
+        */
 
+        if ($request->input('fecha_vencimiento') == null){
+            $fecha_generada = strtotime($request->input('date')."+ 2 days");
+            $subject->fecha_vencimiento = $fecha_generada;
+        }else{
+            $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
+        }
+            
         $subject->status = 1;
 
         
