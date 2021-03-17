@@ -74,7 +74,7 @@ class SubjectController extends Controller
         }else{
             $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
         }
-            
+
         $subject->status = 1;
 
         
@@ -245,6 +245,7 @@ class SubjectController extends Controller
         //$subject->fill($request->all());
         $subject->fill($request->except('fecha_vencimiento'));
 
+        /*
         if ($request->input('homework') != null){
             if ($request->input('fecha_vencimiento') == null){
                 $fecha_generada = strtotime($request->input('date')."+ 2 days");
@@ -252,6 +253,13 @@ class SubjectController extends Controller
             }else{
                 $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
             }
+        }
+        */
+        if ($request->input('fecha_vencimiento') == null){
+            $fecha_generada = strtotime($request->input('date')."+ 2 days");
+            $subject->fecha_vencimiento = $fecha_generada;
+        }else{
+            $subject->fecha_vencimiento = $request->input('fecha_vencimiento');
         }
 
         //$subject->update($request->all());       
