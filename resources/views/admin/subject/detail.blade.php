@@ -281,16 +281,17 @@ $anio = $tema->date->year;
 					@php
 						$colors = array('primary', 'secondary', 'danger', 'warning', 'dark', 'info', 'success', 'light');
 						$x = 0;
+						$colors_count = count($colors);
 					@endphp
 					@forelse($works as $work_index => $work)
 					@php
 						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
-						if(!isset($colors[$x])){
-							$x = 0; //if color will less then records it will start from 0 again
-						}
 						$is_different = $work_index > 0 && $work->user->name == $works[$work_index - 1]->user->name;
 						if(!$is_different) 
 							$x++;
+						if(!isset($colors[$x])){
+							$x = 0; //if color will less then records it will start from 0 again
+						}
 					@endphp
 					<tr>
 						<td>
