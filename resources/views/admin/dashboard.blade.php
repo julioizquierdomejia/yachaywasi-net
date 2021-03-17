@@ -353,7 +353,7 @@ Dashborad - Yachaywasi
                       <div class="card-footer mt">
                         <a href="{{route('vertemas', ['course_id'=>$curso_item->dlc_id])}}" class="btn btn-primary">
                           <i class="fas fa-file-alt"></i>
-                          Ver temas
+                          Ver temas 
                         </a>
                       </div>
                     </div>

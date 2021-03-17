@@ -99,7 +99,11 @@ class SubjectController extends Controller
                     ->join('subjects', 'subjects.level_course_id', 'degree_level_courses.id')
                     ->join('courses', 'courses.id' ,'degree_level_courses.course_id')
                     ->first();
+
+        dd($course_id);
         
+        $nameCourse = Course::findOrFail($course_id);
+        dd($nameCourse->name);
 
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
@@ -134,6 +138,7 @@ class SubjectController extends Controller
                 ->where('degree_level_courses.id', $course_id)->get();
 
         $title = 'Tema ' . $temaCurrent->name;
+
 
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         
