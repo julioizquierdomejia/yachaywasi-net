@@ -47,11 +47,11 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::resource('createcourses', 'CrearCursoToUser');
 
-	Route::prefix('temas')->group(function () {
+	Route::prefix('cursos')->group(function () {
 		Route::get('/', 'SubjectController@list')->name('temas');
-		Route::get('/{course_id}', 'SubjectController@show')->name('vertemas');
-		Route::get('/tema/{tema_id}', 'SubjectController@detail')->name('temadetalle');
-		Route::get('/tema/edit/{tema_id}', 'SubjectController@edit')->name('temaedit');
+		Route::get('/{level_id}/{course_id}/temas', 'SubjectController@show')->name('vertemas');
+		Route::get('/temas/{tema_id}', 'SubjectController@detail')->name('temadetalle');
+		Route::get('/temas/{tema_id}/edit', 'SubjectController@edit')->name('temaedit');
 
 	});
 

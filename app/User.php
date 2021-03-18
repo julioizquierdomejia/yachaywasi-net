@@ -41,12 +41,12 @@ class User extends Authenticatable
 
 
     public function levels(){
-        return $this->belongsToMany('App\Level', 'course_degree_level_user');
+        return $this->belongsToMany('App\Level', 'degree_level_users');
     }
 
     
     public function degrees(){
-        return $this->belongsToMany('App\Degree', 'course_degree_level_user');
+        return $this->belongsToMany('App\Degree', 'degree_level_users');
     }
 
     public function courses(){
