@@ -21,7 +21,8 @@ Route::middleware(['guest'])->group(function () {
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-	Route::get('/home', 'HomeController@index')->name('home');
+	//Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('dashboard', 'dasboardController@index')->name('dashboard');
 
 	Route::get('/subject/all', 'SubjectController@all')->name('subject.all');
 
@@ -43,8 +44,6 @@ Route::middleware(['auth'])->group(function () {
 	//Route::put('subject/{tema_id}', 'SubjectController@update')->name('subject.update');
 	
 	Route::resource('competencie', 'competencieController');
-
-	Route::get('dashboard', 'dasboardController@index')->name('dashboard');
 
 	Route::resource('createcourses', 'CrearCursoToUser');
 

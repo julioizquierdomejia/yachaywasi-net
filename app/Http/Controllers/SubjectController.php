@@ -109,7 +109,7 @@ class SubjectController extends Controller
                     ->first();
 
         
-        $nameCourse = Course::findOrFail($course_id);
+        //$nameCourse = Course::findOrFail($course_id);
 
         $docente_id = $temaCurrent->user_id; //aqui obtenemos el Id del docente del tema actual
 
