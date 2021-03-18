@@ -31,6 +31,7 @@ class SubjectController extends Controller
         // Page title
         $title = 'Curso ' . $course->course->name;
 
+
         return view('admin.subject.index')->with(compact('course','subjects', 'id', 'userAuth', 'title'));
     }
 
@@ -151,7 +152,8 @@ class SubjectController extends Controller
     }
 
     public function show(Request $request, $level_id, $course_id)
-    {
+    {   
+
         $userAuth = auth()->user();
         $role = $userAuth->roles->first()->name;
         $user_degree = $userAuth->levels->first();
@@ -191,6 +193,7 @@ class SubjectController extends Controller
 
         $title = 'Curso ' . $curso_current->name;
 
+        dd($temas);
 
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         

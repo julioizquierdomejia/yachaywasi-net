@@ -121,10 +121,13 @@ class dasboardController extends Controller
                         )
                         ->get();
             $teacher_ids = array(array_column($degree_teachers->toArray(), 'dlu_id'));
+
             
             $cursos = DegreeLevelCourse::whereIn('degree_level_id', $teacher_ids)
                             ->join('courses', 'courses.id', '=', 'degree_level_courses.course_id')
                             ->get();
+
+                            
             //dd($cursos->toArray());
         } else {
             $cursos = Course::where('user_id', $userAuth->id)->get();
