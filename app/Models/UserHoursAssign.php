@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,9 +24,9 @@ class UserHoursAssign extends Model
     ];
 
     public function hour() {
-        return $this->hasOne('App\Hour', 'id', 'hour_id');
+        return $this->hasOne(Hour::class, 'id', 'hour_id');
     }
     public function day() {
-        return $this->hasOne('App\Day', 'id', 'day_id');
+        return $this->hasOne(Day::class, 'id', 'day_id');
     }
 }

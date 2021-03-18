@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Hour;
+use App\Models\Hour;
 use Illuminate\Http\Request;
 
 class HourController extends Controller
@@ -41,7 +41,7 @@ class HourController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Hour  $hour
+     * @param  \App\Models\Hour  $hour
      * @return \Illuminate\Http\Response
      */
     public function show(Hour $hour)
@@ -52,7 +52,7 @@ class HourController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Hour  $hour
+     * @param  \App\Models\Hour  $hour
      * @return \Illuminate\Http\Response
      */
     public function edit(Hour $hour)
@@ -64,7 +64,7 @@ class HourController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Hour  $hour
+     * @param  \App\Models\Hour  $hour
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Hour $hour)
@@ -75,7 +75,7 @@ class HourController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Hour  $hour
+     * @param  \App\Models\Hour  $hour
      * @return \Illuminate\Http\Response
      */
     public function destroy(Hour $hour)

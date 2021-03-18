@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::prefix('cursos')->group(function () {
 		Route::get('/', 'SubjectController@list')->name('temas');
-		Route::get('/{level_id}/{course_id}/temas', 'SubjectController@show')->name('vertemas');
+		Route::get('/{level_id}/{course_id}/{degree_course_id}/temas', 'SubjectController@show')->name('vertemas');
 		Route::get('/temas/{tema_id}', 'SubjectController@detail')->name('temadetalle');
 		Route::get('/temas/{tema_id}/edit', 'SubjectController@edit')->name('temaedit');
 

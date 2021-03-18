@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Course;
-use App\Role;
-use App\Competencie;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Role;
+use App\Models\Competencie;
 
 class competencieController extends Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,18 +13,18 @@ class User extends Authenticatable
     //relacion con el campo de parent_id de la misma tabla
     //Para ver los colegios o directores
     /*public function director(){
-        return $this->belongsTo('App\User', 'parent_id');
+        return $this->belongsTo('App\Models\User', 'parent_id');
     }
 */
     //relacion para ver los docentes asociados al director o colegio
     public function docentes(){
         //se necesita indicar la columna parent_id ya que por convencion sería solo ID
-        return $this->hasMany('App\User', 'parent_id');
+        return $this->hasMany('App\Models\User', 'parent_id');
     }
 
     //Muchos usuarios a Muchos roles
     public function roles(){
-        return $this->belongsToMany('App\Role');
+        return $this->belongsToMany('App\Models\Role');
     }
 
     //relaciona un usuario a varios cursos
@@ -41,16 +41,16 @@ class User extends Authenticatable
 
 
     public function levels(){
-        return $this->belongsToMany('App\Level', 'degree_level_users');
+        return $this->belongsToMany('App\Models\Level', 'degree_level_users');
     }
 
     
     public function degrees(){
-        return $this->belongsToMany('App\Degree', 'degree_level_users');
+        return $this->belongsToMany('App\Models\Degree', 'degree_level_users');
     }
 
     public function courses(){
-        return $this->hasMany('App\Course');
+        return $this->hasMany('App\Models\Course');
     }
 
     public function authorizeRoles($roles){

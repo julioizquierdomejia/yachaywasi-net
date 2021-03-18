@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -21,11 +21,11 @@ class Message extends Model
 
     public function docente()
     {
-        return $this->hasOne('App\User', 'id', 'docente_id');
+        return $this->hasOne('App\Models\User', 'id', 'docente_id');
     }
 
     public function student()
     {
-        return $this->hasOne('App\User', 'id', 'user_id');
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
 }
