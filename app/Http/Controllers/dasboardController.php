@@ -120,7 +120,8 @@ class dasboardController extends Controller
                             'users.avatar', 'users.clave_zoom', 'users.avatar',
                         )
                         ->get();
-            $teacher_ids = array(array_column($degree_teachers->toArray(), 'dlu_id'));
+                        //dd($degree_teachers->toArray());
+            $teacher_ids = array_column($degree_teachers->toArray(), 'dlu_id');
             
             $cursos = DegreeLevelCourse::whereIn('degree_level_id', $teacher_ids)
                             ->join('courses', 'courses.id', '=', 'degree_level_courses.course_id')
