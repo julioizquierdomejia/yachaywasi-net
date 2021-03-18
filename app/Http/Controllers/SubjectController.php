@@ -150,31 +150,23 @@ class SubjectController extends Controller
         
     }
 
-    public function show(Request $request, $level_id, $course_id, $degree_course_id)
+    public function show(Request $request, $degree_course_id)
     {
         $userAuth = auth()->user();
         $role = $userAuth->roles->first()->name;
         $user_degree = $userAuth->levels->first();
 
         //aqui obtengo datos para el nombre del curso actual
-        $curso_current = DegreeLevelCourse::
-                    join('courses', 'courses.id' ,'degree_level_courses.course_id')
-                    ->where('degree_level_courses.degree_level_id', $level_id)
-                    ->where('degree_level_courses.course_id', $course_id)
-                    ->first();
+        $curso_current = DegreeLevelCourse::find($degree_course_id);
         
         $docente_current = User::join('degree_level_users', 'degree_level_users.user_id', 'users.id')
-                         ->where('degree_level_users.id', $level_id)->first();
+                         ->where('degree_level_users.id', $curso_current->degree_level_id)->first();
 
-        $temas = Subject::
-                join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
-                ->select('subjects.*','degree_level_courses.id as dg_level_id')
-                ->where('degree_level_courses.id', $degree_course_id)
+        $temas = Subject::where('level_course_id', $degree_course_id)
                 ->orderBy('bimester', 'desc')
                 ->orderBy('unit', 'desc')
                 ->orderBy('position', 'desc')
                 ->get();
-
 
         $bimestres = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
@@ -189,8 +181,7 @@ class SubjectController extends Controller
                 ->distinct('subjects.unit')
                 ->where('degree_level_courses.id', $degree_course_id)->get();
 
-        $title = 'Curso ' . $curso_current->name;
-
+        $title = 'Curso ' . $curso_current->course->name;
 
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         

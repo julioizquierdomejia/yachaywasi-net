@@ -8,7 +8,7 @@ $dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sába
 <div class="container-fluid bg-light p-5">
 	
 	<h3 style='font-size: 26px;'><i class="fas fa-file-alt"></i> Listado de Temas</h3>
-	<h4> Curso : {{ $curso_current->name }}  / A cargo de : {{ $docente_current->name }}</h4>
+	<h4> Curso : {{ $curso_current->course->name }}  / A cargo de : {{ $docente_current->name }}</h4>
 
 	<div class="content p-0">
         <div class="row">
