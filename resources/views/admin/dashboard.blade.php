@@ -321,16 +321,20 @@
                 <div class="col mb-4">
                   <div class="card" style='height: 340px;'>
                     @if($curso_item->images)
-                    <img class="card-img-top" src="/images/course/{{$curso_item->images}}" alt="{{$curso_item->name}}">
+                    <img class="card-img-top" src="/images/course/{{$curso_item->images}}" alt="{{$curso_item->course_name}}">
                     @else
-                      <img class="card-img-top" src="/images/course-default.png" alt="{{$curso_item->name}}">
+                      <img class="card-img-top" src="/images/course-default.png" alt="{{$curso_item->course_name}}">
                     @endif
                     <div class="card-body">
-                      <h5 class="card-title">{{$curso_item->name}}</h5>
+                      <h5 class="card-title">{{$curso_item->course_name}}</h5>
                       <p class="card-text"> </p>
                     </div>
                     <div class="card-footer mt">
-                      <a href="{{route('vertemas', ['course_id'=>$curso_item->course_id, 'level_id'=>$curso_item->degree_level_id])}}" class="btn btn-primary">
+                      <a href="{{route('vertemas', [
+                      'level_id' => $curso_item->degree_level_id,
+                      'course_id' => $curso_item->course_id,
+                      'degree_course_id' => $curso_item->dlc_id
+                      ])}}" class="btn btn-primary">
                         <i class="fas fa-file-alt"></i>
                         Ver temas 
                       </a>

@@ -125,6 +125,7 @@ class dasboardController extends Controller
             
             $cursos = DegreeLevelCourse::whereIn('degree_level_id', $teacher_ids)
                             ->join('courses', 'courses.id', '=', 'degree_level_courses.course_id')
+                            ->select('degree_level_courses.id as dlc_id', 'degree_level_courses.degree_level_id', 'courses.id as course_id', 'courses.name as course_name', 'courses.descripcion', 'courses.abreviatura', 'courses.bg_color', 'courses.color', 'courses.images')
                             ->get();
             //dd($cursos->toArray());
         } else {

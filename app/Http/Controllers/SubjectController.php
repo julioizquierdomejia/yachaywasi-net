@@ -150,7 +150,7 @@ class SubjectController extends Controller
         
     }
 
-    public function show(Request $request, $level_id, $course_id)
+    public function show(Request $request, $level_id, $course_id, $degree_course_id)
     {
         $userAuth = auth()->user();
         $role = $userAuth->roles->first()->name;
@@ -169,7 +169,7 @@ class SubjectController extends Controller
         $temas = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
-                ->where('degree_level_courses.course_id', $course_id)
+                ->where('degree_level_courses.id', $degree_course_id)
                 ->orderBy('bimester', 'desc')
                 ->orderBy('unit', 'desc')
                 ->orderBy('position', 'desc')
@@ -180,14 +180,14 @@ class SubjectController extends Controller
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
                 ->distinct('subjects.bimester')
-                ->where('degree_level_courses.id', $course_id)->get();
+                ->where('degree_level_courses.id', $degree_course_id)->get();
 
         $unidades = Subject::
                 join('degree_level_courses', 'degree_level_courses.id', 'subjects.level_course_id')
                 ->select('subjects.*','degree_level_courses.id as dg_level_id')
                 ->distinct('subjects.bimester')
                 ->distinct('subjects.unit')
-                ->where('degree_level_courses.id', $course_id)->get();
+                ->where('degree_level_courses.id', $degree_course_id)->get();
 
         $title = 'Curso ' . $curso_current->name;
 
