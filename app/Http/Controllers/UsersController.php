@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
-use App\Course;
-use App\Level;
-use App\Degree;
-use App\DegreeLevelUser;
-use App\DegreeLevelCourse;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Course;
+use App\Models\Level;
+use App\Models\Degree;
+use App\Models\DegreeLevelUser;
+use App\Models\DegreeLevelCourse;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest; //agregamos nuestro Request para poder usar
 
@@ -194,7 +194,7 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User $user)
@@ -209,7 +209,7 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user) //implicin biding trae el ID y tambien el modelo de eloquen
@@ -222,7 +222,7 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -419,7 +419,7 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)

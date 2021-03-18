@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Role;
-use App\Course;
-use App\Level;
-use App\Degree;
-use App\DegreeLevelUser;
-use App\DegreeLevelCourse;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Course;
+use App\Models\Level;
+use App\Models\Degree;
+use App\Models\DegreeLevelUser;
+use App\Models\DegreeLevelCourse;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest; //agregamos nuestro Request para poder usar
 

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
+use App\Models\DegreeLevelCourse;
+use App\Models\DegreeLevelUser;
+use App\Models\Subject;
+use App\Models\SubjectView;
+use App\Models\SubjectWork;
+use App\Models\Course;
 use Illuminate\Http\Request;
-use App\DegreeLevelCourse;
-use App\DegreeLevelUser;
-use App\Subject;
-use App\SubjectView;
-use App\SubjectWork;
-use App\Course;
 use App\Http\Requests\SubjectRequest;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -263,7 +263,7 @@ class SubjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Subject  $subject
+     * @param  \App\Models\Subject  $subject
      * @return \Illuminate\Http\Response
      */
     public function edit($id){
@@ -278,7 +278,7 @@ class SubjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Subject $subject)

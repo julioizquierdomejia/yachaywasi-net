@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Level;
+use App\Models\Level;
 use Illuminate\Http\Request;
 
 class LevelController extends Controller
@@ -41,7 +41,7 @@ class LevelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Level  $level
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
     public function show(Level $level)
@@ -52,7 +52,7 @@ class LevelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Level  $level
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
     public function edit(Level $level)
@@ -64,7 +64,7 @@ class LevelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Level  $level
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Level $level)
@@ -75,7 +75,7 @@ class LevelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Level  $level
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
     public function destroy(Level $level)

@@ -32,15 +32,15 @@ $anio = $tema->date->year;
 							<div class="col-lg-3 col-md-6 col-6 ml-auto">
 								<h5>Bimestre<br><small>{{$tema->bimester}}</small></h5>
 							</div>
-							<div class="col-lg-3 col-md-6 col-6 ml-auto mr-auto">
+							<div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
 								<h5>Unidad<br><small>{{$tema->unit}}</small></h5>
 							</div>
 							<div class="col-lg-3 mr-auto">
 								<h5>Tema<br><small>{{$tema->position}}</small></h5>
 							</div>
-							<div class="col-lg-3 mr-auto subject-works text-center">
+							{{-- <div class="col-lg-3 mr-auto subject-works text-center">
 								<button class="btn btn-primary px-1 py-2" data-href="{{ route('subject-works.show', $tema->id) }}">{{$user_role->name == 'lector' ? 'Adjuntar tarea' : 'Ver tareas'}}</button>
-							</div>
+							</div> --}}
 						</div>
 					</div>
 				</div>

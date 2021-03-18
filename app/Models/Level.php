@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
-use App\Degree;
-use App\User;
-use App\Course;
+namespace App\Models;
+use App\Models\Degree;
+use App\Models\User;
+use App\Models\Course;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,16 +29,16 @@ class Level extends Model
     */
 
     public function users(){
-        return $this->belongsToMany('App\User', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\User', 'course_degree_level_user');
     }
 
     
     public function degrees(){
-        return $this->hasMany('App\Degree');
+        return $this->hasMany('App\Models\Degree');
     }
 
     public function courses(){
-        return $this->belongsToMany('App\Course', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\Course', 'course_degree_level_user');
     }
     
 }

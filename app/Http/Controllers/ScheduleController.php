@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Course;
-use App\Role;
-use App\Degree;
-use App\Level;
-use App\Day;
-use App\Hour;
-use App\UserHoursAssign;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Role;
+use App\Models\Degree;
+use App\Models\Level;
+use App\Models\Day;
+use App\Models\Hour;
+use App\Models\UserHoursAssign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;

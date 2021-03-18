@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Course;
-use App\DegreeLevelUser;
-use App\DegreeLevelCourse;
-use App\Subject;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\DegreeLevelUser;
+use App\Models\DegreeLevelCourse;
+use App\Models\Subject;
 
 class dasboardController extends Controller
 {

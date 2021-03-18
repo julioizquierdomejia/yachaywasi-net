@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +16,7 @@ class Subject extends Model
 
     public function views()
     {
-        return $this->hasMany('App\SubjectView', 'subject_id');
+        return $this->hasMany('App\Models\SubjectView', 'subject_id');
     }
 
     public function user_views()

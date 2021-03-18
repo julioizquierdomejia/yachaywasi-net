@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Level;
-use App\Course;
-use App\Degree;
+use App\Models\User;
+use App\Models\Level;
+use App\Models\Course;
+use App\Models\Degree;
 use Illuminate\Support\Facades\DB;
 use Pivot;
 

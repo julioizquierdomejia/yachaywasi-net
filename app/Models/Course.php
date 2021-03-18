@@ -1,11 +1,11 @@
 <?php
+namespace App\Models;
 
-namespace App;
-use App\Degree;
-use App\User;
-use App\Level;
-use App\DegreeLevelCourse;
-use App\DegreeLevelUser;
+use App\Models\Degree;
+use App\Models\User;
+use App\Models\Level;
+use App\Models\DegreeLevelCourse;
+use App\Models\DegreeLevelUser;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +18,7 @@ class Course extends Model
 
     /*
 	public function Users(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
     */
 
@@ -28,29 +28,29 @@ class Course extends Model
 
     /*
     public function Degrees_(){
-        return $this->belongsToMany('App\Degree', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\Degree', 'course_degree_level_user');
     }
 
      public function Users_(){
-        return $this->belongsToMany('App\User', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\User', 'course_degree_level_user');
     }
 
     public function Levels_(){
-        return $this->belongsToMany('App\Level', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\Level', 'course_degree_level_user');
     }
     */
 
     public function users(){
-        return $this->belongsToMany('App\User', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\User', 'course_degree_level_user');
     }
 
     
     public function levels(){
-        return $this->belongsToMany('App\Level', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\Level', 'course_degree_level_user');
     }
 
     public function degrees(){
-        return $this->belongsToMany('App\Degree', 'course_degree_level_user');
+        return $this->belongsToMany('App\Models\Degree', 'course_degree_level_user');
     }
 
     public function testing(){
