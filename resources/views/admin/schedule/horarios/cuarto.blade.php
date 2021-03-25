@@ -13,7 +13,8 @@
 		
 		<tr class="text-center" style="background-color: #C7EAFF">
 			<th scope="row">7:40 - 8:00</th>
-			<td colspan="5" style="font-weight: bold;">FORMACIÓN</td>
+			<td style="font-weight: bold;">FORMACIÓN</td>
+			<td colspan="4" style="font-weight: bold;"></td>
 		</tr>
 
 		<tr class="text-center">	
