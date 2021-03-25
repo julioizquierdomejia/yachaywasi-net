@@ -151,12 +151,12 @@ class SubjectController extends Controller
         
     }
 
-<<<<<<< HEAD
+
 
     public function show(Request $request, $level_id, $course_id, $degree_course_id)
-=======
-    public function show(Request $request, $degree_course_id)
->>>>>>> 238c305bc20338a07fdc83c1bead4400b0cc80c3
+
+    //public function show(Request $request, $degree_course_id)
+
     {
 
         $userAuth = auth()->user();
@@ -188,11 +188,11 @@ class SubjectController extends Controller
                 ->distinct('subjects.unit')
                 ->where('degree_level_courses.id', $degree_course_id)->get();
 
-<<<<<<< HEAD
-        $title = 'Curso ' . $curso_current->name;
-=======
+
+        //$title = 'Curso ' . $curso_current->name;
+
         $title = 'Curso ' . $curso_current->course->name;
->>>>>>> 238c305bc20338a07fdc83c1bead4400b0cc80c3
+
 
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         
