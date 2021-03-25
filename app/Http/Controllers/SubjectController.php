@@ -194,8 +194,6 @@ class SubjectController extends Controller
 
         $title = 'Curso ' . $curso_current->name;
 
-        dd($temas);
-
         return view('admin.subject.list', compact('temas', 'bimestres', 'unidades', 'userAuth', 'docente_current', 'curso_current', 'title', 'role'));
         
     }

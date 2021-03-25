@@ -121,17 +121,17 @@
 				<span>Clave : tkd2021</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #11A9D9 ">Psicomotricidad</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #11A9D9 ">Psicomotricidad</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
