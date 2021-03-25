@@ -314,6 +314,7 @@
     <div class="content">
       <h1><i class="fas fa-chalkboard-teacher"></i> Mis Cursos</h1>
       <h2>{{ $userAuth->name }}</h2>
+      <h3><b>Nivel {{ $degreeLevelUser->first()->level->name }}</b> - {{ $degreeLevelUser->first()->degree->name }}</h3>
       <div class="row">
         <div class="col-12">
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
@@ -331,8 +332,6 @@
                     </div>
                     <div class="card-footer mt">
                       <a href="{{route('vertemas', [
-                      'level_id' => $curso_item->degree_level_id,
-                      'course_id' => $curso_item->course_id,
                       'degree_course_id' => $curso_item->dlc_id
                       ])}}" class="btn btn-primary">
                         <i class="fas fa-file-alt"></i>
