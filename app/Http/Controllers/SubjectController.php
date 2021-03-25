@@ -153,9 +153,9 @@ class SubjectController extends Controller
 
 
 
-    public function show(Request $request, $level_id, $course_id, $degree_course_id)
+    //public function show(Request $request, $level_id, $course_id, $degree_course_id)
 
-    //public function show(Request $request, $degree_course_id)
+    public function show(Request $request, $degree_course_id)
 
     {
 
