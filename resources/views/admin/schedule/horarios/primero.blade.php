@@ -222,7 +222,7 @@
 		</tr>
 
 		<tr class="text-center">
-			<th scope="row">10:00 - 10:40</th>
+			<th scope="row">11:20 - 12:00</th>
 			
 			{{-- LUNES 5 --}}
 			<td>

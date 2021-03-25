@@ -181,7 +181,7 @@
 		</tr>
 
 		<tr class="text-center">
-			<th scope="row">10:00 - 10:40</th>
+			<th scope="row">11:20 - 12:00</th>
 			<td>
 				<a href="" class="btn btn-sm" style="background-color: #F74C1E;">Plataforma</a>
 				<br>
