@@ -102,6 +102,11 @@
 
 					<!-- Fin CARDS -->
 
+					<div class="custom-control custom-switch">
+						<label class="custom-control-label" for="customSwitch1">Habilitar usuario</label>
+						<input type="checkbox" class="custom-control-input" id="customSwitch1">
+					</div>
+
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">
 		              <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2" style='font-size: 14px;'></i> Guardar</button>
