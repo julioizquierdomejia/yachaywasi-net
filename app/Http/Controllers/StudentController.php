@@ -79,6 +79,7 @@ class StudentController extends Controller
      */
     public function show($user_id)
     {
+
         $alumno = User::findOrFail((int) $user_id);
         /*$degree_level_users = User::where('users.id', $user_id)
                 ->join('degree_level_users', 'degree_level_users.user_id','users.id')
@@ -92,8 +93,9 @@ class StudentController extends Controller
         } else {
             $grade = "";
         }*/
+
         $alumnos = User::join('role_user', 'role_user.user_id', '=', 'users.id')->where('role_id', 4)->get();
-        
+
         $levelDegrees = DegreeLevelUser::where('user_id',$user_id)->get();
 
         $niveles = Level::all();
@@ -114,7 +116,9 @@ class StudentController extends Controller
                     ->get();*/
         $title = $alumno->name;
 
-        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title'));
+        $status = 1; //para saber si es crear o editar
+
+        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title', 'status'));
     }
 
     /**

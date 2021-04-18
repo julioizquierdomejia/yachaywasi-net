@@ -8,7 +8,12 @@
 		<div class="col-md-8">
 			<div class="card card-user">
 		      <div class="card-header">
-		      	<h5 class="card-title">Registrar Alumno</h5>
+		      	@if($status == 1)
+		      		<h5 class="card-title">Editar Alumno <span class="badge badge-primary">{{$title}}</span></h5>
+		      	@else
+		      		<h5 class="card-title">Registrar Alumno</h5>
+		      	@endif
+		      	
 		      </div>
 		      <div class="card-body">
 		        <form class="form-group" method="POST" action="/user/{{$alumno->id}}" enctype="multipart/form-data">
@@ -70,7 +75,6 @@
 		              </div>
 		            </div>
 		          </div>
-
 		          <!-- Inicio CARDS -->
 					<!-- Grilla de Niveles / Para asginar Grados -->
 					<div class="row row-cols-1 row-cols-md-3">
@@ -81,8 +85,13 @@
 						        <h5 class="card-title">Nivel - {{$nivel->name}}</h5>
 						        @foreach ($nivel->degrees as $grado)
 						        <div class="custom-control custom-checkbox">
-								  <input type="checkbox" class="custom-control-input" name="grades[]" value="{{ $nivel->id }}_{{ $grado->id }}" id="level_{{ $nivel->id}}_grade_{{ $grado->id }}">
-								  <label class="custom-control-label" for="level_{{ $nivel->id}}_grade_{{ $grado->id }}">{{$grado->name}}</label>
+						        	@if($grado->id == $levelDegrees[0]->degree_id)
+						        		<input type="checkbox" class="custom-control-input" name="grades[]" value="{{ $nivel->id }}_{{ $grado->id }}" id="level_{{ $nivel->id}}_grade_{{ $grado->id }}" checked>
+						        	@else
+						        		<input type="checkbox" class="custom-control-input" name="grades[]" value="{{ $nivel->id }}_{{ $grado->id }}" id="level_{{ $nivel->id}}_grade_{{ $grado->id }}">
+						        	@endif
+								  <label class="custom-control-label" for="level_{{ $nivel->id}}_grade_{{ $grado->id }}">{{$grado->name}} - {{$grado->id}}
+								  </label>
 								</div>
 								@endforeach
 						      </div>
@@ -99,6 +108,7 @@
 		            </div>
 		          </div>
 		        </form>
+		        {{--
 		        @if($courses->count())
                 <h5>Cursos</h5>
                 <ul>
@@ -108,6 +118,7 @@
               	</ul>
               	@endif
               	Grado: {{$degree}} de {{$level}}
+              	--}}
 		      </div>
 		    </div>
 		</div>
