@@ -100,7 +100,6 @@ class StudentController extends Controller
 
         $niveles = Level::all();
 
-        /*
         if ($levelDegrees->first()->count()) {
             $level = $levelDegrees->first()->level->name;
             $degree = $levelDegrees->first()->degree->name;
@@ -112,9 +111,6 @@ class StudentController extends Controller
             $degree = '';
             $courses = [];
         }
-        */
-
-
         /*$cursos = User::where('users.id', $user_id)
                     ->join('courses', 'courses.user_id','users.id')
                     ->get();*/
@@ -122,8 +118,7 @@ class StudentController extends Controller
 
         $status = 1; //para saber si es crear o editar
 
-        //return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title', 'status'));
-        return view('admin.student.show', compact('alumno','levelDegrees', 'niveles', 'title', 'status'));
+        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title', 'status'));
     }
 
     /**
