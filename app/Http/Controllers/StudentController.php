@@ -122,7 +122,7 @@ class StudentController extends Controller
 
         $status = 1; //para saber si es crear o editar
 
-        return view('admin.student.show', compact('alumno', 'courses','levelDegrees', 'degree', 'level', 'niveles', 'title', 'status'));
+        return view('admin.student.show', compact('alumno','levelDegrees', 'degree', 'level', 'niveles', 'title', 'status'));
     }
 
     /**
