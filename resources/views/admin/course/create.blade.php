@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.8.1/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" />
+@endsection('head')
+
 @section('content')
 
 	<div class="container">
@@ -11,7 +15,7 @@
 		      </div>
 
 		      <div class="card-body">
-		        <form class="form-group" method="POST" action="/course" enctype="multipart/form-data">
+		        <form class="form-group dropzone" method="POST" action="/course" enctype="multipart/form-data" id="my-awesome-dropzone">
 					@csrf
 		          <div class="row">
 		            <div class="col-md-8 pr-1">
@@ -98,3 +102,11 @@
 
 
 @endsection('content')
+
+@section('javascript')
+
+	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.8.1/min/dropzone.min.js'></script>
+
+
+
+@endsection('javascript')
