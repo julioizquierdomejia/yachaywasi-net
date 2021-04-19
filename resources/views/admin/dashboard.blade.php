@@ -7,7 +7,7 @@
       </div>
       <div class="card-body">
         <h5 class="card-title"> {{ Auth::user()->name }} </h5>
-        <p class="card-text">De momento tu cuenta se encuentra en revisión.</p>
+        <p class="card-text">De momento tu cuenta se encuentra en revisión - Por mantener Cuentas pendientes</p>
       </div>
       <div class="card-footer text-muted">
         yachaywasi
