@@ -102,10 +102,13 @@
 
 					<!-- Fin CARDS -->
 
-					<div class="custom-control custom-switch">
-						<label class="custom-control-label" for="customSwitch1">Habilitar usuario</label>
-						<input type="checkbox" class="custom-control-input" id="customSwitch1">
+					<div class="row">
+						<div class="col">
+							<label>Habilitar</label>
+							<input type="text" name="status" value="{{$alumno->status}}">
+						</div>
 					</div>
+					
 
 		          <div class="row">
 		            <div class="update ml-auto mr-auto">
