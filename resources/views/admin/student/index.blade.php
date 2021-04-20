@@ -137,17 +137,23 @@
 	                      
 	                      @forelse($alumnos as $alumno)
 	                        <tr>
-	                          <td><b>
+	                          <td>
 		                          	@if($alumno->avatar == null)
 		                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
 		                        	@else
 		                        		<img src="images/avatar/{{ $alumno->avatar }}" class="img-circle img-no-padding img-responsive">
 		                        	@endif
-	                          </b></td>
-	                          <td>
-	                          	{{ $alumno->name }}
-	                          	<br />
-		                        <span class="text-muted"><small>{{ $alumno->classroom }}</small></span>
+	                          </td>
+	                          
+	                          	@if($alumno->status == 0)
+	                          		<td class="text-danger">
+	                          		<i class="fas fa-ban"></i> {{ $alumno->name }}
+	                          	@else
+	                          		<td>
+	                          		{{ $alumno->name }}
+	                          	@endif
+	                          	
+	                          	
 	                          </td>
 	                          <td><a href="{{ route('student.show', $alumno->id ) }}" class="btn btn-sm btn-outline-info btn-round btn-icon">
 		                      		<i class="far fa-edit"></i></td>
