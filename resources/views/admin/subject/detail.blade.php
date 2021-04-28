@@ -11,10 +11,13 @@ $anio = $tema->date->year;
 ?>
 <h2 style='font-size: 22px;'><b>Bimestre </b>{{$tema->bimester}} / <b>Unidad</b> {{$tema->unit}} </h2>
 <h1 style='font-size: 38px;'><b>Tema: {{$tema->position}} </b> / {{$tema->name}}</h1>
-<h5 style='font-size: 16px; margin-top: -20px; padding-top: 0;'>Fecha: {{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}
+<h5 style='font-size: 16px;'><b>Fecha del tema:</b> <span class="badge badge-primary">{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}</span></h5>
+<h5 style='font-size: 16px;'><b>Fecha de vencimiento:</b> <span class="badge badge-danger">{{$tema->fecha_vencimiento->format('d-m-Y')}}</span></h5>
+
 <span class="buttons">
 	<button class="btn btn-light btnAddComment" data-docenteid="{{$tema->user_id}}" data-temaid="{{$tema->id}}" type="button"><i class="fa fa-comments"></i></button>
-</span></h5>
+</span>
+
 <div class="content">
 	<div class="row">
 		<div class="col-md-6">
@@ -174,7 +177,7 @@ $anio = $tema->date->year;
 </div>
 @if ($user_role->name == 'editor')
 <div class="col-12">
-	<h5 class="h6">Alumnos que vieron el tema</h5>
+	<h5 class="h6 mt-4 mb-4">Alumnos que vieron el tema</h5>
 	<table class="table">
 		<thead>
 			<tr>
@@ -189,7 +192,7 @@ $anio = $tema->date->year;
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!
-					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
+					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-danger px-3">Faltó</span>' : '<span class="badge badge-success px-3">A tiempo</span>' !!}</td>
 				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
