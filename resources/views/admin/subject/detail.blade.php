@@ -176,6 +176,9 @@ $anio = $tema->date->year;
 	</div>
 </div>
 @if ($user_role->name == 'editor')
+@php
+	$f_venc = $tema->fecha_vencimiento->format('Y-m-d')
+@endphp
 <div class="col-12">
 	<h5 class="h6 mt-4 mb-4">Alumnos que vieron el tema</h5>
 	<table class="table">
@@ -192,7 +195,7 @@ $anio = $tema->date->year;
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!
-					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-danger px-3">Faltó</span>' : '<span class="badge badge-success px-3">A tiempo</span>' !!}</td>
+					($tema->fecha_vencimiento && $f_venc < $item->created_at->format('Y-m-d')) ? '<span class="badge badge-danger px-3">Faltó</span>' : '<span class="badge badge-success px-3">A tiempo</span>' !!}</td>
 				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
