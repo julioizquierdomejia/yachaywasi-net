@@ -72,7 +72,7 @@
       <div class="col">
 
         <?php
-          $bytes = disk_free_space("/"); 
+          $bytes = disk_free_space("/dev/vda1"); 
           $base = 1024;
           $libre = ($bytes/$base)/$base; // en MB
           echo round($libre, 2).' MB<br>'; // Imprime por ej: 54477.0546875 MB
