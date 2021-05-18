@@ -69,6 +69,18 @@
     @if ( $role == 'admin')
     <!-- Aqui los card de informacion general -->
     <div class="row">
+      <div class="col">
+
+        <?php
+          $bytes = disk_free_space("/"); 
+          $base = 1024;
+          $libre = ($bytes/$base)/$base; // en MB
+          echo round($libre, 2).' MB<br>'; // Imprime por ej: 54477.0546875 MB
+        ?>
+
+      </div>
+    </div>
+    <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
           <div class="card-body">
