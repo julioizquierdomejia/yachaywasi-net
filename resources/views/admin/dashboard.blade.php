@@ -75,8 +75,9 @@
           $bytes = disk_free_space("/"); 
           $base = 1024;
           $libre = ($bytes/$base)/$base; // en MB
-          echo round($libre, 2).' MB<br>'; // Imprime por ej: 54477.0546875 MB
-          echo (round($libre, 2) / 1000).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
+          $queda = round($libre, 2);
+          echo $queda.' MB<br>'; // Imprime por ej: 54477.0546875 MB
+          echo round(($queda / 1000), 2).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
         ?>
 
       </div>
