@@ -8,11 +8,28 @@ $diaDeSemana = $dias[ $tema->date->dayOfWeek ];
 $dia = $tema->date->day;
 $mes = $meses[ $tema->date->month -1 ];
 $anio = $tema->date->year;
+
+//para la fecha de vencimiento
+$diaDeSemana_ven = $dias[ $tema->fecha_vencimiento->dayOfWeek ];
+$dia_ven = $tema->fecha_vencimiento->day;
+$mes_ven = $meses[ $tema->fecha_vencimiento->month -1 ];
+$anio_ven = $tema->fecha_vencimiento->year;
+
+//fecha de visto el tema de los alumnos
+$diaDeSemana_visto = $dias[ $tema->created_at->dayOfWeek ];
+$dia_visto = $tema->created_at->day;
+$mes_visto = $meses[ $tema->created_at->month -1 ];
+$anio_visto = $tema->created_at->year;
+
+
 ?>
 <h2 style='font-size: 22px;'><b>Bimestre </b>{{$tema->bimester}} / <b>Unidad</b> {{$tema->unit}} </h2>
 <h1 style='font-size: 38px;'><b>Tema: {{$tema->position}} </b> / {{$tema->name}}</h1>
 <h5 style='font-size: 16px;'><b>Fecha del tema:</b> <span class="badge badge-primary">{{$diaDeSemana}}, {{$dia}} de {{$mes}} del {{$anio}}</span></h5>
+{{--
 <h5 style='font-size: 16px;'><b>Fecha de vencimiento:</b> <span class="badge badge-danger">{{$tema->fecha_vencimiento->format('d-m-Y')}}</span></h5>
+--}}
+<h5 style='font-size: 16px;'><b>Fecha de vencimiento:</b> <span class="badge badge-danger">{{$diaDeSemana_ven}}, {{$dia_ven}} de {{$mes_ven}} del {{$anio_ven}}</span></h5>
 
 <span class="buttons">
 	<button class="btn btn-light btnAddComment" data-docenteid="{{$tema->user_id}}" data-temaid="{{$tema->id}}" type="button"><i class="fa fa-comments"></i></button>
@@ -69,7 +86,8 @@ $anio = $tema->date->year;
 							<hr>
 							<div class="stats text-primary">
 								<i class="fas fa-book-reader text-danger"></i>
-								Vence el - {{$tema->fecha_vencimiento->format('d-m-Y')}}
+								{{-- Vence el - {{$tema->fecha_vencimiento->format('d-m-Y')}} --}}
+								Vencel el : {{$diaDeSemana_ven}}, {{$dia_ven}} de {{$mes_ven}} del {{$anio_ven}}
 							</div>
 						</div>
 						<!-- end card Footer -->
@@ -193,7 +211,8 @@ $anio = $tema->date->year;
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!
 					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-danger px-3">Faltó</span>' : '<span class="badge badge-success px-3">A tiempo</span>' !!}</td>
-				<td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td>
+				{{-- <td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td> --}}
+				<td>{{ $dias[ $item->created_at->dayOfWeek ] }}, {{$item->created_at->day}} de {{$meses[ $item->created_at->month -1 ]}}</td>
 				<td>{{$item->views}}</td>
 			</tr>
 			@endforeach
@@ -280,6 +299,7 @@ $anio = $tema->date->year;
 					<th>Usuario</th>
 					<th>Título</th>
 					<th>Descripción</th>
+					<th>Fecha de envio</th>
 				</thead>
 				<tbody>
 					@php
@@ -304,6 +324,7 @@ $anio = $tema->date->year;
 						<td>{!! $is_different ? ('<span class="badge badge-'.$colors[$x].' px-3 py-2">'.$work->user->name.'</span>') : '<span class="badge badge-'.$colors[$x].' px-3 py-2">'.$work->user->name.'</span>' !!}</td>
 						<td>{{ $work->title }}</td>
 						<td>{!! $work->description !!}</td>
+						<td>{{ $dias[ $work->created_at->dayOfWeek ] }}, {{$work->created_at->day}} de {{$meses[ $work->created_at->month -1 ]}}</td>
 					</tr>
 					@empty
 					<tr>
