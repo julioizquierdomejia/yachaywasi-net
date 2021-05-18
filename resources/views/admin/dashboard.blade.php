@@ -76,6 +76,7 @@
           $base = 1024;
           $libre = ($bytes/$base)/$base; // en MB
           echo round($libre, 2).' MB<br>'; // Imprime por ej: 54477.0546875 MB
+          echo round($libre, 2)/1000.' Gb<br>'; // Imprime por ej: 54477.0546875 MB
         ?>
 
       </div>
