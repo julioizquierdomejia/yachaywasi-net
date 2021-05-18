@@ -76,6 +76,10 @@
           $base = 1024;
           $libre = ($bytes/$base)/$base; // en MB
           $queda = round($libre, 2);
+          $ds = disk_total_space("/");
+          echo "Espacio total del  servidor";
+          echo $ds.' MB<br>';
+          echo "Espacio Libre en el servidor";
           echo $queda.' MB<br>'; // Imprime por ej: 54477.0546875 MB
           echo round(($queda / 1000), 2).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
         ?>
