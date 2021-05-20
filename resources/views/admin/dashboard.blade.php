@@ -80,6 +80,7 @@
 
           $ds_round = round($ds, 2);
           $libre_round = round($libre, 2);
+          $utilizado = $ds_round - $libre_round;
           
           //echo "Espacio total del  servidor -> ";
           //echo round(($ds/$base), 2).' MB<br>';
@@ -89,6 +90,7 @@
 
           echo "TOTAL = ".$ds_round.'<br>';
           echo "QUEDA = ".$libre_round.'<br>';
+          echo "UTILIZADO = ".$utilizado.'<br>';
 
           
           $porcentaje_utilizado = ($libre_round * 100)/$ds_round;
