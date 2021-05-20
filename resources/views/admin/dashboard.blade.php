@@ -77,15 +77,57 @@
           $libre = ($bytes/$base)/$base; // en MB
           $queda = round($libre, 2);
           $ds = disk_total_space("/");
-          echo "Espacio total del  servidor -> ";
-          echo round(($ds/$base), 2).' MB<br>';
-          echo "Espacio Libre en el servidor";
-          echo $queda.' MB<br>'; // Imprime por ej: 54477.0546875 MB
-          echo round(($queda / $base), 2).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
+
+          $ds_round = round($ds, 2);
+          $libre_round = round($libre, 2);
+          
+          //echo "Espacio total del  servidor -> ";
+          //echo round(($ds/$base), 2).' MB<br>';
+          //echo "Espacio Libre en el servidor";
+          //echo $queda.' MB<br>'; // Imprime por ej: 54477.0546875 MB
+          //echo round(($queda / $base), 2).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
+
+          echo "TOTAL = ".$ds_round.'<br>';
+          echo "QUEDA = ".$libre_round.'<br>';
+
+          
+          $porcentaje_utilizado = ($libre_round * 100)/$ds_round;
+          $porcentaje_total = round(100 - $porcentaje_utilizado, 2);
+          
+
+
+          echo "total".$porcentaje_total.'<br>';
+          echo "utilizado".$porcentaje_utilizado.'<br>';
+
         ?>
 
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <div class="numbers">
+                    <canvas id="myChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <hr>
+            <div class="stats">
+              <i class="fa fa-refresh"></i>
+              Espacio disponible en el servidor
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
@@ -365,4 +407,39 @@
   </div>
   @endif
 @endif
+
+@endsection
+
+@section('script')
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Espacio utilizado', 'Espacio total'],
+        datasets: [{
+          label: 'Espacio disponible',
+          data: [100,20],
+          //data: ["<?php echo $porcentaje_total; ?>", "<?php echo $porcentaje_utilizado; ?>"],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+          ],
+          hoverOffset: 4
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+</script>
+
 @endsection
