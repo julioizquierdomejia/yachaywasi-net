@@ -383,34 +383,4 @@
 
 @section('script')
 
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['Espacio utilizado', 'Espacio total'],
-        datasets: [{
-          label: 'Espacio disponible',
-          data: [100,20],
-          //data: ["<?php echo $porcentaje_total; ?>", "<?php echo $porcentaje_utilizado; ?>"],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-          ],
-          hoverOffset: 4
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: false
-            }
-        }
-    }
-});
-</script>
-
 @endsection
