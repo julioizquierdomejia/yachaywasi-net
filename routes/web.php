@@ -68,4 +68,8 @@ Route::middleware(['auth'])->group(function () {
 	//para horario hecho a mano
 	Route::get('/horario', 'horarioController@index')->name('horario');
 
+	//rutas para adminsitrar las aulas
+	Route::get('/classroom', [App\Http\Controllers\ClassroomController::class, 'index'])->name('classroom');
+	Route::get('/classroom/{id}', [App\Http\Controllers\ClassroomController::class, 'showAsistencia'])->name('asistencia');
+
 });
