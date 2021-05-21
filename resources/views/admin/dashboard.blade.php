@@ -71,41 +71,10 @@
     <div class="row">
       <div class="col">
 
-        <?php
-          $bytes = disk_free_space("/"); 
-          $base = 1024;
-          $libre = ($bytes/$base)/$base; // en MB
-          $queda = round($libre, 2);
-          $ds = disk_total_space("/");
-
-          $ds_round = round($ds, 2);
-          $libre_round = round($libre, 2);
-          $utilizado = $ds_round - $libre_round;
-          
-          //echo "Espacio total del  servidor -> ";
-          //echo round(($ds/$base), 2).' MB<br>';
-          //echo "Espacio Libre en el servidor";
-          //echo $queda.' MB<br>'; // Imprime por ej: 54477.0546875 MB
-          //echo round(($queda / $base), 2).' Gb<br>'; // Imprime por ej: 54477.0546875 MB
-
-          echo "TOTAL = ".$ds_round.'<br>';
-          echo "QUEDA = ".$libre_round.'<br>';
-          echo "UTILIZADO = ".$utilizado.'<br>';
-
-          
-          $porcentaje_utilizado = ($libre_round * 100)/$ds_round;
-          $porcentaje_total = round(100 - $porcentaje_utilizado, 2);
-          
-
-
-          echo "total".$porcentaje_total.'<br>';
-          echo "utilizado".$porcentaje_utilizado.'<br>';
-
-        ?>
-
       </div>
     </div>
 
+    {{--
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="card card-stats">
@@ -128,7 +97,7 @@
         </div>
       </div>
     </div>
-
+--}}
 
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6">
