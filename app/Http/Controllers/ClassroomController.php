@@ -77,6 +77,7 @@ class ClassroomController extends Controller
                     ->where('role_id', '=', 4)
                     ->join('degree_level_users','users.id', 'degree_level_users.user_id')
                     ->where('degree_id', '=', $classroom)
+                    ->orderBy('name', 'asc')
                     ->get();
 
         return view('classroom.showasistencia', compact('alumnos'));
