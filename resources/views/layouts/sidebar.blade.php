@@ -100,12 +100,14 @@
                     <p>Cursos</p>
                   </a>
                 </li>
+                {{--
                 <li class="{{ request()->routeIs('classroom') ? 'active' : '' }}">
                   <a href="{{ route('classroom') }}">
                     <i class="fas fa-book-reader"></i>
                     <p>ClassRooms</p>
                   </a>
                 </li>
+                --}}
                 {{--
                 <li class="{{ request()->routeIs('schedule') ? 'active' : '' }}">
                   <a href="{{ route('schedule') }}">
