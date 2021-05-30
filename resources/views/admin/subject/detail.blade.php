@@ -213,7 +213,11 @@ $anio_visto = $tema->created_at->year;
 			<tr>
 				<td class="mb-0">{{$item->user->name}}</td>
 				<td>{!!
+					($item->created_at->format('Y-m-d') <= $tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d')) == 'P' ? '<span class="badge badge-success px-3">A tiempo</span>' : '<span class="badge badge-danger px-3">Faltó</span>' !!}</td>
+				{{-- este es de miguel
+				<td>{!!
 					($tema->fecha_vencimiento && $tema->fecha_vencimiento->format('Y-m-d') <= $item->created_at->format('Y-m-d')) == 'P' ? '<span class="badge badge-danger px-3">Faltó</span>' : '<span class="badge badge-success px-3">A tiempo</span>' !!}</td>
+				--}}
 				{{-- <td>{{$item->created_at->format('d-m-Y h:i:s a')}}</td> --}}
 				<td>{{ $dias[ $item->created_at->dayOfWeek ] }}, {{$item->created_at->day}} de {{$meses[ $item->created_at->month -1 ]}}</td>
 
