@@ -18,9 +18,9 @@
                 <div class="author">
                   <a href="#">
                   	@if( $user->avatar == null)
-                  		<img class="avatar border-gray" src="../images/avatar/guest-user.jpg" alt="...">
+                  		<img class="avatar border-gray" src="{{ asset('images/avatar/guest-user.jpg') }}" alt="...">
                   	@else
-                    	<img class="avatar border-gray" src="../images/avatar/{{ $user->avatar }}" alt="...">
+                    	<img class="avatar border-gray" src="{{ assetGCS('images/avatar/'. $user->avatar) }}" alt="...">
                     @endif
                     <h5 class="title">Miss {{ $user->name }}</h5>
                   </a>
@@ -67,13 +67,16 @@
 		        	@method('PUT')
 					@csrf
 		          <div class="row">
-		            <div class="col-md-1 pr-1">
+		            <div class="col-md-2 pr-1">
 		              <div class="form-group">
 		                <label>Titulo</label>
-						<input type="text" name="title" class="form-control mb-2"value='{{$user->title}}'>
+		                <select name="title"class="form-control mb-2">
+											<option value="Miss" {{$user->title == 'Miss' ? 'selected' : ''}}>Miss</option>
+											<option value="Prof." {{$user->title == 'Prof.' ? 'selected' : ''}}>Prof.</option>
+										</select>
 		              </div>
 		            </div>
-		            <div class="col-md-6 pr-1">
+		            <div class="col-md-5 pr-1">
 		              <div class="form-group">
 		                <label>Nombre del Docente</label>
 						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2"value='{{$user->name}}'>

@@ -13,15 +13,15 @@
           <div class="col-md-4">
             <div class="card card-user" style='height: 320px;'>
               <div class="image">
-                <img src="../images/damir-bosnjak.jpg" alt="...">
+                <img src="{{ assetGCS('images/damir-bosnjak.jpg') }}" alt="...">
               </div>
               <div class="card-body">
                 <div class="author">
                   <a href="#">
                   	@if( $user->avatar == null)
-                  		<img class="avatar border-gray" src="../images/avatar/guest-user.jpg" alt="...">
+                  		<img class="avatar border-gray" src="{{assetGCS('images/avatar/guest-user.jpg')}}" alt="...">
                   	@else
-                    	<img class="avatar border-gray" src="../images/avatar/{{ $user->avatar }}" alt="...">
+                    	<img class="avatar border-gray" src="{{assetGCS('images/avatar/'.$user->avatar) }}" alt="...">
                     @endif
                     <h5 class="title">Miss {{ $user->name }}</h5>
                   </a>

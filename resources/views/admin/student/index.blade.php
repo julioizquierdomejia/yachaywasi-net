@@ -141,7 +141,7 @@
 		                          	@if($alumno->avatar == null)
 		                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
 		                        	@else
-		                        		<img src="images/avatar/{{ $alumno->avatar }}" class="img-circle img-no-padding img-responsive">
+		                        		<img src="{{ assetGCS('images/avatar/'.$alumno->avatar) }}" class="img-circle img-no-padding img-responsive">
 		                        	@endif
 	                          </td>
 	                          

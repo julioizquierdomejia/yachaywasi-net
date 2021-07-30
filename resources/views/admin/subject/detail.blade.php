@@ -286,7 +286,7 @@ $anio_visto = $tema->created_at->year;
 				<tbody>
 					@forelse($works as $work)
 					@php
-						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
+						$file = $work->file ? assetGCS('images/subject-works/'. $work->file) : '/images/avatar/guest-user.jpg';
 					@endphp
 					<tr>
 						<td><b>
@@ -323,7 +323,7 @@ $anio_visto = $tema->created_at->year;
 					@endphp
 					@forelse($works as $work_index => $work)
 					@php
-						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
+						$file = $work->file ? assetGCS('images/subject-works/'. $work->file) : '/images/avatar/guest-user.jpg';
 						$is_different = $work_index > 0 && $work->user->name == $works[$work_index - 1]->user->name;
 						if(!$is_different) 
 							$x++;

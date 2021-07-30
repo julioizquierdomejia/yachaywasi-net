@@ -31,11 +31,11 @@
                       <div class="icon-big text-center icon-warning">
                         @if ($docente->avatar == null)
                         <figure class="figure bg-secondary rounded-circle" style="width: 64px; height: 64px; overflow: hidden;">
-                          <img src="images/avatar/guest-user.jpg" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
+                          <img src="{{assetGCS('images/avatar/guest-user.jpg')}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
                         </figure>
                         @else
                         <figure class="figure bg-secondary rounded-circle" style="width: 64px; height: 64px; overflow: hidden;">
-                          <img src="images/avatar/{{$docente->avatar}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
+                          <img src="{{assetGCS('images/avatar/'.$docente->avatar)}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
                         </figure>
                         @endif
                         <!--<i class="fas fa-laptop-code text-primary"></i>-->
@@ -224,11 +224,11 @@
                     <div class="icon-big text-center icon-warning">
                       @if ($docente->avatar == null)
                       <figure class="figure bg-secondary rounded-circle" style="width: 64px; height: 64px; overflow: hidden;">
-                        <img src="images/avatar/guest-user.jpg" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
+                        <img src="{{assetGCS('images/avatar/guest-user.jpg')}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
                       </figure>
                       @else
                       <figure class="figure bg-secondary rounded-circle" style="width: 64px; height: 64px; overflow: hidden;">
-                        <img src="images/avatar/{{$docente->avatar}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
+                        <img src="{{assetGCS('images/avatar/'.$docente->avatar)}}" class="figure-img img-fluid rounded" alt="{{$docente->name}}" style="">
                       </figure>
                       @endif
                       <!--<i class="fas fa-laptop-code text-primary"></i>-->
@@ -315,9 +315,9 @@
                 <div class="col mb-4">
                   <div class="card" style='height: 340px;'>
                     @if($curso->course->images == null)
-                      <img class="card-img-top" src="images/course-default.png" alt="{{$curso->course->name}}">
+                      <img class="card-img-top" src="{{assetGCS('images/course-default.png')}}" alt="{{$curso->course->name}}">
                     @else
-                      <img class="card-img-top" src="images/course/{{$curso->course->images}}" alt="{{$curso->course->name}}">
+                      <img class="card-img-top" src="{{assetGCS('images/course/'.$curso->course->images)}}" alt="{{$curso->course->name}}">
                     @endif
                     <div class="card-body">
                       <h5 class="card-title">{{$curso->course->name}}</h5>
@@ -353,7 +353,7 @@
                 <div class="col mb-4">
                   <div class="card" style='height: 340px;'>
                     @if($curso_item->images)
-                    <img class="card-img-top" src="/images/course/{{$curso_item->images}}" alt="{{$curso_item->course_name}}">
+                    <img class="card-img-top" src="{{assetGCS('images/course/'.$curso_item->images)}}" alt="{{$curso_item->course_name}}">
                     @else
                       <img class="card-img-top" src="/images/course-default.png" alt="{{$curso_item->course_name}}">
                     @endif

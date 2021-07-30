@@ -47,6 +47,9 @@
             "database/seeds",
             "database/factories"
         ],
+        "files": [
+            "app/helper.php"
+        ],
         "exclude-from-mapclass": [
             "vendor\\superbalist\\flysystem-google-storage\\src\\GoogleStorageAdapter.php"
         ]

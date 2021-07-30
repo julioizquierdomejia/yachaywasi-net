@@ -13,9 +13,9 @@
                 <div class="author">
                   <a href="#">
                   	@if( $userAuth->avatar == null)
-                  		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="...">
+                  		<img class="avatar border-gray" src="{{ assetGCS('images/avatar/guest-user.jpg') }}" alt="...">
                   	@else
-                    	<img class="avatar border-gray" src="images/avatar/{{ $userAuth->name }}" alt="...">
+                    	<img class="avatar border-gray" src="{{ assetGCS('images/avatar/'.$userAuth->name) }}" alt="...">
                     @endif
                     <h5 class="title">Colegio - {{ $userAuth->school }}</h5>
                   </a>
@@ -57,12 +57,10 @@
 	                      <div class="col-md-2 col-2">
 	                        <div class="avatar">
 	                        	@if($docente->avatar == null)
-	                        		<img class="avatar border-gray" src="images/avatar/guest-user.jpg" alt="">
+	                        		<img class="avatar border-gray" src="/images/avatar/guest-user.jpg" alt="">
 	                        	@else
-	                        		<img src="images/avatar/{{ $docente->avatar }}" class="img-circle img-no-padding img-responsive">
+	                        		<img src="{{ assetGCS('images/avatar/'.$docente->avatar) }}" class="img-circle img-no-padding img-responsive">
 	                        	@endif
-
-	                          
 	                        </div>
 	                      </div>
 	                      <div class="col-md-7 col-7">
@@ -107,14 +105,17 @@
 					@csrf
 		          <div class="row">
 
-		           	 <div class="col-md-1 pr-1">
+		           	 <div class="col-md-2 pr-1">
 		              <div class="form-group">
 		                <label>Titulo</label>
-						<input type="text" name="title" placeholder="" class="form-control mb-2">
+		                <select name="title"class="form-control mb-2">
+											<option value="Miss">Miss</option>
+											<option value="Prof.">Prof.</option>
+										</select>
 		              </div>
 		            </div>
 
-		            <div class="col-md-6">
+		            <div class="col-md-5">
 		              <div class="form-group">
 		                <label>Nombre del Docente <span style="color: red; font-size: 18px;">*</span></label>
 						<input type="text" name="name" placeholder="Nombre del usuario" class="form-control mb-2">
