@@ -4,21 +4,23 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class RecursiveOptimizationImages extends Command
+class RecursiveOptimizationMoveImages extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'optimization:images {path}';
+    protected $signature = 'optimization:move-images {path}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Images Optimization by Intervention';
+    protected $description = 'Images Optimization by Intervention and Move Images to new Path';
+
+    protected $saveOnGCS;
 
     /**
      * Create a new command instance.
@@ -27,6 +29,8 @@ class RecursiveOptimizationImages extends Command
      */
     public function __construct()
     {
+        $this->saveOnGCS = env('SAVE_FILES_ON_GCS');
+
         parent::__construct();
     }
 
@@ -64,20 +68,28 @@ class RecursiveOptimizationImages extends Command
 
     protected function intervention_image($path, $fileName)
     {
-        $response = '';
+        $dirsep = DIRECTORY_SEPARATOR;
+        $response = null;
         $time = time();
         $pathImage = $path.'/'.$fileName;
         if(is_file($pathImage)) {
+            $path = dirname($pathImage);
+            $newpath = str_replace($this->argument('path') .$dirsep, "", $path);
             $img = \Image::make($pathImage)->orientate();
 
-            $path = dirname($pathImage);
             if (!file_exists($path)) {
                 mkdir($path, 666, true);
             }
 
             \File::delete($pathImage);
-            $img->save($pathImage, 60);
-            $response = $img->filename;
+            $response = $img->save($pathImage, 60);
+
+            //No permite grabar desde comandos hacia google cloud storage
+            /*if ($this->saveOnGCS) {
+                //Copy files to Google Cloud Storage
+                $newpath = str_replace($this->argument('path'), "", $path);
+                \Storage::disk('gcs')->put($newpath.'/'.$fileName, (string)$response->encode());
+            }*/
         }
         return $response;
     }
