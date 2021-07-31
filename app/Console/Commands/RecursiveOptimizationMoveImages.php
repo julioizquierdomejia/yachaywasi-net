@@ -11,7 +11,7 @@ class RecursiveOptimizationMoveImages extends Command
      *
      * @var string
      */
-    protected $signature = 'optimization:move-images {path}';
+    protected $signature = 'optimization:move-images {path} {override}';
 
     /**
      * The console command description.
@@ -42,12 +42,14 @@ class RecursiveOptimizationMoveImages extends Command
     public function handle()
     {
         $path = $this->argument('path');
-        return $this->recursiveThroughImages($path);
+        $override = $this->argument('override');
+        $override = $override == 'true' ? true : false;
+        return $this->recursiveThroughImages($path, $override);
     }
 
-    function recursiveThroughImages($path)
+    function recursiveThroughImages($path, $override)
     {
-        $extensions = ['jpg', 'jpeg', 'png', 'gif'];
+        $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
 
         foreach (new \DirectoryIterator($path) as $fileInfo) {
             if($fileInfo->isDot()) {
@@ -55,25 +57,24 @@ class RecursiveOptimizationMoveImages extends Command
             } else {
                 $file_path = $fileInfo->getPathName();
                 if (is_dir($file_path)) {
-                    $this->recursiveThroughImages($file_path);
+                    $this->recursiveThroughImages($file_path, $override);
                 } else {
                     if (in_array($fileInfo->getExtension(), $extensions)) {
-                        echo 'optimizing file: '.$fileInfo->getFilename() . "\n";
-                        $this->intervention_image(dirname($file_path), $fileInfo->getFilename());
+                        $this->intervention_image(dirname($file_path), $fileInfo->getFilename(), $override);
                     }
                 }
             }
         }
     }
 
-    protected function intervention_image($path, $fileName)
+    protected function intervention_image($path, $fileName, $override)
     {
         $dirsep = DIRECTORY_SEPARATOR;
         $response = null;
         $time = time();
         $pathImage = $path.'/'.$fileName;
         if(is_file($pathImage)) {
-            $path = dirname($pathImage);
+            echo 'optimizing file: '.$fileName . "\n";
             $newpath = str_replace($this->argument('path') .$dirsep, "", $path);
             $img = \Image::make($pathImage)->orientate();
 
@@ -81,8 +82,16 @@ class RecursiveOptimizationMoveImages extends Command
                 mkdir($path, 666, true);
             }
 
-            \File::delete($pathImage);
-            $response = $img->save($pathImage, 60);
+            if ($override) {
+                \File::delete($pathImage);
+                $response = $img->save($pathImage, 60);
+            } else {
+                $extension = strtolower($img->extension);
+                $image_name = 'img_'.$time.'.'.$extension;
+                $fileName = $path.'/'.$image_name;
+                $response = $img->save($fileName);
+                \File::delete($pathImage);
+            }
 
             //No permite grabar desde comandos hacia google cloud storage
             /*if ($this->saveOnGCS) {
