@@ -49,7 +49,7 @@ class RecursiveOptimizationMoveImages extends Command
 
     function recursiveThroughImages($path, $override)
     {
-        $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'jfif', 'tiff'];
+        $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'/*, 'jfif'*/, 'tiff'];
 
         foreach (new \DirectoryIterator($path) as $fileInfo) {
             if($fileInfo->isDot()) {
