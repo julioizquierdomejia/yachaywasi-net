@@ -49,7 +49,7 @@ class RecursiveOptimizationMoveImages extends Command
 
     function recursiveThroughImages($path, $override)
     {
-        $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'jfif', 'tiff'];
 
         foreach (new \DirectoryIterator($path) as $fileInfo) {
             if($fileInfo->isDot()) {
@@ -60,20 +60,22 @@ class RecursiveOptimizationMoveImages extends Command
                     $this->recursiveThroughImages($file_path, $override);
                 } else {
                     if (in_array($fileInfo->getExtension(), $extensions)) {
-                        $this->intervention_image(dirname($file_path), $fileInfo->getFilename(), $override);
+                        $this->intervention_image(dirname($file_path), $fileInfo, $override);
                     }
                 }
             }
         }
     }
 
-    protected function intervention_image($path, $fileName, $override)
+    protected function intervention_image($path, $file, $override)
     {
         $dirsep = DIRECTORY_SEPARATOR;
         $response = null;
         $time = time();
+        $fileName = $file->getFilename();
         $pathImage = $path.'/'.$fileName;
         if(is_file($pathImage)) {
+            $extension = strtolower($file->getExtension());
             echo 'optimizing file: '.$fileName . "\n";
             $newpath = str_replace($this->argument('path') .$dirsep, "", $path);
             $img = \Image::make($pathImage)->orientate();
@@ -86,7 +88,6 @@ class RecursiveOptimizationMoveImages extends Command
                 \File::delete($pathImage);
                 $response = $img->save($pathImage, 60);
             } else {
-                $extension = strtolower($img->extension);
                 $image_name = 'img_'.$time.'.'.$extension;
                 $fileName = $path.'/'.$image_name;
                 $response = $img->save($fileName);
