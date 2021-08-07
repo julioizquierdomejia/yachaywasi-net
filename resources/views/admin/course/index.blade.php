@@ -11,9 +11,9 @@
 				<div class="col mb-4">
 					<div class="card" style='height: 500px;'>
 						@if($curso->images == null)
-							<img class="card-img-top" src="images/course-default.png" alt="Card image cap">
+							<img class="card-img-top" src="{{ asset('images/course-default.png') }}" alt="Card image cap">
 						@else
-							<img class="card-img-top" src="images/course/{{$curso->images}}" alt="Card image cap">
+							<img class="card-img-top" src="{{assetGCS('images/course/'.$curso->images)}}" alt="Card image cap">
 						@endif
 					  <div class="card-body">
 					    <h5 class="card-title">{{ $curso->name }}</h5>

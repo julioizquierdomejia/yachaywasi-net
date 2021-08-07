@@ -49,18 +49,9 @@
 				</thead>
 				<tbody>
 					@forelse($works as $work)
-					@php
-						$file = '';
-					@endphp
-					@if($work->file == null)
 						@php
-							$file = '/images/avatar/guest-user.jpg';
+							$file = $work->file ? assetGCS('images/subject-works/'. $work->file) :  '/images/avatar/guest-user.jpg';
 						@endphp
-						@else
-						@php
-							$file = '/images/subject-works/'. $work->file;
-						@endphp
-						@endif
 					<tr>
 						<td><b>
 							<button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modalSubjectWork" data-src="{{$file}}"><i class="fa fa-eye"></i></button>
@@ -88,7 +79,7 @@
 				<tbody>
 					@forelse($works as $work)
 					@php
-						$file = $work->file ? '/images/subject-works/'. $work->file : '/images/avatar/guest-user.jpg';
+						$file = $work->file ? assetGCS('images/subject-works/'. $work->file) : '/images/avatar/guest-user.jpg';
 					@endphp
 					<tr>
 						<td>

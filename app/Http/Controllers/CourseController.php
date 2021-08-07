@@ -46,6 +46,7 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $course = new Course();
+        $saveOnGCS = env('SAVE_FILES_ON_GCS', false);
 
         $request->validate([
             'name' => 'required',
@@ -57,14 +58,20 @@ class CourseController extends Controller
 
         //preguntamos si el requesta contienen algun archivo
         if ($request->hasFile('images')) {
-
             //guardamos el archivo en uan variable
             $file = $request->file('images');
             //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
             $name = time().'_'.$file->getClientOriginalName();
-            //ahora para subirlo a nuestra aplicacion hay que moverlo 
-            //a nuestra carpeta publica public_path()
-            $file->move(public_path().'/images/course/', $name);
+
+            if ($saveOnGCS) {
+                $disk = \Storage::disk('gcs');
+                $gcsfile = interventionGCSImage($file, null, null, true);
+                $disk->put('images/course/'.$name, (string) $gcsfile->encode());
+            } else {
+                //ahora para subirlo a nuestra aplicacion hay que moverlo 
+                //a nuestra carpeta publica public_path()
+                $file->move(public_path().'/images/course/', $name);
+            }
         }else{
             $name = null;
         }
@@ -127,37 +134,42 @@ class CourseController extends Controller
         //
         $course->fill($request->except('images'));
 
+        $saveOnGCS = env('SAVE_FILES_ON_GCS', false);
+
         if ($request->hasFile('images')) {
 
             $current_images = public_path().'/images/course/'.$course->images;
             if (@getimagesize($current_images)) {
                 unlink($current_images);
             }
-            
-            //preguntamos si este curso ya tiene una imagen
-            //en la carpeta public
-            $current_images = public_path().'/images/course/'.$course->images;
-
             //guardamos el archivo en uan variable
             $file = $request->file('images');
             //le creamos un nombre unico al archivo a subir y lo guardamos en otra variable
             $name = time().'_'.$file->getClientOriginalName();
+
+            if ($saveOnGCS) {
+                $disk = \Storage::disk('gcs');
+                $gcsfile = interventionGCSImage($file, null, null, true);
+                $disk->put('images/course/'.$name, (string) $gcsfile->encode());
+            } else {
+                //ahora para subirlo a nuestra aplicacion hay que moverlo 
+                //a nuestra carpeta publica public_path()
+                //$file->move(public_path().'/images/course/', $name);
+
+                if (DIRECTORY_SEPARATOR === '/') {
+                    $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/course' : public_path('/images/course');
+                    // unix, linux, mac
+                    if (!is_dir($dir)) {
+                        mkdir($dir, 0777, true);
+                    }
+                    $file->move($dir, $uniqueFileName);
+                } else {
+                    $file->move(public_path('/images/course'), $uniqueFileName);
+                }
+            }
+
             //aqui le damos al campo avatar el nombre para que lo grabe
             $course->images = $name;
-            //ahora para subirlo a nuestra aplicacion hay que moverlo 
-            //a nuestra carpeta publica public_path()
-            //$file->move(public_path().'/images/course/', $name);
-
-            if (DIRECTORY_SEPARATOR === '/') {
-                $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/course' : public_path('/images/course');
-                // unix, linux, mac
-                if (!is_dir($dir)) {
-                    mkdir($dir, 0777, true);
-                }
-                $file->move($dir, $uniqueFileName);
-            } else {
-                $file->move(public_path('/images/course'), $uniqueFileName);
-            }
         }
 
         //luego grabamos todo lo rellenado

@@ -177,7 +177,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
 
-        
+        App\Providers\GoogleStorageServiceProvider::class,
 
     ],
 

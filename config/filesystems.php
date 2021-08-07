@@ -65,6 +65,14 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'gcs' => [
+            'driver' => 'gcs',
+            'project_id' => env('GOOGLE_CLOUD_STORAGE_PROJECT_ID'),
+            'key_file' => base_path().'/'.env('GOOGLE_CLOUD_STORAGE_KEY_FILE'),
+            'bucket' => env('GOOGLE_CLOUD_STORAGE_BUCKET'),
+            'visibility' => 'public',
+        ]
+
     ],
 
     /*

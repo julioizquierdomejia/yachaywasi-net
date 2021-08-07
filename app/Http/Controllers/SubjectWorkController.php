@@ -59,15 +59,24 @@ class SubjectWorkController extends Controller
         //aqui le damos al campo avatar el nombre para que lo grabe
         $subjectwork->file = $file_name;
 
-        if (DIRECTORY_SEPARATOR === '/') {
-            $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/subject-works' : public_path('/images/subject-works');
-            // unix, linux, mac
-            if (!is_dir($dir)) {
-                mkdir($dir, 0777, true);
-            }
-            $file->move($dir, $file_name);
+        $saveOnGCS = env('SAVE_FILES_ON_GCS', false);
+
+        $dir = env('FILES_PATH') ? env('FILES_PATH').'/images/subject-works' : public_path('/images/subject-works');
+
+        if ($saveOnGCS) {
+            $disk = \Storage::disk('gcs');
+            $gcsfile = interventionGCSImage($file, null, null, true);
+            $disk->put('images/subject-works/'.$file_name, (string) $gcsfile->encode());
         } else {
-            $file->move(public_path('/images/subject-works'), $file_name);
+            if (DIRECTORY_SEPARATOR === '/') {
+                // unix, linux, mac
+                if (!is_dir($dir)) {
+                    mkdir($dir, 0777, true);
+                }
+                $file->move($dir, $file_name);
+            } else {
+                $file->move(public_path('/images/subject-works'), $file_name);
+            }
         }
         $subjectwork->save();
 
