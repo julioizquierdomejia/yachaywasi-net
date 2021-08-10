@@ -112,7 +112,7 @@
 		              <div class="form-group">
 		                
 		              	<div class="custom-file custom-file-browser">
-						  <input name='avatar' type="file" class="custom-file-input form-control" id="customFileLang" lang="es" value="hola">
+						  <input name='avatar' type="file" class="custom-file-input form-control" id="customFileLang" lang="es" value="hola" accept="image/*">
 						  <label class="custom-file-label label-file" for="customFileLang">Seleccionar Archivo</label>
 						</div>
 

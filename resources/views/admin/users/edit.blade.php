@@ -15,7 +15,7 @@
 		<input type="email" name="email" placeholder="Ingrese el Email" class="form-control mb-2" value="{{$user->email}}">
 		<input type="text" name="slug" placeholder="Ingrese el Slug" class="form-control mb-2" value="{{$user->slug}}">
 		<!-- 
-		<input type="file" name="avatar">
+		<input type="file" name="avatar" accept="image/*">
 		-->
 		<button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Editar</button>
 		
