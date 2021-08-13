@@ -73,7 +73,7 @@
 		            <div class="col-md-12 pr-1 pl-1">
 		              <div class="form-group">
 		                <label>Adjunto foto de perfil</label>
-		                <input type="file" name="avatar"> 
+		                <input type="file" name="avatar" accept="image/*"> 
 		              </div>
 		            </div>
 		          </div>
@@ -109,7 +109,7 @@
 			<input type="text" name="elRol" class="form-control mb-2" value="lector">
 		@endif
 		
-		 <input type="file" name="avatar"> 
+		 <input type="file" name="avatar" accept="image/*"> 
 		<button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar</button>
 	</form>
 	
