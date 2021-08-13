@@ -39,7 +39,7 @@ class SubjectWorkController extends Controller
         $rules = array(
             'title'       => 'string|required',
             'description'    => 'string',
-            'file'    => 'required|mimes:jpeg,png,bmp,tiff|max:150096',
+            'file'    => 'required|mimes:jpeg,png,bmp,tiff',
         );
         $messages = array(
             'title.string' => 'El título debe ser un texto.',
