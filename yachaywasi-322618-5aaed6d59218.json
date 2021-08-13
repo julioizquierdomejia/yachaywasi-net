@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yachaywasi-322618",
+  "private_key_id": "5aaed6d5921849ccb4e4100e84021d133e6342a1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDPbN0Fr7VhE1YS\nua1hCh8YJ+IK4CArzZ3V5oLE1XOvMVrF4rQaXIbiw0MLTEOqAxQCeUi6GIc368MX\nd1R6U4XKhx55v9YcB3r72yaTS/64aPLE5tYqg6CoBPO2o4GwYS0D9zlA5eBKcc2D\nfZeyqskQWI45yFp0JXjht2wwxhtUQPLiFN8h8/ng1nwG53LffSGy600jLQYzT+bx\n8U4YoiaYwn3p0uBg48g5E1qJ4Om0ZSBwQlFPmLapbFxnAxnoBKfbA6G9A5GQKj9n\nvbK+JJ2KAk9GfDxHjVWsMDWH7CStNd70ABsRm+ECAucQOLgE5Ziu2S0Ma9Zuvx47\nmZ1wxKZxAgMBAAECggEAAcuMnqGnVJ83ywEkt/UmcRcZ3yCSx4Cq+LI0rpD1cTfT\nwNueFcFrY+x1bzRSSUpOFFoZ6ACYFy+g+e1WrT/XJbPVaE+U4gJEQ6HhOhwpyLOh\nnTr6GCnyaR3XQTaC4/F1Wj/omynAiKUzPOVbrs7IuNQRXm/mbRo/0XFDT3YMpllT\nc+SabT6Ipxkob5vZCsA9iIaIKcL3ycSQee62EsN/QHMgcQHMmC0CGsBi5hwntEZc\nzcT9C7aIHS4PlSjXg0Yqo5bz0L80iU7r57c33v9FCje6AFFtFUl9lOOX4J9hdlHR\nVH7sBgfHv+UDrTAFnvrimaq7gbSUZvj7MhFC6190gQKBgQDy6Yl40m7SRh1wJ1XQ\nsvVLc7naSQO58qd8ablVar5oZH6HDafVF67AUbuu3BAgqy5T4uqVynrDNvTy8q8U\nkDASR6DUhDmDItQKJrCKvXoFSp6ubLgPwJh3TMBDoe6rFfaOd2e0cNoYJrShVEb7\nzrtOGcFfqa+6WkLIZONszH8UQQKBgQDamdub0gmP/UuFDk2f32Ds7ooieq9IvQdo\nT4LLAG8jdPdiQdRzNiiX8IJbmR5yVr0lBtouDUek+RWnKyyeTT56iVX1SqdgfU+z\nz1T/Ax6Cf24ARUGvbUZUpkof89fcanhgshplIyz4EaeKtlwBBT8NL2uzDehrInlZ\nH3qgsuhGMQKBgQC77iAUYMGqXuKBlX0X9IxALq1YCuseHnSjlWv0gJwFSdJ2DAOP\noj3pvpI0qz6y95zk+4bAEqG9jDQgDc+UWiVGzzHHmPCh2v0vSVWGUScpFt0DV0tj\nrH6ItdF9wbdTl69j809BU5n322Id+oTcZcmVl+l6aF5zD0fhn+QvlVqvwQKBgQDH\nSPB981MoY4BPgqSdlOUl2qkvmazmoP15yNKyAmlPZ7iHaQAnMD59lZMhskuhbRXu\nBXst9IlWCoYE6kU4466Lw1wLzM0eF99rSx5vhQZxbX543KpvJS2yyg5VZtVpad7o\nODX78b9zP5T/zhO+EmxStuJ2T72Mvdbmut3uVmuOYQKBgBPt0NNpzhC1H1MiRQJz\nlw25DQHDM10TSm+leagD5GgIdmLN6tNwS8Gb7c5LMiPB4CZYlZbPG+W0eeYyIgnd\n7sDsf4GbmGhGkCqdbkpzc80stLhCI863za4yhIeotbcVex36LxDehPMGPDG8Go5c\n/in/QLTkq2aXkJ63FpAK2AEo\n-----END PRIVATE KEY-----\n",
+  "client_email": "yachaywasi-storage@yachaywasi-322618.iam.gserviceaccount.com",
+  "client_id": "101624636036176541797",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yachaywasi-storage%40yachaywasi-322618.iam.gserviceaccount.com"
+}
