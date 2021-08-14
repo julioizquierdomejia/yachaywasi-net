@@ -65,7 +65,7 @@ class SubjectWorkController extends Controller
 
         if ($saveOnGCS) {
             $disk = \Storage::disk('gcs');
-            $gcsfile = interventionGCSImage($file, null, null, true);
+            $gcsfile = interventionGCSImage($file, 1000, null, true);
             $disk->put('images/subject-works/'.$file_name, (string) $gcsfile->encode());
         } else {
             if (DIRECTORY_SEPARATOR === '/') {

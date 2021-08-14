@@ -39,12 +39,18 @@ if (! function_exists('intervention_image')) {
     }
 }
 
-function interventionGCSImage($path, $width, $height)
+function interventionGCSImage($path, $width, $height, $aspect_radio = false)
 {
 	if ($width && $height) {
 		$iImage = \Image::make($path->getPathName())
                     ->orientate()
                     ->resize($width, $height);
+	} else if($aspect_radio && $width) {
+		$iImage = \Image::make($path->getPathName())
+                    ->orientate()
+                    ->widen($width, function ($constraint) {
+					    $constraint->upsize();
+					});
 	} else {
 		$iImage = \Image::make($path->getPathName())
                     ->orientate();
