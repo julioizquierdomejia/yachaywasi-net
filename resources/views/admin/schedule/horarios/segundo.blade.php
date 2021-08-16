@@ -22,11 +22,11 @@
 			
 			{{-- LUNES 1 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Gladis</span><br>
-				<span>ID : 438 740 4596</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span>Miss Wendy</span><br>
+			 	<span>ID : 314 164 6611</span><br>
+				<span>Clave : tkd2021</span>
 			</td>
 
 			{{-- MARTES 1 --}}
@@ -58,11 +58,11 @@
 
 			{{-- VIERNES 1 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/9400230103?pwd=K0dHM1pCRG9ld1VkWUlPZi9CLzB6dz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
-				<span class="font-weight-bold">Miss Abby</span><br>
-				<span>ID : 940 023 0103</span><br>
-				<span>Clave : CANADIENSE</span>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
+				<span>ID : 387 336 4069</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 			
 		</tr>
@@ -72,11 +72,11 @@
 			
 			{{-- LUNES 2 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Gladis</span><br>
-				<span>ID : 438 740 4596</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span>Miss Wendy</span><br>
+			 	<span>ID : 314 164 6611</span><br>
+				<span>Clave : tkd2021</span>
 			</td>
 
 			{{-- MARTES 2 --}}
@@ -108,11 +108,11 @@
 
 			{{-- VIERNES 2 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/9400230103?pwd=K0dHM1pCRG9ld1VkWUlPZi9CLzB6dz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
-				<span class="font-weight-bold">Miss Abby</span><br>
-				<span>ID : 940 023 0103</span><br>
-				<span>Clave : CANADIENSE</span>
+			 	<span class="font-weight-bold">Miss Jomira</span><br>
+				<span>ID : 387 336 4069</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 		</tr>
 
@@ -157,12 +157,13 @@
 
 			{{-- VIERNES 3 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/9400230103?pwd=K0dHM1pCRG9ld1VkWUlPZi9CLzB6dz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span class="font-weight-bold">Miss Abby</span><br>
+				<span>ID : 940 023 0103</span><br>
+				<span>Clave : CANADIENSE</span>
 			</td>
+
 			
 		</tr>
 
@@ -208,12 +209,13 @@
 
 			{{-- VIERNES 4 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/5705003524?pwd=WUZtdXFza0FZVnhPd2NzblBPbVdDdz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/9400230103?pwd=K0dHM1pCRG9ld1VkWUlPZi9CLzB6dz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Jomira</span><br>
-				<span>ID : 387 336 4069</span><br>
-				<span>Clave : vygotsky</span>
+				<span class="font-weight-bold">Miss Abby</span><br>
+				<span>ID : 940 023 0103</span><br>
+				<span>Clave : CANADIENSE</span>
 			</td>
+
 			
 		</tr>
 
@@ -237,11 +239,11 @@
 
 			{{-- MARTES 5 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/6391584124?pwd=MUJ2Z2hyWm9pSXQzSHVEYkZCL255dz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Música</a>
+				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
-			 	<span class="font-weight-bold">Prof. Julio</span><br>
-				<span>ID : 639 158 4124</span><br>
-				<span>Clave : julio</span>
+			 	<span class="font-weight-bold">Miss Gladis</span><br>
+				<span>ID : 438 740 4596</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 
 			{{-- MIERCOLES 5 --}}
@@ -255,20 +257,20 @@
 
 			{{-- JUEVES 5 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
+				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
-			 	<span>Miss Wendy</span><br>
-			 	<span>ID : 314 164 6611</span><br>
-				<span>Clave : tkd2021</span>
+			 	<span class="font-weight-bold">Miss Gladis</span><br>
+				<span>ID : 438 740 4596</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 
 			{{-- VIERNES 5 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/6391584124?pwd=MUJ2Z2hyWm9pSXQzSHVEYkZCL255dz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Religión</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Religión</a>
 				<br>
-			 	<span class="font-weight-bold">Prof. Julio</span><br>
-				<span>ID : 639 158 4124</span><br>
-				<span>Clave : julio</span>
+			 	<span>Miss Wendy</span><br>
+			 	<span>ID : 314 164 6611</span><br>
+				<span>Clave : tkd2021</span>
 			</td>
 			
 		</tr>

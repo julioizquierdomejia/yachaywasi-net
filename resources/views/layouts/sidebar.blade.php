@@ -81,6 +81,12 @@
                     <p>Temas Publicados</p>
                   </a>
                 </li>
+                <li class="{{ request()->routeIs('horario') ? 'active' : '' }}">
+                  <a href="{{ route('horario') }}">
+                    <i class="far fa-calendar-alt"></i>
+                    <p>Horarios</p>
+                  </a>
+                </li>
                 {{--
                 <li class="{{ request()->routeIs('schedule.assign') ? 'active'  : '' }}">
                   <a href="{{ route('schedule.assign') }}">

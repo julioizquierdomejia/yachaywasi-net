@@ -37,6 +37,6 @@ class horarioController extends Controller
         $rol_id = DB::table('role_user')->where('user_id', $id)->value('role_id');
         $rol = DB::table('roles')->where('id', $rol_id)->value('name');
 
-        return view('admin.schedule.index', compact('nivel_id', 'grado_id', 'nivel', 'grado', 'rol_id', 'rol', 'title'));
+        return view('admin.schedule.index', compact('nivel_id', 'grado_id', 'nivel', 'grado', 'rol_id', 'rol', 'title', 'rol'));
     }
 }

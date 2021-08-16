@@ -22,11 +22,11 @@
 			
 			{{-- LUNES 1 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Ana</span><br>
-				<span>ID : 320 359 3768</span><br>
-				<span>Clave : Ana2021</span>
+			 	<span>Miss Wendy</span><br>
+			 	<span>ID : 314 164 6611</span><br>
+				<span>Clave : tkd2021</span>
 			</td>
 
 			{{-- MARTES 1 --}}
@@ -40,11 +40,11 @@
 
 			{{-- MIERCOLES 1 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Ana</span><br>
-				<span>ID : 320 359 3768</span><br>
-				<span>Clave : Ana2021</span>
+			 	<span class="font-weight-bold">Miss Gladis</span><br>
+				<span>ID : 438 740 4596</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 			
 			{{-- JUEVES 1 --}}
@@ -72,11 +72,11 @@
 			
 			{{-- LUNES 2 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Ana</span><br>
-				<span>ID : 320 359 3768</span><br>
-				<span>Clave : Ana2021</span>
+			 	<span>Miss Wendy</span><br>
+			 	<span>ID : 314 164 6611</span><br>
+				<span>Clave : tkd2021</span>
 			</td>
 
 			{{-- MARTES 2 --}}
@@ -90,11 +90,11 @@
 
 			{{-- MIERCOLES 2 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
+				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Ana</span><br>
-				<span>ID : 320 359 3768</span><br>
-				<span>Clave : Ana2021</span>
+			 	<span class="font-weight-bold">Miss Gladis</span><br>
+				<span>ID : 438 740 4596</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 
 			{{-- JUEVES 2 --}}
@@ -130,7 +130,7 @@
 
 			{{-- MARTES 3 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #FF86CF ">Comunicación</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Ana</span><br>
 				<span>ID : 320 359 3768</span><br>
@@ -139,7 +139,7 @@
 
 			{{-- MIERCOLES 3 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #FF86CF ">Comunicación</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
 			 	<span class="font-weight-bold">Miss Ana</span><br>
 				<span>ID : 320 359 3768</span><br>
@@ -180,20 +180,20 @@
 
 			{{-- MARTES 4 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/6391584124?pwd=MUJ2Z2hyWm9pSXQzSHVEYkZCL255dz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Música</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
-			 	<span class="font-weight-bold">Prof. Julio</span><br>
-				<span>ID : 639 158 4124</span><br>
-				<span>Clave : julio</span>
+			 	<span class="font-weight-bold">Miss Ana</span><br>
+				<span>ID : 320 359 3768</span><br>
+				<span>Clave : Ana2021</span>
 			</td>
 
 			{{-- MIERCOLES 4 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #3B98F5 ">Matemática</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Gladis</span><br>
-				<span>ID : 438 740 4596</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span class="font-weight-bold">Miss Ana</span><br>
+				<span>ID : 320 359 3768</span><br>
+				<span>Clave : Ana2021</span>
 			</td>
 
 			{{-- JUEVES 4 --}}
@@ -246,11 +246,11 @@
 
 			{{-- MIERCOLES 5 --}}
 			<td>
-				<a href="https://us04web.zoom.us/j/4387404596?pwd=LzJIR0lkZnJIczgrMzFMNnBWZ3Y3Zz09" class="btn btn-sm" style="background-color: #FFA51C ">Personal Social</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #FF86CF ">Comunicación</a>
 				<br>
-			 	<span class="font-weight-bold">Miss Gladis</span><br>
-				<span>ID : 438 740 4596</span><br>
-				<span>Clave : vygotsky</span>
+			 	<span class="font-weight-bold">Miss Ana</span><br>
+				<span>ID : 320 359 3768</span><br>
+				<span>Clave : Ana2021</span>
 			</td>
 
 			{{-- JUEVES 5 --}}
@@ -264,11 +264,11 @@
 
 			{{-- VIERNES 5 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
+				<a href="https://us04web.zoom.us/j/3203593768?pwd=Tko5V3JuSU03SFMzY2hOcVFwYW5TUT09" class="btn btn-sm" style="background-color: #FF86CF ">Ortografía</a>
 				<br>
-			 	<span>Miss Wendy</span><br>
-			 	<span>ID : 314 164 6611</span><br>
-				<span>Clave : tkd2021</span>
+			 	<span class="font-weight-bold">Miss Ana</span><br>
+				<span>ID : 320 359 3768</span><br>
+				<span>Clave : Ana2021</span>
 			</td>
 			
 		</tr>

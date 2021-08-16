@@ -48,7 +48,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #FF86CF " target="_blank">Razonamiento Verbal</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #FF86CF " target="_blank">Dictado</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>
@@ -87,7 +87,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #3B98F5 " target="_blank">Razonamiento Matemático</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #3B98F5 " target="_blank">Arte / MiniCheff</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>
@@ -106,11 +106,11 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #FF86CF " target="_blank">Razonamiento Verbal</a>
 				<br>
-			 	<span>Miss Wendy</span><br>
-			 	<span>ID : 314 164 6611</span><br>
-				<span>Clave : tkd2021</span>
+			 	<span class="d-block">Miss Alejandra</span>
+			 	<span>ID : 786 1931 8034</span><br>
+				<span>Clave : aula5a</span>
 			</td>
 			<td>
 				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #3B98F5 " target="_blank">Matemática</a>
@@ -127,7 +127,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #3B98F5 " target="_blank">Arte</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>
@@ -145,14 +145,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/6391584124?pwd=MUJ2Z2hyWm9pSXQzSHVEYkZCL255dz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Música</a>
-				<br>
-			 	<span>Prof. Julio</span><br>
-				<span>ID : 639 158 4124</span><br>
-				<span>Clave : julio</span>
-			</td>
-			<td>
-				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #3B98F5 " target="_blank">Razonamiento Matemático</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>
@@ -166,7 +159,14 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #11A9D9 ">Psicomotricidad</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<br>
+			 	<span class="d-block">Miss Alejandra</span>
+			 	<span>ID : 786 1931 8034</span><br>
+				<span>Clave : aula5a</span>
+			</td>
+			<td>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>

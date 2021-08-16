@@ -70,11 +70,9 @@
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/6391584124?pwd=MUJ2Z2hyWm9pSXQzSHVEYkZCL255dz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Música</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tenología</a>
 				<br>
-			 	<span>Prof. Julio</span><br>
-				<span>ID : 639 158 4124</span><br>
-				<span>Clave : julio</span>
+			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 		</tr>
 
@@ -101,7 +99,7 @@
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #16C286 ">Ciencia y Tenología</a>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
@@ -115,14 +113,7 @@
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Taekwondo</a>
-				<br>
-			 	<span>Miss Wendy</span><br>
-			 	<span>ID : 314 164 6611</span><br>
-				<span>Clave : tkd2021</span>
-			</td>
-			<td>
-				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D3D2D2; color: black; ">Arte</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
@@ -132,7 +123,12 @@
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
 			<td>
-				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #11A9D9 ">Psicomotricidad</a>
+				<a href="https://us04web.zoom.us/j/7748435601?pwd=c2lqV2wwUlp6YTBtQ3ZFZlRvVmgydz09" class="btn btn-sm" style="background-color: #D9CA11 ">Ingles</a>
+				<br>
+			 	<span class="d-block">Miss Marilyn</span>
+			</td>
+			<td>
+				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Marilyn</span>
 			</td>
