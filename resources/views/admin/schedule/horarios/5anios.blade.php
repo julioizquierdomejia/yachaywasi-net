@@ -127,7 +127,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>
@@ -166,7 +166,7 @@
 				<span>Clave : aula5a</span>
 			</td>
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
+				<a href="https://us04web.zoom.us/j/78619318034?pwd=RFpXc0lJMERocTFDTVBPK2tVRjA1Zz09" class="btn btn-sm" style="background-color: #B42BC4 ">Danza</a>
 				<br>
 			 	<span class="d-block">Miss Alejandra</span>
 			 	<span>ID : 786 1931 8034</span><br>

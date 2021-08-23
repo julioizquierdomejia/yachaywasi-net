@@ -36,6 +36,7 @@ class SubjectWorkController extends Controller
      */
     public function store(Request $request)
     {
+
         $rules = array(
             'title'       => 'string|required',
             'description'    => 'string',
@@ -48,6 +49,7 @@ class SubjectWorkController extends Controller
             'file.required' => 'La imagen es necesaria.',
             'file.mimes' => 'Solo se aceptan imágenes'
         );
+
         $this->validate($request, $rules, $messages);
 
         $subjectwork = new SubjectWork();
@@ -65,7 +67,7 @@ class SubjectWorkController extends Controller
 
         if ($saveOnGCS) {
             $disk = \Storage::disk('gcs');
-            $gcsfile = interventionGCSImage($file, 1000, null, true);
+            $gcsfile = interventionGCSImage($file, 100, null, true);
             $disk->put('images/subject-works/'.$file_name, (string) $gcsfile->encode());
         } else {
             if (DIRECTORY_SEPARATOR === '/') {
@@ -78,6 +80,7 @@ class SubjectWorkController extends Controller
                 $file->move(public_path('/images/subject-works'), $file_name);
             }
         }
+        
         $subjectwork->save();
 
         return redirect()->back()->with('status','El registro se actualizó correctamente');

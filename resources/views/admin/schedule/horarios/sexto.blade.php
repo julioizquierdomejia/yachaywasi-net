@@ -189,11 +189,11 @@
 
 			{{-- MIERCOLES 4 --}}
 			<td>
-				<a href="https://us02web.zoom.us/j/3141646611?pwd=NUtINGF1eEZXRU5LMU5xMmozeldndz09" class="btn btn-sm" style="background-color: #B42BC4 ">Religión</a>
+				<a href="https://us04web.zoom.us/j/78203425636?pwd=Rkh2eDlhVzNCRVY1aXpiOXR1YTBiQT09" class="btn btn-sm" style="background-color: #B42BC4 ">Religión</a>
 				<br>
-			 	<span>Miss Wendy</span><br>
-			 	<span>ID : 314 164 6611</span><br>
-				<span>Clave : tkd2021</span>
+			 	<span class="font-weight-bold">Miss Carmela</span><br>
+				<span>ID : 782 0342 5636</span><br>
+				<span>Clave : vygotsky</span>
 			</td>
 
 			{{-- JUEVES 4 --}}
